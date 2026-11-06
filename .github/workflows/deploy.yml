@@ -105,8 +105,13 @@ jobs:
       - name: Run post-deploy tasks
         env:
           DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        # On failure the route returns only a stage and a safe code, so it can
+        # go into the run's annotation without leaking anything
         run: |
-          curl --fail-with-body --silent --show-error --max-time 600 -X POST \
+          out=$(curl --fail-with-body --silent --show-error --max-time 600 -X POST \
             -H "X-Deploy-Token: $DEPLOY_TOKEN" \
-            "$SITE_URL/_tegora/post-deploy"
-          echo
+            "$SITE_URL/_tegora/post-deploy") || {
+            echo "::error::Post-deploy failed: $(echo "$out" | tr -cd 'a-zA-Z0-9_:,{}" ' | cut -c1-200)"
+            exit 1
+          }
+          echo "$out"
