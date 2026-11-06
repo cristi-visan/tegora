@@ -8,7 +8,7 @@ OctoberCMS 4 site for Tegora (Moralt exterior doors, Romania).
 
 ## Deploy
 
-Pushing to `main` runs `.github/workflows/deploy.yml`: Composer install, FTP sync to staging, then a call to `/_tegora/post-deploy` that runs migrations, loads first-time content and clears caches.
+Pushing to `main` runs `.github/workflows/deploy.yml`. It runs Composer install, packs the release into one zip and uploads it over FTPS. It then calls `_deploy/extract.php` on the server to unpack it in batches, and finally calls `/_tegora/post-deploy` to run migrations, load first-time content and clear caches.
 
 GitHub environment `codefor.ge ENV` needs `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, `FTP_DIR` (ending in `/`) and `DEPLOY_TOKEN`.
 

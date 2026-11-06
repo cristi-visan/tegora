@@ -35,3 +35,9 @@ nbproject
 # Local preview only
 /storage/database.sqlite
 !.env.staging.example
+
+# Deploy artefacts that only exist on the server
+/_deploy/release.zip
+/_deploy/manifest.txt
+/.release-manifest
+/release.zip

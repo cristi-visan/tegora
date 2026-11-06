@@ -5,10 +5,11 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# A second push waits for the running upload rather than interleaving with it
+# A newer push replaces a running deploy. A cancelled extraction is safe:
+# the next run unpacks the full release again.
 concurrency:
   group: deploy-staging
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 env:
   SITE_URL: https://tegora-staging.codefor.ge
@@ -31,41 +32,81 @@ jobs:
         run: composer install --no-dev --prefer-dist --no-progress --optimize-autoloader --no-scripts
 
       - name: Check PHP syntax of our own code
-        run: find plugins/tegora -name '*.php' -print0 | xargs -0 -n1 php -l
+        run: find plugins/tegora _deploy -name '*.php' -print0 | xargs -0 -n1 php -l
 
-      # Only files this action uploaded are ever updated or deleted, so .env,
-      # uploads, logs and anything else the server created stay untouched.
-      - name: Upload over FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_DIR }}
-          protocol: ftps
-          security: loose
-          timeout: 120000
-          exclude: |
-            .git/**
-            .github/**
-            .claude/**
-            .devcontainer/**
-            tests/**
-            .env
-            .env.*
-            README.md
-            CHANGELOG.md
-            CONTRIBUTING.md
-
-      # Runs database migrations, loads first-time content and clears caches
-      - name: Run post-deploy tasks
+      - name: Check deploy secrets
         env:
           DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
         run: |
           if [ -z "$DEPLOY_TOKEN" ]; then
-            echo "::error::DEPLOY_TOKEN secret is not set, so migrations did not run."
+            echo "::error::DEPLOY_TOKEN secret is not set."
             exit 1
           fi
-          curl --fail --silent --show-error --max-time 600 -X POST \
+
+      # One archive instead of ~13,000 single FTP uploads. Tracked files plus
+      # vendor/, minus anything that must not reach the server.
+      - name: Build release archive
+        run: |
+          { git ls-files; find vendor -type f; } \
+            | grep -vE '^(\.github/|\.devcontainer/|tests/|_deploy/|\.env($|\.)|README\.md$|CHANGELOG\.md$|CONTRIBUTING\.md$)' \
+            | sort -u > .release-manifest
+          echo ".release-manifest" >> .release-manifest
+          zip -q -X release.zip -@ < .release-manifest
+          echo "Files: $(wc -l < .release-manifest), archive: $(du -h release.zip | cut -f1)"
+
+      # FTPS with certificate checks relaxed (-k), because shared hosts often
+      # present a certificate for the server's own name. See decision D-012.
+      - name: Upload archive and extractor
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_DIR: ${{ secrets.FTP_DIR }}
+        run: |
+          dir="${FTP_DIR%/}"
+          # curl reads a URL path as relative to the FTP login folder; %2F marks an absolute one
+          case "$dir" in
+            /*) root="ftp://${FTP_SERVER}/%2F${dir#/}" ;;
+            *)  root="ftp://${FTP_SERVER}/${dir}" ;;
+          esac
+          upload() {
+            curl --fail --silent --show-error --ssl-reqd -k --ftp-create-dirs \
+              --retry 3 --max-time 900 \
+              --user "${FTP_USERNAME}:${FTP_PASSWORD}" \
+              -T "$1" "$2"
+            echo "Uploaded $1"
+          }
+          # .htaccess first: an older copy on the server would block the extractor
+          upload .htaccess "${root}/.htaccess"
+          upload _deploy/extract.php "${root}/_deploy/extract.php"
+          upload release.zip "${root}/_deploy/release.zip"
+
+      - name: Unpack on the server
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          next=0
+          for i in $(seq 1 200); do
+            out=$(curl --fail-with-body --silent --show-error --max-time 120 -X POST \
+              -H "X-Deploy-Token: $DEPLOY_TOKEN" \
+              "$SITE_URL/_deploy/extract.php?step=extract&from=$next") || { echo "$out"; exit 1; }
+            echo "$out"
+            if echo "$out" | grep -q '"done":true'; then break; fi
+            next=$(echo "$out" | sed -n 's/.*"next":\([0-9]*\).*/\1/p')
+            [ -n "$next" ] || { echo "::error::Unexpected extractor response"; exit 1; }
+          done
+          echo "$out" | grep -q '"done":true' || { echo "::error::Extraction did not finish"; exit 1; }
+          curl --fail-with-body --silent --show-error --max-time 120 -X POST \
+            -H "X-Deploy-Token: $DEPLOY_TOKEN" \
+            "$SITE_URL/_deploy/extract.php?step=finish"
+          echo
+
+      # Database migrations, first-time content and cache clearing
+      - name: Run post-deploy tasks
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          curl --fail-with-body --silent --show-error --max-time 600 -X POST \
             -H "X-Deploy-Token: $DEPLOY_TOKEN" \
             "$SITE_URL/_tegora/post-deploy"
+          echo
