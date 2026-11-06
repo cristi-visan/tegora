@@ -1,0 +1,1323 @@
+[
+    {
+        "id": 1,
+        "title": "FERRO Passiv",
+        "slug": "usi-case-pasiv",
+        "is_enabled": 1,
+        "eyebrow": "UȘI PENTRU CASE PASIVE",
+        "tagline": "Căldura rămâne înăuntru. Energia, la minimum.",
+        "hero_text": "Ușă exterioară din lemn de 98 mm, certificată de Passivhaus Institut, cu izolare termică foarte bună, etanșeitate ridicată și stabilitate structurală.",
+        "hero_stats": [
+            {
+                "icon": "thermo-scale",
+                "value": "0,54",
+                "unit": "W/m²K",
+                "label": "coeficient U\nal foii de ușă",
+                "sort_order": 1
+            },
+            {
+                "icon": "passivhaus",
+                "value": "Passivhaus",
+                "unit": "",
+                "label": "componentă certificată\nde Passivhaus Institut",
+                "sort_order": 2
+            },
+            {
+                "icon": "shield-check",
+                "value": "RC2 / RC3",
+                "unit": "",
+                "label": "securitate\nîn configurații testate",
+                "sort_order": 3
+            },
+            {
+                "icon": "thickness",
+                "value": "98",
+                "unit": "mm",
+                "label": "grosimea\nfoii de ușă",
+                "sort_order": 4
+            }
+        ],
+        "hero_image": "/site/casa-placata-lemn.jpg",
+        "hero_image_alt": "Casă placată cu lemn, cu ușă din lemn natural și două panouri laterale — imagine de prezentare; fețele ușii se personalizează",
+        "hero_layout": "a",
+        "hero_caption": "Imagine de prezentare — fețele ușii se personalizează după proiect.",
+        "section_name": "FERRO Passiv",
+        "section_badge": "98 mm",
+        "section_images": [
+            {
+                "image": "/site/ferro-passiv-sectiune-reala.webp",
+                "alt": "Secțiune reală FERRO Passiv: fața din furnir de nuc, cadrul din stejar, miezul laminat, spuma rigidă PU și stabilizatorul din oțel",
+                "caption": "",
+                "sort_order": 1
+            }
+        ],
+        "intro": "<p><strong>FERRO Passiv</strong> este ușa pentru case pasive și clădiri cu consum redus de energie. Foaia de <strong>98 mm</strong> combină un miez laminat din molid cu spumă rigidă PU fără HCFC, iar ușa este certificată ca componentă pentru case pasive de <strong>Passivhaus Institut</strong>. Stabilizatorul patentat din oțel, separat termic, menține foaia dreaptă fără să creeze punți termice.</p>",
+        "spec_eyebrow": "PERFORMANȚE TEHNICE",
+        "spec_title": "Trei miezuri. Aceeași construcție de 98 mm.",
+        "spec_text": "Familia FERRO Passiv își adaptează miezul după prioritatea proiectului: eficiență termică, comportament climatic sau izolare fonică.",
+        "spec_caption": "Caracteristici tehnice ale variantelor FERRO Passiv",
+        "spec_corner": "Variantă",
+        "spec_columns": [
+            {
+                "label": "FERRO Passiv",
+                "sort_order": 1
+            },
+            {
+                "label": "Passiv Klima",
+                "sort_order": 2
+            },
+            {
+                "label": "Passiv Akustik",
+                "sort_order": 3
+            }
+        ],
+        "spec_rows": [
+            {
+                "label": "Miez funcțional",
+                "icon": "core",
+                "is_text": 1,
+                "values": [
+                    {
+                        "text": "Spumă rigidă PU",
+                        "strong": 0,
+                        "sort_order": 1
+                    },
+                    {
+                        "text": "Inserție izolatoare din fibră de lemn",
+                        "strong": 0,
+                        "sort_order": 2
+                    },
+                    {
+                        "text": "Inserție fonică + spumă rigidă PU",
+                        "strong": 0,
+                        "sort_order": 3
+                    }
+                ],
+                "note": "",
+                "sort_order": 1
+            },
+            {
+                "label": "Izolare termică U (W/m²K)",
+                "icon": "thermo",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "0,54",
+                        "strong": 1,
+                        "sort_order": 1
+                    },
+                    {
+                        "text": "0,69",
+                        "strong": 0,
+                        "sort_order": 2
+                    },
+                    {
+                        "text": "0,78",
+                        "strong": 0,
+                        "sort_order": 3
+                    }
+                ],
+                "note": "",
+                "sort_order": 2
+            },
+            {
+                "label": "Izolare fonică R_{wp} (dB)",
+                "icon": "sound",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "30",
+                        "strong": 0,
+                        "sort_order": 1
+                    },
+                    {
+                        "text": "32",
+                        "strong": 0,
+                        "sort_order": 2
+                    },
+                    {
+                        "text": "42",
+                        "strong": 1,
+                        "sort_order": 3
+                    }
+                ],
+                "note": "",
+                "sort_order": 3
+            },
+            {
+                "label": "Grosime foaie (mm)",
+                "icon": "thickness-simple",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "98",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "",
+                "sort_order": 4
+            },
+            {
+                "label": "Rezistență la efracție",
+                "icon": "shield",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "RC2 / RC3",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "(în configurații testate)",
+                "sort_order": 5
+            },
+            {
+                "label": "Dimensiuni maxime (mm)",
+                "icon": "area",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "1.150 × 2.470",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "",
+                "sort_order": 6
+            },
+            {
+                "label": "Greutate",
+                "icon": "weight",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "≈ 35 kg/m²",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "",
+                "sort_order": 7
+            },
+            {
+                "label": "Certificare",
+                "icon": "medal",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "Passivhaus Institut",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "· ușa montată U_{D} = 0,71 W/m²K",
+                "sort_order": 8
+            }
+        ],
+        "spec_footnote": "Valori conform fișei tehnice FERRO Passiv pentru configurațiile prezentate; U_{D} conform certificării Passivhaus Institut pentru ușa montată. Performanțele produsului finit depind de configurația completă (toc, feronerie, dimensiuni, montaj) și trebuie confirmate pentru proiectul specific.",
+        "datasheet": "",
+        "benefits": [
+            {
+                "icon": "leaf",
+                "title": "Energie la minimum",
+                "text": "Coeficient termic de 0,54 W/m²K pentru foaia de ușă — pierderi minime de căldură prin intrare, în case pasive și clădiri cu consum redus de energie.",
+                "sort_order": 1
+            },
+            {
+                "icon": "house-heat",
+                "title": "Certificată pentru case pasive",
+                "text": "Componentă certificată de Passivhaus Institut, gândită pentru etanșeitate la aer ca ansamblu ușă–toc și pentru un climat interior sănătos.",
+                "sort_order": 2
+            },
+            {
+                "icon": "bridge",
+                "title": "Fără punți termice",
+                "text": "Stabilizatorul patentat din oțel este separat termic și lipit pe toată suprafața: fără cavități în care să se formeze condens și fără să se imprime pe fața ușii.",
+                "sort_order": 3
+            }
+        ],
+        "constr_eyebrow": "CONSTRUCȚIE",
+        "constr_title": "Miez laminat, spumă PU și stabilizator de oțel",
+        "constr_text": "Foaia de 98 mm are un miez laminat din molid, cu inelele anuale orientate vertical, combinat cu spumă rigidă PU fără HCFC. La exterior, placajul din furnir în 5 straturi, încleiat pe toată suprafața, susține finisajul. Pe partea broaștei, stabilizatorul patentat Moralt — două elemente plate din oțel, separate termic — menține foaia dreaptă în timp.",
+        "constr_link_label": "Descoperă tehnologia FERRO",
+        "constr_image": "/site/ferro-sectiune-constructiva.webp",
+        "constr_image_alt": "Secțiune constructivă reală printr-un semifabricat FERRO: structură multistrat din lemn și elemente de stabilizare din oțel",
+        "constr_caption": "SECȚIUNE REALĂ FERRO · STRUCTURĂ MULTISTRAT",
+        "pers_text": "Alege esența de lemn, finisajul, dimensiunile și detaliile care se potrivesc proiectului tău. FERRO Passiv poate fi realizată cu furnir tăiat sau Fineline, vizibil pe ambele fețe, și configurată cu diferite tipuri de mânere, vitraje și panouri laterale, în limitele compatibilității tehnice.",
+        "pers_eyebrow": "DESIGN ȘI PERSONALIZARE",
+        "pers_title": "O ușă adaptată arhitecturii casei tale.",
+        "pers_link_label": "Explorează opțiunile de design",
+        "pers_image": "/site/mostre-esente-lemn.jpg",
+        "pers_image_alt": "Mostre de finisaje și esențe de lemn — stejar deschis, stejar natur, nuc, mahon — alături de un mâner metalic",
+        "pers_swatches": [
+            {
+                "label": "Stejar deschis",
+                "sort_order": 1
+            },
+            {
+                "label": "Stejar natur",
+                "sort_order": 2
+            },
+            {
+                "label": "Nuc",
+                "sort_order": 3
+            },
+            {
+                "label": "Mahon",
+                "sort_order": 4
+            },
+            {
+                "label": "Mâner inox",
+                "sort_order": 5
+            }
+        ],
+        "rc_eyebrow": "STANDARDE DE REZISTENȚĂ",
+        "rc_title": "RC2 / RC3",
+        "rc_text": "Clase de rezistență la efracție conform EN 1627, valabile pentru ansambluri și configurații testate.",
+        "rc_note": "* Valorile și clasele RC sunt valabile numai pentru variantele și condițiile specificate în documentația tehnică și rapoartele de încercare aferente.",
+        "rc_classes": [
+            {
+                "class_name": "RC2",
+                "time": "3 min",
+                "description": "Rezistență la atac cu unelte simple.",
+                "tools": [
+                    {
+                        "icon": "screwdriver",
+                        "name": "Șurubelniță",
+                        "sort_order": 1
+                    },
+                    {
+                        "icon": "pliers",
+                        "name": "Clește",
+                        "sort_order": 2
+                    },
+                    {
+                        "icon": "crowbar-small",
+                        "name": "Rangă mică",
+                        "sort_order": 3
+                    }
+                ],
+                "sort_order": 1
+            },
+            {
+                "class_name": "RC3",
+                "time": "5 min",
+                "description": "Rezistență la unelte mai avansate.",
+                "tools": [
+                    {
+                        "icon": "crowbar-large",
+                        "name": "Rangă mare",
+                        "sort_order": 1
+                    },
+                    {
+                        "icon": "hammer",
+                        "name": "Ciocan",
+                        "sort_order": 2
+                    },
+                    {
+                        "icon": "drill",
+                        "name": "Mașină de găurit",
+                        "sort_order": 3
+                    }
+                ],
+                "sort_order": 2
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "FERRO Akustik",
+        "slug": "usi-acustice",
+        "is_enabled": 1,
+        "eyebrow": "UȘI DE EXTERIOR DIN LEMN",
+        "tagline": "Liniște desăvârșită. Confort fără compromisuri.",
+        "hero_text": "Ușă exterioară din lemn, cu izolare termică și fonică avansată, securitate în configurații certificate și stabilitate structurală.",
+        "hero_stats": [
+            {
+                "icon": "thermo-scale",
+                "value": "0,78",
+                "unit": "W/m²K",
+                "label": "izolare termică\n(până la)",
+                "sort_order": 1
+            },
+            {
+                "icon": "sound",
+                "value": "47",
+                "unit": "dB",
+                "label": "izolare fonică\n(până la)",
+                "sort_order": 2
+            },
+            {
+                "icon": "shield-check",
+                "value": "RC2 / RC3",
+                "unit": "",
+                "label": "securitate\nîn configurații testate",
+                "sort_order": 3
+            },
+            {
+                "icon": "area",
+                "value": "3,2",
+                "unit": "m²",
+                "label": "suprafață maximă\ndeclarată",
+                "sort_order": 4
+            }
+        ],
+        "hero_image": "/site/usa-pivotanta-lemn-panouri-sticla.jpg",
+        "hero_image_alt": "Ușă pivotantă din lemn cu panouri laterale din sticlă — imagine de prezentare; fețele ușii se personalizează",
+        "hero_layout": "b",
+        "hero_caption": "Imagine de prezentare — fețele ușii se personalizează după proiect.",
+        "section_name": "FERRO Akustik",
+        "section_badge": "68–98 mm",
+        "section_images": [
+            {
+                "image": "/site/ferro-akustik-sectiune-reala.webp",
+                "alt": "Secțiune reală FERRO Akustik: fața din furnir și structura interioară multistrat",
+                "caption": "",
+                "sort_order": 1
+            }
+        ],
+        "intro": "<p><strong>FERRO Akustik</strong> este o soluție pentru locuințe din zone urbane, apropiate de trafic sau pentru proiecte în care liniștea interioară este esențială. Cu o izolare fonică de până la <strong>47 dB</strong>, structura ușii contribuie la reducerea zgomotului exterior. Construcția multistrat, cu elemente de lemn laminat și stabilizator de oțel, urmărește atât stabilitatea dimensională, cât și performanța termică. Sistemul este proiectat pentru cerințe ridicate de confort acustic, inclusiv în aplicații ce urmăresc standardele DIN 4109 și EN 14351-1.</p>",
+        "spec_eyebrow": "PERFORMANȚE TEHNICE",
+        "spec_title": "Date esențiale la o privire.",
+        "spec_text": "",
+        "spec_caption": "Caracteristici tehnice FERRO Akustik pe grosimi de foaie",
+        "spec_corner": "Grosime foaie (mm)",
+        "spec_columns": [
+            {
+                "label": "68",
+                "sort_order": 1
+            },
+            {
+                "label": "78",
+                "sort_order": 2
+            },
+            {
+                "label": "88",
+                "sort_order": 3
+            },
+            {
+                "label": "98",
+                "sort_order": 4
+            }
+        ],
+        "spec_rows": [
+            {
+                "label": "Izolare termică U (W/m²K)",
+                "icon": "thermo",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "1,20",
+                        "strong": 0,
+                        "sort_order": 1
+                    },
+                    {
+                        "text": "1,00",
+                        "strong": 0,
+                        "sort_order": 2
+                    },
+                    {
+                        "text": "0,85",
+                        "strong": 0,
+                        "sort_order": 3
+                    },
+                    {
+                        "text": "0,78",
+                        "strong": 1,
+                        "sort_order": 4
+                    }
+                ],
+                "note": "",
+                "sort_order": 1
+            },
+            {
+                "label": "Izolare fonică RwP (dB)",
+                "icon": "sound",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "44",
+                        "strong": 0,
+                        "sort_order": 1
+                    },
+                    {
+                        "text": "44",
+                        "strong": 0,
+                        "sort_order": 2
+                    },
+                    {
+                        "text": "47",
+                        "strong": 1,
+                        "sort_order": 3
+                    },
+                    {
+                        "text": "44",
+                        "strong": 0,
+                        "sort_order": 4
+                    }
+                ],
+                "note": "",
+                "sort_order": 2
+            },
+            {
+                "label": "Rezistență la efracție",
+                "icon": "shield",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "RC2 / RC3",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "(în configurații testate)",
+                "sort_order": 3
+            },
+            {
+                "label": "Înălțime maximă (mm)",
+                "icon": "height",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "2.600",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "",
+                "sort_order": 4
+            },
+            {
+                "label": "Lățime maximă (mm)",
+                "icon": "width",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "1.250",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "",
+                "sort_order": 5
+            },
+            {
+                "label": "Suprafață maximă (m²)",
+                "icon": "area",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "3,2",
+                        "strong": 1,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "",
+                "sort_order": 6
+            }
+        ],
+        "spec_footnote": "Valorile sunt pentru semifabricatul FERRO Akustik, conform fișei tehnice Moralt. Performanțele produsului finit depind de configurația completă (toc, feronerie, dimensiuni, montaj) și trebuie confirmate pentru proiectul specific.",
+        "datasheet": "/site/documente/FERRO-Akustik-fisa-tehnica.pdf",
+        "benefits": [
+            {
+                "icon": "leaf",
+                "title": "Consum redus de energie",
+                "text": "Coeficient termic de până la 0,78 W/m²K pentru un interior confortabil și costuri mai mici de încălzire și răcire, în funcție de ansamblul final.",
+                "sort_order": 1
+            },
+            {
+                "icon": "sound",
+                "title": "Liniște în interior",
+                "text": "Izolare fonică de până la 47 dB pentru un plus de confort în zone urbane, în apropierea traficului sau pentru proiecte unde liniștea este esențială.",
+                "sort_order": 2
+            },
+            {
+                "icon": "shield-check",
+                "title": "Siguranță certificată",
+                "text": "Sisteme de închidere și feronerie alese în funcție de configurațiile de rezistență la efracție RC2/RC3 testate conform EN 1627.",
+                "sort_order": 3
+            }
+        ],
+        "constr_eyebrow": "CONSTRUCȚIE",
+        "constr_title": "Structură multistrat cu stabilizator de oțel",
+        "constr_text": "Miezul ușii este realizat din elemente de lemn laminate, reorientate și reasamblate, cu inserții de oțel și straturi funcționale. Această construcție contribuie la stabilitatea dimensională, la controlul deformărilor și la performanțe acustice și termice ridicate.",
+        "constr_link_label": "Descoperă tehnologia FERRO",
+        "constr_image": "/site/ferro-sectiune-constructiva.webp",
+        "constr_image_alt": "Secțiune constructivă reală printr-un semifabricat FERRO: structură multistrat din lemn și elemente de stabilizare din oțel",
+        "constr_caption": "SECȚIUNE FERRO · 68 MM",
+        "pers_text": "Alege esența de lemn, finisajul, dimensiunile și detaliile care se potrivesc proiectului tău. FERRO Akustik poate fi configurată cu diferite tipuri de mânere, vitraje și panouri laterale, în limitele compatibilității tehnice.",
+        "pers_eyebrow": "DESIGN ȘI PERSONALIZARE",
+        "pers_title": "O ușă adaptată arhitecturii casei tale.",
+        "pers_link_label": "Explorează opțiunile de design",
+        "pers_image": "/site/mostre-esente-lemn.jpg",
+        "pers_image_alt": "Mostre de finisaje și esențe de lemn — stejar deschis, stejar natur, nuc, mahon — alături de un mâner metalic",
+        "pers_swatches": [
+            {
+                "label": "Stejar deschis",
+                "sort_order": 1
+            },
+            {
+                "label": "Stejar natur",
+                "sort_order": 2
+            },
+            {
+                "label": "Nuc",
+                "sort_order": 3
+            },
+            {
+                "label": "Mahon",
+                "sort_order": 4
+            },
+            {
+                "label": "Mâner inox",
+                "sort_order": 5
+            }
+        ],
+        "rc_eyebrow": "STANDARDE DE REZISTENȚĂ",
+        "rc_title": "RC2 / RC3",
+        "rc_text": "Clase de rezistență la efracție conform EN 1627, valabile pentru ansambluri și configurații testate.",
+        "rc_note": "* Valorile și clasele RC sunt valabile numai pentru variantele și condițiile specificate în documentația tehnică și rapoartele de încercare aferente.",
+        "rc_classes": [
+            {
+                "class_name": "RC2",
+                "time": "3 min",
+                "description": "Rezistență la atac cu unelte simple.",
+                "tools": [
+                    {
+                        "icon": "screwdriver",
+                        "name": "Șurubelniță",
+                        "sort_order": 1
+                    },
+                    {
+                        "icon": "pliers",
+                        "name": "Clește",
+                        "sort_order": 2
+                    },
+                    {
+                        "icon": "crowbar-small",
+                        "name": "Rangă mică",
+                        "sort_order": 3
+                    }
+                ],
+                "sort_order": 1
+            },
+            {
+                "class_name": "RC3",
+                "time": "5 min",
+                "description": "Rezistență la unelte mai avansate.",
+                "tools": [
+                    {
+                        "icon": "crowbar-large",
+                        "name": "Rangă mare",
+                        "sort_order": 1
+                    },
+                    {
+                        "icon": "hammer",
+                        "name": "Ciocan",
+                        "sort_order": 2
+                    },
+                    {
+                        "icon": "drill",
+                        "name": "Mașină de găurit",
+                        "sort_order": 3
+                    }
+                ],
+                "sort_order": 2
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "FERRO KlassikPlus / Klima",
+        "slug": "usi-performante",
+        "is_enabled": 1,
+        "eyebrow": "UȘI PERFORMANTE",
+        "tagline": "Siguranță și confort în fiecare detaliu.",
+        "hero_text": "Ușă exterioară din lemn, în două variante: KlassikPlus, cu miez din spumă rigidă PU, și Klima, cu izolație ecologică din fibră de lemn. Ambele au stabilizator plat din oțel și construcție laminată, în grosimi de 68 până la 98 mm.",
+        "hero_stats": [
+            {
+                "icon": "thermo-scale",
+                "value": "0,65",
+                "unit": "W/m²K",
+                "label": "coeficient U\nKlassikPlus, 98 mm",
+                "sort_order": 1
+            },
+            {
+                "icon": "shield-check",
+                "value": "RC2 / RC3",
+                "unit": "",
+                "label": "securitate\nîn configurații testate",
+                "sort_order": 2
+            },
+            {
+                "icon": "thickness",
+                "value": "68–98",
+                "unit": "mm",
+                "label": "grosimi disponibile\nale foii de ușă",
+                "sort_order": 3
+            },
+            {
+                "icon": "area",
+                "value": "2.600 × 1.250",
+                "unit": "mm",
+                "label": "dimensiuni maxime\nale foii de ușă",
+                "sort_order": 4
+            }
+        ],
+        "hero_image": "/site/intrare-moderna-apus.jpg",
+        "hero_image_alt": "Intrare modernă la apus: ușă din lemn cu panou lateral din sticlă, sub o copertină iluminată",
+        "hero_layout": "a",
+        "hero_caption": "Imagine de prezentare — fețele ușii se personalizează după proiect.",
+        "section_name": "KlassikPlus / Klima",
+        "section_badge": "68–98 mm",
+        "section_images": [
+            {
+                "image": "/site/ferro-klassikplus.webp",
+                "alt": "Secțiune prin ușa Moralt FERRO KlassikPlus",
+                "caption": "KlassikPlus",
+                "sort_order": 1
+            },
+            {
+                "image": "/site/ferro-klima.webp",
+                "alt": "Secțiune prin ușa Moralt FERRO Klima",
+                "caption": "Klima",
+                "sort_order": 2
+            }
+        ],
+        "intro": "<p><strong>FERRO KlassikPlus</strong> și <strong>FERRO Klima</strong> sunt uși exterioare din lemn, cu foaie în grosimi de <strong>68, 78, 88 sau 98 mm</strong>. KlassikPlus combină un miez laminat cu spumă rigidă PU fără HCFC, iar Klima folosește în locul spumei o izolație ecologică din fibră de lemn. În ambele variante, stabilizatorul plat din oțel, separat termic, preia forțele de tracțiune și de forfecare, iar inelele anuale orientate vertical mențin suprafața foii stabilă.</p>",
+        "spec_eyebrow": "PERFORMANȚE TEHNICE",
+        "spec_title": "Două variante. Aceeași construcție stabilă.",
+        "spec_text": "FERRO KlassikPlus și Klima au același sistem de construcție și diferă prin materialul de izolare din miez.",
+        "spec_caption": "Caracteristici tehnice ale variantelor FERRO KlassikPlus și Klima",
+        "spec_corner": "Variantă",
+        "spec_columns": [
+            {
+                "label": "KlassikPlus",
+                "sort_order": 1
+            },
+            {
+                "label": "Klima",
+                "sort_order": 2
+            }
+        ],
+        "spec_rows": [
+            {
+                "label": "Miez funcțional",
+                "icon": "core",
+                "is_text": 1,
+                "values": [
+                    {
+                        "text": "Spumă rigidă PU",
+                        "strong": 0,
+                        "sort_order": 1
+                    },
+                    {
+                        "text": "Izolație ecologică din fibră de lemn",
+                        "strong": 0,
+                        "sort_order": 2
+                    }
+                ],
+                "note": "",
+                "sort_order": 1
+            },
+            {
+                "label": "Grosime foaie (mm)",
+                "icon": "thickness-simple",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "68 / 78 / 88 / 98",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "",
+                "sort_order": 2
+            },
+            {
+                "label": "Izolare termică U (W/m²K)",
+                "icon": "thermo",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "0,95 – 0,65",
+                        "strong": 0,
+                        "sort_order": 1
+                    },
+                    {
+                        "text": "1,0 – 0,8",
+                        "strong": 0,
+                        "sort_order": 2
+                    }
+                ],
+                "note": "",
+                "sort_order": 3
+            },
+            {
+                "label": "Izolare fonică R_{wp} (dB)",
+                "icon": "sound",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "30 / 38",
+                        "strong": 0,
+                        "sort_order": 1
+                    },
+                    {
+                        "text": "32",
+                        "strong": 0,
+                        "sort_order": 2
+                    }
+                ],
+                "note": "",
+                "sort_order": 4
+            },
+            {
+                "label": "Rezistență la efracție",
+                "icon": "shield",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "RC2 / RC3",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "(în configurații testate)",
+                "sort_order": 5
+            },
+            {
+                "label": "Înălțime maximă (mm)",
+                "icon": "height",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "2.600",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "",
+                "sort_order": 6
+            },
+            {
+                "label": "Lățime maximă (mm)",
+                "icon": "width",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "1.250",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "",
+                "sort_order": 7
+            },
+            {
+                "label": "Greutate foaie 2.240 × 1.050 mm (kg)",
+                "icon": "weight",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "62 – 78",
+                        "strong": 0,
+                        "sort_order": 1
+                    },
+                    {
+                        "text": "70 – 80",
+                        "strong": 0,
+                        "sort_order": 2
+                    }
+                ],
+                "note": "",
+                "sort_order": 8
+            }
+        ],
+        "spec_footnote": "Valori conform fișelor tehnice Moralt pentru FERRO KlassikPlus și FERRO Klima. La KlassikPlus, coeficientul U este 0,95 / 0,84 / 0,73 / 0,65 W/m²K pentru grosimile de 68 / 78 / 88 / 98 mm. Performanțele produsului finit depind de configurația completă (toc, feronerie, dimensiuni, montaj) și trebuie confirmate pentru proiectul specific.",
+        "datasheet": "",
+        "benefits": [
+            {
+                "icon": "thermo-scale",
+                "title": "Izolare termică excelentă",
+                "text": "Coeficient U între 0,65 și 1,0 W/m²K, în funcție de varianta și de grosimea foii, pentru pierderi reduse de căldură prin intrare.",
+                "sort_order": 1
+            },
+            {
+                "icon": "shield-check",
+                "title": "Securitate RC2 / RC3",
+                "text": "Sisteme de închidere și feronerie alese în funcție de configurațiile de rezistență la efracție RC2/RC3 testate conform EN 1627.",
+                "sort_order": 2
+            },
+            {
+                "icon": "diamond",
+                "title": "Stabilitate și durabilitate",
+                "text": "Construcția laminată, cu inelele anuale orientate vertical și stabilizator plat din oțel, menține foaia dreaptă și stabilă la suprafață.",
+                "sort_order": 3
+            }
+        ],
+        "constr_eyebrow": "CONSTRUCȚIE",
+        "constr_title": "Miez laminat, stabilizator din oțel și izolație integrată",
+        "constr_text": "Foaia are cadru din lemn îmbinat și laminat, cu inelele anuale orientate vertical, și un miez izolant: spumă rigidă PU fără HCFC la KlassikPlus sau fibră de lemn ecologică la Klima. Pe partea broaștei, stabilizatorul plat din oțel, separat termic, este lipit și fixat prin fricțiune de cadru. Fețele din furnir în 5 straturi sau din MDF/HDF pentru exterior sunt încleiate pe toată suprafața.",
+        "constr_link_label": "Descoperă tehnologia FERRO",
+        "constr_image": "/site/ferro-klassikplus-sectiune-lata.webp",
+        "constr_image_alt": "Secțiune transversală printr-o ușă Moralt FERRO KlassikPlus de 68 mm, cu straturile de lemn, oțel și izolație vizibile",
+        "constr_caption": "SECȚIUNE FERRO KLASSIKPLUS · 68 MM",
+        "pers_text": "Alege esența de lemn, finisajul, dimensiunile și detaliile care se potrivesc proiectului tău. FERRO KlassikPlus și Klima pot fi configurate cu diferite tipuri de mânere, vitraje și panouri laterale, în limitele compatibilității tehnice.",
+        "pers_eyebrow": "DESIGN ȘI PERSONALIZARE",
+        "pers_title": "O ușă adaptată arhitecturii casei tale.",
+        "pers_link_label": "Explorează opțiunile de design",
+        "pers_image": "/site/mostre-esente-lemn.jpg",
+        "pers_image_alt": "Mostre de finisaje și esențe de lemn — stejar deschis, stejar natur, nuc, mahon — alături de un mâner metalic",
+        "pers_swatches": [
+            {
+                "label": "Stejar deschis",
+                "sort_order": 1
+            },
+            {
+                "label": "Stejar natur",
+                "sort_order": 2
+            },
+            {
+                "label": "Nuc",
+                "sort_order": 3
+            },
+            {
+                "label": "Mahon",
+                "sort_order": 4
+            },
+            {
+                "label": "Mâner inox",
+                "sort_order": 5
+            }
+        ],
+        "rc_eyebrow": "STANDARDE DE REZISTENȚĂ",
+        "rc_title": "RC2 / RC3",
+        "rc_text": "Clase de rezistență la efracție conform EN 1627, valabile pentru ansambluri și configurații testate.",
+        "rc_note": "* Valorile și clasele RC sunt valabile numai pentru variantele și condițiile specificate în documentația tehnică și rapoartele de încercare aferente.",
+        "rc_classes": [
+            {
+                "class_name": "RC2",
+                "time": "3 min",
+                "description": "Rezistență la atac cu unelte simple.",
+                "tools": [
+                    {
+                        "icon": "screwdriver",
+                        "name": "Șurubelniță",
+                        "sort_order": 1
+                    },
+                    {
+                        "icon": "pliers",
+                        "name": "Clește",
+                        "sort_order": 2
+                    },
+                    {
+                        "icon": "crowbar-small",
+                        "name": "Rangă mică",
+                        "sort_order": 3
+                    }
+                ],
+                "sort_order": 1
+            },
+            {
+                "class_name": "RC3",
+                "time": "5 min",
+                "description": "Rezistență la unelte mai avansate.",
+                "tools": [
+                    {
+                        "icon": "crowbar-large",
+                        "name": "Rangă mare",
+                        "sort_order": 1
+                    },
+                    {
+                        "icon": "hammer",
+                        "name": "Ciocan",
+                        "sort_order": 2
+                    },
+                    {
+                        "icon": "drill",
+                        "name": "Mașină de găurit",
+                        "sort_order": 3
+                    }
+                ],
+                "sort_order": 2
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "FERRO FireSafe",
+        "slug": "usi-rezistente-la-foc",
+        "is_enabled": 1,
+        "eyebrow": "UȘI REZISTENTE LA FOC",
+        "tagline": "Protecție la foc pentru proiecte speciale.",
+        "hero_text": "Ușă exterioară din lemn cu rezistență la foc EI30, în funcție de certificarea națională, combinată cu stabilizator plat din oțel și construcție laminată.",
+        "hero_stats": [
+            {
+                "icon": "flame",
+                "value": "EI30",
+                "unit": "",
+                "label": "rezistență la foc, în funcție\nde certificarea națională",
+                "sort_order": 1
+            },
+            {
+                "icon": "shield-check",
+                "value": "RC2 / RC3",
+                "unit": "",
+                "label": "securitate\nîn configurații testate",
+                "sort_order": 2
+            },
+            {
+                "icon": "thickness",
+                "value": "68–98",
+                "unit": "mm",
+                "label": "grosimi disponibile\nale foii de ușă",
+                "sort_order": 3
+            },
+            {
+                "icon": "thermo-scale",
+                "value": "0,69",
+                "unit": "W/m²K",
+                "label": "coeficient U\nFireSafe Passiv, 98 mm",
+                "sort_order": 4
+            }
+        ],
+        "hero_image": "/site/usa-antracit-panou-sticla.jpg",
+        "hero_image_alt": "Intrare modernă: ușă antracit cu mâner vertical și panou lateral din sticlă, între tencuială gri și cărămidă",
+        "hero_layout": "a",
+        "hero_caption": "Imagine de prezentare — fețele ușii se personalizează după proiect.",
+        "section_name": "FERRO FireSafe",
+        "section_badge": "68–98 mm",
+        "section_images": [
+            {
+                "image": "/site/ferro-firesafe.webp",
+                "alt": "Secțiune prin ușa Moralt FERRO FireSafe",
+                "caption": "",
+                "sort_order": 1
+            }
+        ],
+        "intro": "<p><strong>FERRO FireSafe</strong> este ușa exterioară din lemn pentru proiecte care cer protecție la foc. Rezistența la foc <strong>EI30</strong> depinde de certificarea națională de utilizare, iar foaia combină un miez laminat cu izolație din fibră de lemn sau cu inserție fonică și spumă rigidă PU, în funcție de variantă. Stabilizatorul plat din oțel, separat termic, menține foaia dreaptă, iar securitatea RC2 / RC3 este disponibilă în configurații testate.</p>",
+        "spec_eyebrow": "PERFORMANȚE TEHNICE",
+        "spec_title": "Patru variante. Aceeași clasă de foc.",
+        "spec_text": "FERRO FireSafe se livrează în variantele KlimaSoft, Akustik, Passiv și Passiv Akustik, cu miezul adaptat priorității proiectului.",
+        "spec_caption": "Caracteristici tehnice ale variantelor FERRO FireSafe",
+        "spec_corner": "Variantă",
+        "spec_columns": [
+            {
+                "label": "KlimaSoft",
+                "sort_order": 1
+            },
+            {
+                "label": "Akustik",
+                "sort_order": 2
+            },
+            {
+                "label": "Passiv",
+                "sort_order": 3
+            },
+            {
+                "label": "Passiv Akustik",
+                "sort_order": 4
+            }
+        ],
+        "spec_rows": [
+            {
+                "label": "Miez funcțional",
+                "icon": "core",
+                "is_text": 1,
+                "values": [
+                    {
+                        "text": "Izolație ecologică din fibră de lemn",
+                        "strong": 0,
+                        "sort_order": 1
+                    },
+                    {
+                        "text": "Inserție fonică + spumă rigidă PU",
+                        "strong": 0,
+                        "sort_order": 2
+                    },
+                    {
+                        "text": "Izolație ecologică din fibră de lemn",
+                        "strong": 0,
+                        "sort_order": 3
+                    },
+                    {
+                        "text": "Inserție fonică + spumă rigidă PU",
+                        "strong": 0,
+                        "sort_order": 4
+                    }
+                ],
+                "note": "",
+                "sort_order": 1
+            },
+            {
+                "label": "Grosime foaie (mm)",
+                "icon": "thickness-simple",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "68 – 98",
+                        "strong": 0,
+                        "sort_order": 1
+                    },
+                    {
+                        "text": "68 – 98",
+                        "strong": 0,
+                        "sort_order": 2
+                    },
+                    {
+                        "text": "98",
+                        "strong": 0,
+                        "sort_order": 3
+                    },
+                    {
+                        "text": "98",
+                        "strong": 0,
+                        "sort_order": 4
+                    }
+                ],
+                "note": "",
+                "sort_order": 2
+            },
+            {
+                "label": "Izolare termică U (W/m²K)",
+                "icon": "thermo",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "1,0 – 0,8",
+                        "strong": 0,
+                        "sort_order": 1
+                    },
+                    {
+                        "text": "1,2 – 0,9",
+                        "strong": 0,
+                        "sort_order": 2
+                    },
+                    {
+                        "text": "0,69",
+                        "strong": 0,
+                        "sort_order": 3
+                    },
+                    {
+                        "text": "0,78",
+                        "strong": 0,
+                        "sort_order": 4
+                    }
+                ],
+                "note": "",
+                "sort_order": 3
+            },
+            {
+                "label": "Izolare fonică R_{wp} (dB)",
+                "icon": "sound",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "32",
+                        "strong": 0,
+                        "sort_order": 1
+                    },
+                    {
+                        "text": "42 – 47*",
+                        "strong": 0,
+                        "sort_order": 2
+                    },
+                    {
+                        "text": "31",
+                        "strong": 0,
+                        "sort_order": 3
+                    },
+                    {
+                        "text": "44 – 47",
+                        "strong": 0,
+                        "sort_order": 4
+                    }
+                ],
+                "note": "",
+                "sort_order": 4
+            },
+            {
+                "label": "Rezistență la foc",
+                "icon": "flame",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "EI30",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "(în funcție de certificarea națională)",
+                "sort_order": 5
+            },
+            {
+                "label": "Rezistență la efracție",
+                "icon": "shield",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "RC2 / RC3",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "(în configurații testate)",
+                "sort_order": 6
+            },
+            {
+                "label": "Dimensiuni maxime (mm)",
+                "icon": "area",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "2.470 × 1.230",
+                        "strong": 0,
+                        "sort_order": 1
+                    }
+                ],
+                "note": "(1.250 la fețe MDF exterior)",
+                "sort_order": 7
+            },
+            {
+                "label": "Greutate foaie 2.240 × 1.050 mm (kg)",
+                "icon": "weight",
+                "is_text": 0,
+                "values": [
+                    {
+                        "text": "70 – 98",
+                        "strong": 0,
+                        "sort_order": 1
+                    },
+                    {
+                        "text": "88 – 121",
+                        "strong": 0,
+                        "sort_order": 2
+                    },
+                    {
+                        "text": "70 – 89",
+                        "strong": 0,
+                        "sort_order": 3
+                    },
+                    {
+                        "text": "88 – 121",
+                        "strong": 0,
+                        "sort_order": 4
+                    }
+                ],
+                "note": "",
+                "sort_order": 8
+            }
+        ],
+        "spec_footnote": "* Valoarea de 47 dB se referă la grosimea elementului de 88 mm. Valori conform fișei tehnice Moralt FERRO FireSafe. Rezistența la foc și utilizarea ușii se confirmă conform certificatelor naționale de utilizare, pentru proiectul specific. Performanțele produsului finit depind de configurația completă (toc, feronerie, dimensiuni, montaj).",
+        "datasheet": "",
+        "benefits": [
+            {
+                "icon": "flame",
+                "title": "Rezistență la foc EI30",
+                "text": "Clasă de rezistență la foc EI30 conform EN 13501-2, în funcție de certificarea națională de utilizare.",
+                "sort_order": 1
+            },
+            {
+                "icon": "shield-check",
+                "title": "Securitate și protecție",
+                "text": "Sisteme de închidere și feronerie alese în funcție de configurațiile de rezistență la efracție RC2/RC3 testate conform EN 1627.",
+                "sort_order": 2
+            },
+            {
+                "icon": "diamond",
+                "title": "Integrare arhitecturală",
+                "text": "Fețe din furnir în esențe variate sau din MDF/HDF pentru exterior, vopsibil sau placabil cu furnir, pentru ca ușa să se integreze în arhitectura casei.",
+                "sort_order": 3
+            }
+        ],
+        "constr_eyebrow": "CONSTRUCȚIE",
+        "constr_title": "Miez laminat, izolație ecologică și stabilizator de oțel",
+        "constr_text": "Foaia are cadru din lemn îmbinat și laminat, cu inelele anuale orientate vertical, și o structură de tip sandwich cu izolație ecologică din fibră de lemn; la variantele Akustik se adaugă o inserție fonică. Pe partea broaștei, stabilizatorul plat din oțel, separat termic, este lipit și fixat prin fricțiune de cadru.",
+        "constr_link_label": "Descoperă tehnologia FERRO",
+        "constr_image": "/site/ferro-sectiune-constructiva.webp",
+        "constr_image_alt": "Secțiune constructivă reală printr-un semifabricat FERRO: structură multistrat din lemn și elemente de stabilizare din oțel",
+        "constr_caption": "SECȚIUNE REALĂ FERRO · STRUCTURĂ MULTISTRAT",
+        "pers_text": "Alege esența de lemn, finisajul, dimensiunile și detaliile care se potrivesc proiectului tău. FERRO FireSafe poate fi configurată cu diferite tipuri de mânere, vitraje și panouri laterale, în limitele compatibilității tehnice.",
+        "pers_eyebrow": "DESIGN ȘI PERSONALIZARE",
+        "pers_title": "O ușă adaptată arhitecturii casei tale.",
+        "pers_link_label": "Explorează opțiunile de design",
+        "pers_image": "/site/mostre-esente-lemn.jpg",
+        "pers_image_alt": "Mostre de finisaje și esențe de lemn — stejar deschis, stejar natur, nuc, mahon — alături de un mâner metalic",
+        "pers_swatches": [
+            {
+                "label": "Stejar deschis",
+                "sort_order": 1
+            },
+            {
+                "label": "Stejar natur",
+                "sort_order": 2
+            },
+            {
+                "label": "Nuc",
+                "sort_order": 3
+            },
+            {
+                "label": "Mahon",
+                "sort_order": 4
+            },
+            {
+                "label": "Mâner inox",
+                "sort_order": 5
+            }
+        ],
+        "rc_eyebrow": "STANDARDE DE REZISTENȚĂ",
+        "rc_title": "RC2 / RC3",
+        "rc_text": "Clase de rezistență la efracție conform EN 1627, valabile pentru ansambluri și configurații testate.",
+        "rc_note": "* Valorile și clasele RC sunt valabile numai pentru variantele și condițiile specificate în documentația tehnică și rapoartele de încercare aferente.",
+        "rc_classes": [
+            {
+                "class_name": "RC2",
+                "time": "3 min",
+                "description": "Rezistență la atac cu unelte simple.",
+                "tools": [
+                    {
+                        "icon": "screwdriver",
+                        "name": "Șurubelniță",
+                        "sort_order": 1
+                    },
+                    {
+                        "icon": "pliers",
+                        "name": "Clește",
+                        "sort_order": 2
+                    },
+                    {
+                        "icon": "crowbar-small",
+                        "name": "Rangă mică",
+                        "sort_order": 3
+                    }
+                ],
+                "sort_order": 1
+            },
+            {
+                "class_name": "RC3",
+                "time": "5 min",
+                "description": "Rezistență la unelte mai avansate.",
+                "tools": [
+                    {
+                        "icon": "crowbar-large",
+                        "name": "Rangă mare",
+                        "sort_order": 1
+                    },
+                    {
+                        "icon": "hammer",
+                        "name": "Ciocan",
+                        "sort_order": 2
+                    },
+                    {
+                        "icon": "drill",
+                        "name": "Mașină de găurit",
+                        "sort_order": 3
+                    }
+                ],
+                "sort_order": 2
+            }
+        ]
+    }
+]

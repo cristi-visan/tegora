@@ -1,0 +1,46 @@
+.page-hero.proj-hero{padding-bottom:48px}
+/* Featured project */
+.proj-featured{padding-bottom:88px;display:flex;flex-wrap:wrap;align-items:stretch}
+.proj-featured__media{flex:3 1 560px;position:relative;min-height:520px;overflow:hidden;background:#E6DFD3}
+.proj-featured__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 50%;display:block}
+.proj-featured__badge{position:absolute;left:20px;top:20px;padding:7px 12px;background:rgba(247,243,238,.94);font-size:10px;font-weight:500;letter-spacing:.22em;color:var(--c-ink)}
+.proj-featured__body{flex:2 1 380px;display:flex;flex-direction:column;gap:22px;padding:clamp(28px,3.6vw,52px);background:var(--c-white);border:1px solid var(--c-line)}
+.proj-featured__meta{font-size:12px;letter-spacing:.06em;color:var(--c-ink-3)}
+.proj-featured__facts{margin:0;display:flex;flex-direction:column;gap:18px}
+.proj-fact{display:flex;flex-direction:column;gap:6px;padding-top:16px;border-top:1px solid var(--c-line-2)}
+.proj-fact__label{font-size:11px;font-weight:500;letter-spacing:.22em;color:var(--c-brown)}
+.proj-fact__text{margin:0;font-size:15px;line-height:1.55;color:var(--c-ink-2)}
+
+/* Portfolio grid */
+.proj-grid-section{padding-top:80px;padding-bottom:88px;display:flex;flex-direction:column;gap:36px}
+.proj-grid-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px}
+.proj-grid-head__text{display:flex;flex-direction:column;gap:14px}
+.proj-chips{display:flex;flex-wrap:wrap;gap:8px}
+.proj-chips .chip{padding:0 18px;border-color:var(--c-line-3)}
+.proj-chips .chip[aria-pressed="true"]{border-color:var(--c-ink)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(360px,100%),1fr));gap:28px 24px}
+.proj-card{display:flex;flex-direction:column;background:var(--c-white);border:1px solid var(--c-line)}
+.proj-card__media{aspect-ratio:4/3;overflow:hidden;background:#E6DFD3}
+.proj-card__body{display:flex;flex-direction:column;gap:10px;padding:22px 22px 26px}
+.proj-card__cat{font-size:10px;font-weight:500;letter-spacing:.22em;color:var(--c-brown)}
+.proj-card__title{font-family:var(--f-serif);font-weight:400;font-size:24px;line-height:1.15}
+.proj-card__desc{font-size:14px;line-height:1.5;color:var(--c-ink-2)}
+.proj-card__meta{margin-top:4px;font-size:12px;color:var(--c-ink-3)}
+
+/* Architects */
+.proj-arch{padding-top:80px;padding-bottom:80px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px 64px}
+.proj-arch__text{flex:1 1 480px;max-width:640px;display:flex;flex-direction:column;gap:14px}
+.proj-arch__link{font-size:15px}
+
+@media (max-width:900px){
+  .proj-featured{padding-bottom:64px}
+  .proj-featured__media{flex-basis:100%;min-height:340px}
+  .proj-featured__body{flex-basis:100%}
+  .proj-grid-section{padding-top:56px;padding-bottom:64px;gap:28px}
+  .proj-arch{padding-top:56px;padding-bottom:56px}
+}
+@media (max-width:480px){
+  .proj-featured__media{min-height:260px}
+  .proj-card__body{padding:18px 18px 22px}
+  .proj-chips .chip{padding:0 14px}
+}

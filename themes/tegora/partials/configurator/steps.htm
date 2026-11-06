@@ -1,0 +1,122 @@
+{% set perfs = [
+    {id: 'termica', name: 'Izolare termică', value: 'U = 0,54 – 1,20 W/m²K', desc: 'Reduce pierderile de căldură prin ușă. O valoare U mai mică înseamnă o izolare termică mai bună.', def: 'U = coeficient de transfer termic'},
+    {id: 'acustica', name: 'Izolare acustică', value: 'Rw = 30 – 47 dB', desc: 'Reduce transmiterea zgomotului din exterior. O valoare Rw mai mare indică o izolare fonică mai bună.', def: 'Rw = indice de izolare la zgomot aerian'},
+    {id: 'securitate', name: 'Securitate', value: 'RC2 / RC3', desc: 'Protecție antiefracție disponibilă în clase RC2 și RC3, în funcție de configurația aleasă.', def: 'RC = clasa de rezistență la efracție'},
+    {id: 'foc', name: 'Rezistență la foc', value: 'EI30', desc: 'Configurații EI30 pentru aplicații care necesită rezistență la foc de 30 de minute.', def: 'E = etanșeitate · I = izolare · 30 = minute'},
+    {id: 'passive', name: 'Passive House', value: 'U până la 0,54 W/m²K', desc: 'Performanță termică foarte ridicată, pentru proiecte cu cerințe energetice exigente.', def: 'Performanța finală depinde de configurație și montaj'},
+    {id: 'design', name: 'Design personalizat', value: 'Până la 1.250 × 2.980 mm', desc: 'Dimensiuni speciale și libertate de configurare pentru proiecte arhitecturale personalizate.', def: 'Soluții speciale până la 1.250 × 2.980 mm'}
+] %}
+{% set thicknesses = ['68', '78', '88', '98'] %}
+{% set frames = [
+    {id: 'stejar', name: 'Stejar', img: 'cadru-stejar'},
+    {id: 'larice', name: 'Larice', img: 'cadru-larice'},
+    {id: 'conifere', name: 'Conifere', img: 'cadru-conifere'},
+    {id: 'redwood', name: 'Redwood', img: 'cadru-redwood'}
+] %}
+{% set configs = [
+    {id: 'simpla', name: 'Ușă simplă', img: 'config-usa-simpla'},
+    {id: 'panou', name: 'Cu panou lateral', img: 'config-panou-lateral'},
+    {id: 'panouri', name: 'Două panouri laterale', img: 'config-doua-panouri'},
+    {id: 'dubla', name: 'Ușă dublă', img: 'config-usa-dubla'},
+    {id: 'supralumina', name: 'Cu supralumină', img: 'config-supralumina'},
+    {id: 'vitraj', name: 'Cu vitraj integrat', img: 'config-vitraj'}
+] %}
+{% set finishes = [
+    {id: 'stejar', name: 'Stejar', img: 'finisaj-stejar'},
+    {id: 'rustic', name: 'Stejar rustic', img: 'finisaj-stejar-rustic'},
+    {id: 'meranti', name: 'Meranti', img: 'finisaj-meranti'},
+    {id: 'larice', name: 'Larice', img: 'finisaj-larice'},
+    {id: 'rasinoase', name: 'Rășinoase', img: 'finisaj-rasinoase'},
+    {id: 'vopsire', name: 'Pentru vopsire', img: 'finisaj-vopsire'}
+] %}
+
+<section id="step-1" class="cfg-step" aria-labelledby="s1">
+    {% partial 'configurator/step-head' n=1 title=page.step1_title tip=page.step1_tip %}
+    <div class="cfg-grid cfg-grid--perf">
+        {% for it in perfs %}
+        <button class="cfg-opt cfg-opt--perf" type="button" data-group="perf" data-value="{{ it.id }}" data-label="{{ it.name|_ }}" aria-pressed="false">
+            <span class="cfg-opt__top">
+                <span class="cfg-opt__icon" aria-hidden="true">{% partial 'configurator/perf-icon' id=it.id %}</span>
+                <span class="cfg-opt__mark" aria-hidden="true"></span>
+            </span>
+            <span class="cfg-opt__name">{{ it.name|_ }}</span>
+            <span class="cfg-opt__value">{{ it.value }}</span>
+            <span class="cfg-card-tip">{{ it.desc|_ }}<small>{{ it.def|_ }}</small></span>
+        </button>
+        {% endfor %}
+    </div>
+</section>
+
+<div class="cfg-cols">
+    <div class="cfg-col">
+        <section id="step-2" class="cfg-step" aria-labelledby="s2">
+            {% partial 'configurator/step-head' n=2 title=page.step2_title tip=page.step2_tip %}
+            <div class="cfg-grid cfg-grid--dims">
+                <label class="cfg-label cfg-label--lg">{{ 'Lățime (mm)'|_ }}
+                    <input class="field" type="text" inputmode="numeric" placeholder="{{ 'Ex. 1200'|_ }}" data-cfg-width autocomplete="off">
+                </label>
+                <label class="cfg-label cfg-label--lg">{{ 'Înălțime (mm)'|_ }}
+                    <input class="field" type="text" inputmode="numeric" placeholder="{{ 'Ex. 2400'|_ }}" data-cfg-height autocomplete="off">
+                </label>
+            </div>
+            <dl class="cfg-dims-note">
+                <dt>STANDARD</dt><dd><span>L</span> 950 / 1050 / 1150 / 1230 &nbsp;·&nbsp; <span>H</span> 2110 / 2240 / 2370 / 2470 / 2600</dd>
+                <dt>SPECIAL</dt><dd>{{ 'până la'|_ }} <strong>1.250 × 2.980 mm</strong></dd>
+            </dl>
+        </section>
+
+        <section id="step-3" class="cfg-step" aria-labelledby="s3">
+            {% partial 'configurator/step-head' n=3 title=page.step3_title tip=page.step3_tip %}
+            <div class="cfg-grid cfg-grid--thick">
+                {% for t in thicknesses %}
+                <button class="cfg-opt cfg-opt--thick" type="button" data-group="thickness" data-value="{{ t }}" data-label="{{ t }} mm" aria-pressed="false"><span class="cfg-opt__big">{{ t }}</span><span class="cfg-opt__unit">MM</span></button>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="step-4" class="cfg-step" aria-labelledby="s4">
+            {% partial 'configurator/step-head' n=4 title=page.step4_title sub=('(structură lemn)'|_) tip=page.step4_tip %}
+            <div class="cfg-grid cfg-grid--frame">
+                {% for it in frames %}
+                <button class="cfg-opt" type="button" data-group="frame" data-value="{{ it.id }}" data-label="{{ it.name }}" aria-pressed="false">
+                    <img class="cfg-opt__img cfg-opt__img--frame" src="{{ ('assets/images/' ~ it.img ~ '.webp')|theme }}" alt="{{ 'Secțiune structură cadru din'|_ }} {{ it.name }}" width="520" height="266" loading="lazy">
+                    <span class="cfg-opt__row"><span class="cfg-opt__name">{{ it.name }}</span><span class="cfg-opt__mark" aria-hidden="true"></span></span>
+                </button>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+
+    <div class="cfg-col cfg-col--side">
+        <section id="step-5" class="cfg-step" aria-labelledby="s5">
+            {% partial 'configurator/step-head' n=5 title=page.step5_title tip=page.step5_tip %}
+            <div class="cfg-grid cfg-grid--small">
+                {% for it in configs %}
+                <button class="cfg-opt" type="button" data-group="config" data-value="{{ it.id }}" data-label="{{ it.name|_ }}" aria-pressed="false">
+                    <img class="cfg-opt__img cfg-opt__img--config" src="{{ ('assets/images/' ~ it.img ~ '.webp')|theme }}" alt="{{ 'Configurație:'|_ }} {{ it.name|_ }}" width="420" height="540" loading="lazy">
+                    <span class="cfg-opt__row"><span class="cfg-opt__name cfg-opt__name--sm">{{ it.name|_ }}</span><span class="cfg-opt__mark" aria-hidden="true"></span></span>
+                </button>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="step-6" class="cfg-step" aria-labelledby="s6">
+            <div class="cfg-step__top">
+                {% partial 'configurator/step-head' n=6 title=page.step6_title tip=page.step6_tip %}
+                <div class="cfg-side" role="group" aria-label="{{ 'Fața ușii'|_ }}">
+                    <button type="button" data-cfg-side="exterior" aria-pressed="true">EXTERIOR</button>
+                    <button type="button" data-cfg-side="interior" aria-pressed="false">INTERIOR</button>
+                </div>
+            </div>
+            <p class="cfg-finish-now">{{ 'Exterior'|_ }}: <strong data-cfg-fin-ext>—</strong> &nbsp;·&nbsp; {{ 'Interior'|_ }}: <strong data-cfg-fin-int>—</strong></p>
+            <div class="cfg-grid cfg-grid--small">
+                {% for it in finishes %}
+                <button class="cfg-opt" type="button" data-group="finish" data-value="{{ it.id }}" data-label="{{ it.name|_ }}" aria-pressed="false">
+                    <img class="cfg-opt__img cfg-opt__img--finish" src="{{ ('assets/images/' ~ it.img ~ '.webp')|theme }}" alt="{{ 'Finisaj'|_ }} {{ it.name|_ }}" width="295" height="103" loading="lazy">
+                    <span class="cfg-opt__row"><span class="cfg-opt__name cfg-opt__name--sm">{{ it.name|_ }}</span><span class="cfg-opt__mark" aria-hidden="true"></span></span>
+                </button>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+</div>

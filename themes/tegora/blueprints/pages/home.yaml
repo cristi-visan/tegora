@@ -1,0 +1,293 @@
+uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e11
+handle: Page\Home
+type: single
+name: Pagina principală
+
+primaryNavigation:
+    label: Pagini
+    icon: ph ph-files
+    order: 150
+
+navigation:
+    label: Pagina principală
+    icon: ph ph-house
+    order: 100
+
+fields:
+    hero_eyebrow:
+        label: Etichetă
+        type: text
+        tab: Început de pagină
+    hero_title_1:
+        label: Titlu, prima linie
+        type: text
+        tab: Început de pagină
+    hero_title_2:
+        label: Titlu, a doua linie (accentuată)
+        type: text
+        tab: Început de pagină
+    hero_text:
+        label: Text
+        type: textarea
+        size: small
+        tab: Început de pagină
+    hero_motto:
+        label: Motto
+        comment: Fiecare rând nou apare pe o linie separată.
+        type: textarea
+        size: small
+        tab: Început de pagină
+    hero_cta_primary:
+        label: Buton principal
+        type: text
+        tab: Început de pagină
+    hero_cta_secondary:
+        label: Buton secundar
+        type: text
+        tab: Început de pagină
+    hero_tagline:
+        label: Slogan din colț
+        comment: Fiecare rând nou apare pe o linie separată.
+        type: textarea
+        size: small
+        tab: Început de pagină
+    hero_image:
+        label: Imagine
+        type: mediafinder
+        mode: image
+        maxItems: 1
+        tab: Început de pagină
+
+    stats:
+        label: Performanțe cheie
+        type: repeater
+        titleFrom: value
+        tab: Performanțe
+        form:
+            fields:
+                icon:
+                    label: Pictogramă
+                    type: dropdown
+                    options:
+                        thermal: Izolație termică
+                        acoustic: Izolație fonică
+                        security: Securitate
+                        fire: Protecție la foc
+                        passive: Passive House
+                        germany: Made in Germany
+                value:
+                    label: Valoare
+                    type: text
+                label:
+                    label: Descriere
+                    type: text
+
+    systems_eyebrow:
+        label: Etichetă
+        type: text
+        tab: Sisteme
+    systems_title:
+        label: Titlu
+        type: text
+        tab: Sisteme
+    systems_text:
+        label: Text
+        type: textarea
+        size: small
+        tab: Sisteme
+    systems_cta:
+        label: Text buton
+        type: text
+        tab: Sisteme
+    systems:
+        label: Sisteme de uși
+        type: repeater
+        titleFrom: name
+        tab: Sisteme
+        form:
+            fields:
+                system:
+                    label: Sistem
+                    comment: Stabilește imaginea, culoarea și pagina către care duce cardul.
+                    type: dropdown
+                    options:
+                        klassikplus: KlassikPlus
+                        klima: Klima
+                        akustik: Akustik
+                        passiv: Passiv
+                        firesafe: FireSafe
+                brand:
+                    label: Gamă
+                    type: text
+                name:
+                    label: Nume
+                    type: text
+                text:
+                    label: Text
+                    type: text
+                link_label:
+                    label: Text link
+                    type: text
+    systems_note_left:
+        label: Notă, stânga
+        type: text
+        tab: Sisteme
+    systems_note_right:
+        label: Notă, dreapta
+        type: text
+        tab: Sisteme
+
+    tech_eyebrow:
+        label: Etichetă
+        type: text
+        tab: Tehnologie
+    tech_title:
+        label: Titlu
+        type: text
+        tab: Tehnologie
+    tech_text:
+        label: Text
+        type: textarea
+        size: small
+        tab: Tehnologie
+    tech_cta:
+        label: Text buton
+        type: text
+        tab: Tehnologie
+    tech_benefits:
+        label: Avantaje Moralt
+        type: repeater
+        titleFrom: text
+        tab: Tehnologie
+        form:
+            fields:
+                icon:
+                    label: Pictogramă
+                    type: dropdown
+                    options:
+                        stability: Stabilitate
+                        time: Timp
+                        certificate: Certificare
+                        factory: Producție
+                        security: Garanție
+                text:
+                    label: Text
+                    type: text
+    tech_footnote:
+        label: Notă de subsol
+        type: text
+        tab: Tehnologie
+    tech_caption:
+        label: Legendă secțiune
+        type: text
+        tab: Tehnologie
+    tech_layers:
+        label: Straturile ușii
+        type: repeater
+        titleFrom: title
+        tab: Tehnologie
+        form:
+            fields:
+                title:
+                    label: Strat
+                    type: text
+                detail:
+                    label: Detaliu
+                    type: text
+
+    cfg_eyebrow:
+        label: Etichetă
+        type: text
+        tab: Configurator
+    cfg_title:
+        label: Titlu
+        type: text
+        tab: Configurator
+    cfg_text:
+        label: Text
+        type: textarea
+        size: small
+        tab: Configurator
+    cfg_image:
+        label: Imagine
+        type: mediafinder
+        mode: image
+        maxItems: 1
+        tab: Configurator
+    cfg_steps:
+        label: Pașii configuratorului
+        type: repeater
+        titleFrom: label
+        tab: Configurator
+        form:
+            fields:
+                label:
+                    label: Pas
+                    type: text
+    cfg_cta:
+        label: Text buton
+        type: text
+        tab: Configurator
+    cfg_benefits:
+        label: Beneficii
+        type: repeater
+        titleFrom: text
+        tab: Configurator
+        form:
+            fields:
+                icon:
+                    label: Pictogramă
+                    type: dropdown
+                    options:
+                        diamond: Diamant
+                        person: Persoană
+                        pin: Locație
+                text:
+                    label: Text
+                    type: text
+
+    process_eyebrow:
+        label: Etichetă
+        type: text
+        tab: Proces
+    process_title:
+        label: Titlu
+        type: text
+        tab: Proces
+    process_steps:
+        label: Pași
+        type: repeater
+        titleFrom: title
+        tab: Proces
+        form:
+            fields:
+                title:
+                    label: Titlu
+                    type: text
+                text:
+                    label: Text
+                    type: text
+
+    cta_title:
+        label: Titlu
+        type: text
+        tab: Invitație finală
+    cta_text:
+        label: Text
+        type: textarea
+        size: small
+        tab: Invitație finală
+    cta_primary:
+        label: Buton principal
+        type: text
+        tab: Invitație finală
+    cta_secondary:
+        label: Buton secundar
+        type: text
+        tab: Invitație finală
+    cta_image:
+        label: Imagine de fundal
+        type: mediafinder
+        mode: image
+        maxItems: 1
+        tab: Invitație finală

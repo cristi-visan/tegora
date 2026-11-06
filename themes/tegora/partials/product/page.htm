@@ -1,0 +1,213 @@
+{# Shared body of the door product pages. Pass: entry (Content\Product). Every section is skipped when its fields are empty. #}
+{% set datasheet = entry.datasheet ? (entry.datasheet|media) : '' %}
+{% set contact_url = 'contact'|page %}
+
+<section class="prod-hero" aria-labelledby="prod-title">
+    <div class="prod-hero__main">
+        {% if entry.eyebrow %}<p class="eyebrow">{{ entry.eyebrow }}</p>{% endif %}
+        <h1 id="prod-title" class="prod-title">{{ entry.title }}</h1>
+        {% if entry.tagline %}<p class="prod-tagline">{{ entry.tagline }}</p>{% endif %}
+        {% if entry.hero_text %}<p class="prod-lead">{{ entry.hero_text }}</p>{% endif %}
+
+        {% if entry.hero_stats|length %}
+        <ul class="prod-stats" aria-label="{{ 'Performanțe cheie'|_ }}">
+            {% for stat in entry.hero_stats %}
+            <li class="prod-stat">
+                <span class="prod-stat__icon" aria-hidden="true">{% partial 'product/icon' name=stat.icon size=36 sw=1.3 %}</span>
+                <strong class="prod-stat__value">{{ stat.value }}{% if stat.unit %}<span class="prod-stat__unit">{{ stat.unit }}</span>{% endif %}</strong>
+                <span class="prod-stat__label">{{ stat.label|nl2br }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <div class="prod-actions">
+            <a class="btn btn--dark prod-btn" href="{{ contact_url }}">{{ 'Solicită ofertă'|_ }} {% partial 'ui/arrow' %}</a>
+            {% if datasheet %}
+            <a class="btn btn--light prod-btn prod-btn--light" href="{{ datasheet }}" target="_blank" rel="noopener">{{ 'Descarcă fișa tehnică'|_ }}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"></path></svg>
+            </a>
+            {% elseif entry.spec_rows|length %}
+            <a class="btn btn--light prod-btn prod-btn--light" href="#specificatii">{{ 'Vezi datele tehnice'|_ }}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if entry.hero_image or entry.section_images|length %}
+    <figure class="prod-fig{% if entry.hero_layout == 'b' %} prod-fig--b{% endif %}">
+        {% if entry.hero_image %}
+        <img class="prod-fig__photo" src="{{ entry.hero_image|media }}" alt="{{ entry.hero_image_alt }}" width="1200" height="800">
+        {% endif %}
+        {% if entry.section_images|length %}
+        <div class="prod-fig__card">
+            <div class="prod-fig__card-head">
+                <p class="prod-fig__card-label">{{ 'SECȚIUNE REALĂ'|_ }}<span>{{ entry.section_name ?: entry.title }}</span></p>
+                {% if entry.section_badge %}<span class="prod-fig__badge">{{ entry.section_badge }}</span>{% endif %}
+            </div>
+            {% for img in entry.section_images %}
+            <img class="prod-fig__section" src="{{ img.image|media }}" alt="{{ img.alt }}" width="900" height="785">
+            {% if img.caption %}<p class="prod-fig__section-cap">{{ img.caption }}</p>{% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if entry.hero_caption %}<figcaption class="prod-fig__caption">{{ entry.hero_caption }}</figcaption>{% endif %}
+    </figure>
+    {% endif %}
+</section>
+
+{% if entry.intro %}
+<section class="section section--rule prod-intro" aria-label="{{ 'Prezentare'|_ }} {{ entry.title }}">
+    <div class="wrap prod-intro__inner">{{ entry.intro|raw }}</div>
+</section>
+{% endif %}
+
+{% if entry.spec_rows|length and entry.spec_columns|length %}
+{% set colcount = entry.spec_columns|length %}
+<section id="specificatii" class="section section--alt" aria-labelledby="spec-title">
+    <div class="wrap prod-spec">
+        <div class="prod-spec__aside">
+            {% if entry.spec_eyebrow %}<p class="prod-eyebrow">{{ entry.spec_eyebrow }}</p>{% endif %}
+            <h2 id="spec-title" class="prod-h2">{{ entry.spec_title }}</h2>
+            <span class="prod-rule" aria-hidden="true"></span>
+            {% if entry.spec_text %}<p class="prod-small">{{ entry.spec_text }}</p>{% endif %}
+            {% if datasheet %}
+            <a class="btn btn--light prod-btn prod-btn--outline" href="{{ datasheet }}" target="_blank" rel="noopener">{{ 'Descarcă fișa tehnică'|_ }}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"></path></svg>
+            </a>
+            {% else %}
+            <a class="btn btn--light prod-btn prod-btn--outline" href="{{ contact_url }}">{{ 'Solicită fișa tehnică'|_ }} {% partial 'ui/arrow' %}</a>
+            {% endif %}
+        </div>
+        <div class="prod-spec__main">
+            <div class="table-scroll prod-spec__scroll">
+                <table class="spec prod-table prod-table--c{{ colcount }}">
+                    <caption class="sr-only">{{ entry.spec_caption ?: ('Caracteristici tehnice'|_ ~ ' ' ~ entry.title) }}</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" class="prod-table__corner">{{ entry.spec_corner }}</th>
+                            {% for col in entry.spec_columns %}<th scope="col" class="prod-table__col">{{ col.label }}</th>{% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in entry.spec_rows %}
+                        <tr>
+                            <th scope="row" class="prod-table__row"><span class="prod-table__row-in">{% if row.icon %}{% partial 'product/icon' name=row.icon size=22 sw=1.4 %}{% endif %}<span>{% partial 'product/sub' text=row.label %}</span></span></th>
+                            {% if row.values|length == 1 and colcount > 1 %}
+                            {% set v = row.values|first %}
+                            <td colspan="{{ colcount }}" class="prod-table__cell{% if v.strong %} is-strong{% endif %}">{% partial 'product/sub' text=v.text %}{% if row.note %} <span class="prod-table__note">{% partial 'product/sub' text=row.note %}</span>{% endif %}</td>
+                            {% else %}
+                            {% for v in row.values %}
+                            <td class="prod-table__cell{% if v.strong %} is-strong{% endif %}{% if row.is_text %} is-text{% endif %}">{% if row.is_text %}<span>{% partial 'product/sub' text=v.text %}</span>{% else %}{% partial 'product/sub' text=v.text %}{% endif %}</td>
+                            {% endfor %}
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% if entry.spec_footnote %}<p class="prod-footnote">{% partial 'product/sub' text=entry.spec_footnote %}</p>{% endif %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if entry.benefits|length %}
+<section class="section section--rule prod-benefits" aria-label="{{ 'Beneficii'|_ }}">
+    <div class="wrap prod-benefits__inner">
+        <ul class="plain prod-benefits__list">
+            {% for b in entry.benefits %}
+            <li class="prod-benefit">
+                <span class="prod-benefit__icon" aria-hidden="true">{% partial 'product/icon' name=b.icon size=42 sw=1.2 %}</span>
+                <div class="prod-benefit__body">
+                    <h3 class="prod-h3">{{ b.title }}</h3>
+                    <p class="prod-small prod-small--body">{{ b.text }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endif %}
+
+{% if entry.constr_title %}
+<section class="section section--dark" aria-labelledby="constr-title">
+    <div class="wrap prod-constr">
+        {% if entry.constr_image %}
+        <div class="prod-constr__fig">
+            <img src="{{ entry.constr_image|media }}" alt="{{ entry.constr_image_alt }}" width="1840" height="695" loading="lazy">
+            {% if entry.constr_caption %}<p class="prod-constr__cap">{{ entry.constr_caption }}</p>{% endif %}
+        </div>
+        {% endif %}
+        <div class="prod-constr__text">
+            {% if entry.constr_eyebrow %}<p class="prod-eyebrow prod-eyebrow--dark">{{ entry.constr_eyebrow }}</p>{% endif %}
+            <h2 id="constr-title" class="prod-h2 prod-h2--balance prod-h2--dark">{{ entry.constr_title }}</h2>
+            {% if entry.constr_text %}<p class="prod-body prod-body--dark">{{ entry.constr_text }}</p>{% endif %}
+            <a class="inline-link inline-link--on-dark prod-link" href="{{ 'tehnologie-moralt'|page }}">{{ entry.constr_link_label ?: ('Descoperă tehnologia FERRO'|_) }} {% partial 'ui/arrow' %}</a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if entry.pers_title %}
+<section class="section" aria-labelledby="pers-title">
+    <div class="wrap prod-pers">
+        <div class="prod-pers__text">
+            {% if entry.pers_eyebrow %}<p class="prod-eyebrow">{{ entry.pers_eyebrow }}</p>{% endif %}
+            <h2 id="pers-title" class="prod-h2 prod-h2--balance">{{ entry.pers_title }}</h2>
+            {% if entry.pers_text %}<p class="prod-body">{{ entry.pers_text }}</p>{% endif %}
+            <a class="inline-link prod-link" href="{{ 'usi-exterior'|page }}#personalizare">{{ entry.pers_link_label ?: ('Explorează opțiunile de design'|_) }} {% partial 'ui/arrow' %}</a>
+        </div>
+        {% if entry.pers_image %}
+        <figure class="prod-pers__fig">
+            <img src="{{ entry.pers_image|media }}" alt="{{ entry.pers_image_alt }}" width="1200" height="370" loading="lazy">
+            {% if entry.pers_swatches|length %}
+            <figcaption class="prod-pers__swatches">{% for s in entry.pers_swatches %}<span>{{ s.label }}</span>{% endfor %}</figcaption>
+            {% endif %}
+        </figure>
+        {% endif %}
+    </div>
+</section>
+{% endif %}
+
+{% if entry.rc_classes|length %}
+<section class="section section--alt" aria-labelledby="rc-title">
+    <div class="wrap prod-rc">
+        <div class="prod-rc__intro">
+            <span class="prod-rc__lock" aria-hidden="true">{% partial 'product/icon' name='lock' size=40 sw=1.2 %}</span>
+            {% if entry.rc_eyebrow %}<p class="eyebrow">{{ entry.rc_eyebrow }}</p>{% endif %}
+            <h2 id="rc-title" class="prod-rc__title">{{ entry.rc_title }}</h2>
+            {% if entry.rc_text %}<p class="prod-body prod-rc__text">{{ entry.rc_text }}</p>{% endif %}
+            {% if entry.rc_note %}<p class="prod-rc__note">{{ entry.rc_note }}</p>{% endif %}
+        </div>
+        {% for rc in entry.rc_classes %}
+        <article class="card prod-rc-card">
+            <div class="prod-rc-card__head">
+                <div class="prod-rc-card__class">
+                    <p class="prod-label">{{ 'CLASA'|_ }}</p>
+                    <h3 class="prod-rc-card__name">{{ rc.class_name }}</h3>
+                </div>
+                {% if rc.time %}
+                <div class="prod-rc-card__time">
+                    <span class="prod-rc-card__time-main">{% partial 'product/icon' name='timer' size=20 sw=1.5 %}<strong>{{ rc.time }}</strong></span>
+                    <span class="prod-rc-card__time-label">{{ 'rezistență la'|_ }}<br>{{ 'atac manual'|_ }}</span>
+                </div>
+                {% endif %}
+            </div>
+            {% if rc.description %}<p class="prod-rc-card__desc">{{ rc.description }}</p>{% endif %}
+            {% if rc.tools|length %}
+            <div class="prod-rc-card__tools">
+                <p class="prod-label">{{ 'UNELTE TESTATE'|_ }}</p>
+                <ul class="plain prod-tools">
+                    {% for tool in rc.tools %}
+                    <li>{% partial 'product/icon' name=tool.icon size=30 sw=1.3 %}{{ tool.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}

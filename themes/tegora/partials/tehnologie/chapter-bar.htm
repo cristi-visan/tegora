@@ -1,0 +1,20 @@
+{# Chapter bar above the hero on the Tehnologie pages. Pass: chapter (1 or 2). #}
+<nav class="tech-chapterbar" aria-label="{{ 'Capitole Tehnologie Moralt'|_ }}">
+    <div class="wrap tech-chapterbar__inner">
+        <p class="tech-chapterbar__label">TEHNOLOGIE <br>MORALT</p>
+        <a class="tech-chapterbar__item" href="{{ 'tehnologie-moralt'|page }}"{% if chapter == 1 %} aria-current="page"{% endif %}>
+            <span class="tech-chapterbar__num">01</span>
+            <span class="tech-chapterbar__text"><span class="tech-chapterbar__name">{{ 'Construcție & stabilitate'|_ }}</span><span class="tech-chapterbar__sub">{{ 'Cum este proiectată'|_ }}</span></span>
+            <span class="tech-chapterbar__arrow" aria-hidden="true">{% partial 'ui/arrow' %}</span>
+        </a>
+        <a class="tech-chapterbar__item" href="{{ 'tehnologie-securitate'|page }}"{% if chapter == 2 %} aria-current="page"{% endif %}>
+            <span class="tech-chapterbar__num">02</span>
+            <span class="tech-chapterbar__text"><span class="tech-chapterbar__name">{{ 'Securitate'|_ }}</span><span class="tech-chapterbar__sub">{{ 'Cum te protejează'|_ }}</span></span>
+            <span class="tech-chapterbar__arrow" aria-hidden="true">{% partial 'ui/arrow' %}</span>
+        </a>
+        <span class="tech-chapterbar__item tech-chapterbar__item--soon" aria-disabled="true">
+            <span class="tech-chapterbar__num">03</span>
+            <span class="tech-chapterbar__text"><span class="tech-chapterbar__name">{{ 'Design'|_ }}</span><span class="tech-chapterbar__sub">{{ 'În curând'|_ }}</span></span>
+        </span>
+    </div>
+</nav>

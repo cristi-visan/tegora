@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "title": "Inspirație",
+        "slug": "inspiratie",
+        "is_enabled": 1,
+        "hero_eyebrow": "INSPIRAȚIE",
+        "hero_title": "Idei pentru intrarea casei tale.",
+        "hero_text": "Esențe de lemn, finisaje și configurații care pornesc de la arhitectura casei. Alege un stil și descoperă combinațiile care ți se potrivesc.",
+        "finishes_eyebrow": "FINISAJE",
+        "finishes_title": "Esențe și suprafețe",
+        "finishes_text": "Exteriorul și interiorul ușii pot avea finisaje diferite — alege-le direct în configurator.",
+        "finishes_link_label": "Alege finisajul",
+        "details_eyebrow": "DETALII",
+        "details_title": "Detaliile care fac diferența",
+        "details_link_label": "Toate opțiunile de personalizare",
+        "details": [
+            { "title": "Decupaje și forme", "text": "Linii curbe sau drepte, integrate în arhitectură.", "image": "/site/decupaje-forme.jpg", "sort_order": 1 },
+            { "title": "Vitraje integrate", "text": "Fante înguste sau forme speciale, cu sticlă clară sau mată.", "image": "/site/vitraje-integrate.jpg", "sort_order": 2 },
+            { "title": "Configurații", "text": "Panouri laterale, supralumină, înălțimi speciale.", "image": "/site/configuratii.jpg", "sort_order": 3 }
+        ],
+        "cta_title": "Ai găsit stilul potrivit?",
+        "cta_text": "Transformă ideea într-o configurație concretă sau cere sfatul unui consultant Tegora."
+    }
+]

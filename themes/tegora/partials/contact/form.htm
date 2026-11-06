@@ -1,0 +1,77 @@
+##
+[submission contactForm]
+handle = "Leads\Request"
+==
+{% if formSubmitted %}
+    <div class="form-sent" role="status">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#684D38" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.3l2.7 2.7L16.5 9"></path></svg>
+        <h3>{{ success_title }}</h3>
+        <p class="body">{{ success_text }}</p>
+        <a class="inline-link" href="{{ 'contact'|page }}">{{ 'Trimite alt mesaj'|_ }}</a>
+    </div>
+{% else %}
+    <form class="form" data-request="contactForm::onFormSubmit" data-request-update="{ _self: true }" data-request-flash>
+        <input type="hidden" name="sursa" value="contact">
+        <div class="hp-field" aria-hidden="true"><input type="text" name="_oc_hp" value="" autocomplete="off" tabindex="-1"></div>
+        <div class="grid-auto-220">
+            <label class="form-label">{{ 'Nume'|_ }} *<input class="field" type="text" name="nume" required autocomplete="name"></label>
+            <label class="form-label">{{ 'Telefon'|_ }} *<input class="field" type="tel" name="telefon" required autocomplete="tel"></label>
+            <label class="form-label">Email<input class="field" type="email" name="email" autocomplete="email"></label>
+            <label class="form-label">{{ 'Localitate'|_ }}<input class="field" type="text" name="localitate" autocomplete="address-level2"></label>
+            <label class="form-label">{{ 'Subiect'|_ }}
+                <select class="field" name="subiect">
+                    <option value="oferta">{{ 'Solicitare ofertă'|_ }}</option>
+                    <option value="tehnic">{{ 'Consultanță tehnică'|_ }}</option>
+                    <option value="showroom">{{ 'Programare în showroom'|_ }}</option>
+                    <option value="altele">{{ 'Altceva'|_ }}</option>
+                </select>
+            </label>
+            <label class="form-label">{{ 'Tip proiect'|_ }}
+                <select class="field" name="tip">
+                    <option value="casa">{{ 'Casă individuală'|_ }}</option>
+                    <option value="ansamblu">{{ 'Ansamblu rezidențial'|_ }}</option>
+                    <option value="comercial">{{ 'Comercial'|_ }}</option>
+                </select>
+            </label>
+        </div>
+        <fieldset class="contact-door">
+            <legend><span class="contact-door__title">{{ 'DESPRE UȘA DORITĂ'|_ }}</span><span class="contact-door__note">{{ 'Opțional — ne ajută să pregătim discuția'|_ }}</span></legend>
+            <div class="grid-auto-220">
+                <label class="form-label">{{ 'Sistem de interes'|_ }}
+                    <select class="field" name="sistem">
+                        <option value="nestiut">{{ 'Nu știu încă — vreau o recomandare'|_ }}</option>
+                        <option value="performante">{{ 'Uși performante'|_ }} · FERRO KlassikPlus / Klima</option>
+                        <option value="pasive">{{ 'Uși pentru case pasive'|_ }} · FERRO Passiv</option>
+                        <option value="acustice">{{ 'Uși acustice'|_ }} · FERRO Akustik</option>
+                        <option value="foc">{{ 'Uși rezistente la foc'|_ }} · FERRO FireSafe</option>
+                    </select>
+                </label>
+                <label class="form-label">{{ 'Configurație'|_ }}
+                    <select class="field" name="configuratie">
+                        <option value="Nu știu încă">{{ 'Nu știu încă'|_ }}</option>
+                        <option value="Ușă simplă">{{ 'Ușă simplă'|_ }}</option>
+                        <option value="Cu panou lateral">{{ 'Cu panou lateral'|_ }}</option>
+                        <option value="Cu două panouri laterale">{{ 'Cu două panouri laterale'|_ }}</option>
+                        <option value="Cu supralumină">{{ 'Cu supralumină'|_ }}</option>
+                        <option value="Ușă dublă">{{ 'Ușă dublă'|_ }}</option>
+                    </select>
+                </label>
+                <label class="form-label">{{ 'Dimensiuni aproximative gol'|_ }}<input class="field" type="text" name="dimensiuni" placeholder="{{ 'Ex. 100 × 220 cm'|_ }}"></label>
+                <label class="form-label">{{ 'Când ai nevoie de ușă?'|_ }}
+                    <select class="field" name="termen">
+                        <option value="informare">{{ 'Doar mă informez'|_ }}</option>
+                        <option value="1-3">{{ 'În 1–3 luni'|_ }}</option>
+                        <option value="3-6">{{ 'În 3–6 luni'|_ }}</option>
+                        <option value="6+">{{ 'Peste 6 luni'|_ }}</option>
+                    </select>
+                </label>
+            </div>
+        </fieldset>
+        <label class="form-label">{{ 'Mesaj'|_ }}<textarea class="field" name="mesaj" rows="5" placeholder="{{ 'Ex. finisajul dorit, cerințe de securitate sau orice întrebare…'|_ }}"></textarea></label>
+        <label class="form-consent"><input type="checkbox" name="gdpr" value="1" required><span>{{ 'Sunt de acord cu prelucrarea datelor personale conform'|_ }} <a href="{{ 'politica-de-confidentialitate'|page }}">{{ 'Politicii de confidențialitate'|_ }}</a>. *</span></label>
+        <div class="form-foot">
+            <p class="small">* {{ 'câmpuri obligatorii'|_ }}</p>
+            <button class="btn btn--dark btn--lg" type="submit" data-attach-loading>{{ 'Trimite mesajul'|_ }} {% partial 'ui/arrow' %}</button>
+        </div>
+    </form>
+{% endif %}

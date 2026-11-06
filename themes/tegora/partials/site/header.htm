@@ -1,0 +1,54 @@
+{# Menu entries are fixed in the theme: changing them also means changing pages. #}
+{% set doors = [
+    { page: 'usi-performante', img: 'assets/images/thumb-ferro-klassikplus.webp', name: 'Uși performante', sub: 'FERRO KlassikPlus / Klima' },
+    { page: 'usi-case-pasiv', img: 'assets/images/thumb-ferro-passiv.webp', name: 'Uși pentru case pasive', sub: 'FERRO Passiv' },
+    { page: 'usi-acustice', img: 'assets/images/thumb-ferro-akustik.webp', name: 'Uși acustice', sub: 'FERRO Akustik' },
+    { page: 'usi-rezistente-la-foc', img: 'assets/images/thumb-ferro-firesafe.webp', name: 'Uși rezistente la foc', sub: 'FERRO FireSafe' }
+] %}
+{% set opts = this.page.settings %}
+{% set section = opts.nav_section %}
+<div class="site-header"{% if opts.header_sticky == 'off' %} data-sticky="off"{% endif %}>
+    <header class="site-header__bar">
+        <a class="logo" href="{{ 'index'|page }}" aria-label="{{ 'Tegora — pagina principală'|_ }}">
+            <span class="logo__name">TEGORA</span>
+            <span class="logo__tag">SMART &amp; PREMIUM LIVING</span>
+        </a>
+        <nav class="site-nav" id="site-nav" aria-label="{{ 'Navigare principală'|_ }}">
+            <ul class="nav-list">
+                <li>
+                    <button type="button" class="nav-item" data-dd-toggle aria-expanded="false" aria-controls="dd-usi" data-current="{{ section == 'usi' ? 'true' : 'false' }}">{{ 'Uși exterior'|_ }}
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                    </button>
+                    <div class="dd" id="dd-usi" hidden>
+                        <p class="dd__title">{{ 'UȘI DE EXTERIOR MORALT'|_ }}</p>
+                        <ul class="dd__list">
+                            {% for door in doors %}
+                            <li><a class="dd-row" href="{{ door.page|page }}">
+                                <img src="{{ door.img|theme }}" alt="" width="56" height="56">
+                                <span class="dd-row__text"><span class="dd-row__name">{{ door.name|_ }}</span><span class="dd-row__sub">{{ door.sub }}</span></span>
+                                {% partial 'ui/arrow' size=18 class='dd-arrow' %}
+                            </a></li>
+                            {% endfor %}
+                        </ul>
+                        <div class="dd__foot">
+                            <a class="inline-link" href="{{ 'usi-exterior'|page }}">{{ 'Vezi toate ușile de exterior'|_ }} {% partial 'ui/arrow' %}</a>
+                            <a class="dd__foot-link" href="{{ 'configurator'|page }}">{{ 'Configurează'|_ }}</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a class="nav-item" href="{{ 'tehnologie-moralt'|page }}"{% if section == 'tehnologie' %} aria-current="page"{% endif %}>{{ 'Tehnologie Moralt'|_ }}</a></li>
+                <li><a class="nav-item" href="{{ 'configurator'|page }}"{% if section == 'configurator' %} aria-current="page"{% endif %}>{{ 'Cum alegi ușa'|_ }}</a></li>
+                <li><a class="nav-item" href="{{ 'proiecte'|page }}"{% if section == 'proiecte' %} aria-current="page"{% endif %}>{{ 'Proiecte'|_ }}</a></li>
+                <li><a class="nav-item" href="{{ 'inspiratie'|page }}"{% if section == 'inspiratie' %} aria-current="page"{% endif %}>{{ 'Inspirație'|_ }}</a></li>
+                <li><a class="nav-item" href="{{ 'contact'|page }}"{% if section == 'contact' %} aria-current="page"{% endif %}>{{ 'Contact'|_ }}</a></li>
+            </ul>
+        </nav>
+        <div class="site-header__actions">
+            {# The RO/EN switcher from the design goes here once the English site exists. #}
+            <a class="btn btn--dark btn--sm" href="{{ 'contact'|page }}">{{ 'Cere ofertă'|_ }} {% partial 'ui/arrow' %}</a>
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="{{ 'Meniu'|_ }}">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+            </button>
+        </div>
+    </header>
+</div>

@@ -1,0 +1,193 @@
+##
+title = "Tegora"
+url = "/"
+layout = "default"
+page_css = "home"
+meta_description = "Uși de exterior Moralt cu lemn natural și inginerie performantă: izolare termică și fonică, securitate, protecție la foc și stabilitate în timp."
+
+[section page]
+handle = "Page\Home"
+==
+{% set systemMap = {
+    klassikplus: { image: 'ferro-klassikplus', link: 'usi-performante' },
+    klima: { image: 'ferro-klima', link: 'usi-performante' },
+    akustik: { image: 'ferro-akustik', link: 'usi-acustice' },
+    passiv: { image: 'ferro-passiv', link: 'usi-case-pasiv' },
+    firesafe: { image: 'ferro-firesafe', link: 'usi-rezistente-la-foc' }
+} %}
+
+<section class="home-hero" aria-labelledby="hero-title">
+    <img class="home-hero__img" src="{{ page.hero_image|media }}" alt="" aria-hidden="true" width="1672" height="941">
+    <div class="home-hero__shade" aria-hidden="true"></div>
+    <div class="wrap home-hero__inner">
+        <div class="home-hero__text">
+            <p class="eyebrow">{{ page.hero_eyebrow }}</p>
+            <h1 id="hero-title" class="home-hero__title">{{ page.hero_title_1 }}<br><span class="home-hero__accent">{{ page.hero_title_2 }}</span></h1>
+            <p class="home-hero__lead">{{ page.hero_text }}</p>
+            <p class="home-hero__motto">{{ page.hero_motto|nl2br }}</p>
+            <div class="btn-row home-hero__actions">
+                <a class="btn btn--dark home-btn" href="{{ 'usi-exterior'|page }}">{{ page.hero_cta_primary }} {% partial 'ui/arrow' %}</a>
+                <a class="btn btn--light home-btn home-btn--soft" href="{{ 'configurator'|page }}">{{ page.hero_cta_secondary }} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"></path><circle cx="15" cy="7" r="2"></circle><circle cx="9" cy="17" r="2"></circle></svg></a>
+            </div>
+            <p class="home-hero__tagline">{{ page.hero_tagline|nl2br }}</p>
+        </div>
+    </div>
+</section>
+
+<section class="home-stats" aria-label="{{ 'Performanțe cheie'|_ }}">
+    <div class="wrap home-stats__wrap">
+        <ul class="plain home-stats__list">
+            {% for stat in page.stats %}
+            <li class="home-stat">
+                {% if stat.icon == 'passive' %}
+                <span class="home-stat__icon"><img src="{{ 'assets/images/passive-house.png'|theme }}" alt="{{ 'Marca Passive House'|_ }}" width="32" height="38" class="home-stat__logo"></span>
+                {% elseif stat.icon == 'germany' %}
+                <span class="home-stat__icon"><svg width="32" height="21" viewBox="0 0 28 19" role="img" aria-label="{{ 'Steagul Germaniei'|_ }}"><rect width="28" height="6.4" fill="#1B1A17"></rect><rect y="6.3" width="28" height="6.4" fill="#C8102E"></rect><rect y="12.6" width="28" height="6.4" fill="#E3B23C"></rect></svg></span>
+                {% else %}
+                <span class="home-stat__icon" aria-hidden="true">{% partial 'home/icon' name=stat.icon size=36 %}</span>
+                {% endif %}
+                <span class="home-stat__text"><strong class="home-stat__value{% if stat.icon == 'germany' %} home-stat__value--caps{% endif %}">{{ stat.value }}</strong><span class="home-stat__label">{{ stat.label }}</span></span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<section id="usi-exterior" class="home-systems" aria-labelledby="sys-title">
+    <div class="wrap home-systems__inner">
+        <div class="home-systems__head">
+            <div class="home-systems__intro">
+                <p class="home-label-lg">{{ page.systems_eyebrow }}</p>
+                <h2 id="sys-title" class="home-h2 home-h2--sys">{{ page.systems_title }}</h2>
+                <p class="home-systems__text">{{ page.systems_text }}</p>
+            </div>
+            <a class="btn btn--light home-btn home-btn--sm home-btn--soft" href="{{ 'usi-exterior'|page }}">{{ page.systems_cta }} {% partial 'ui/arrow' %}</a>
+        </div>
+
+        <ul class="plain home-systems__grid">
+            {% for s in page.systems %}
+            {% set info = systemMap[s.system] %}
+            <li class="card home-card home-card--{{ s.system }}">
+                <div class="home-card__media"><img src="{{ ('assets/images/' ~ info.image ~ '.webp')|theme }}" alt="{{ 'Secțiune prin ușa Moralt FERRO'|_ }} {{ s.name }}" width="600" height="413" loading="lazy"></div>
+                <span class="home-card__bar" aria-hidden="true"></span>
+                <div class="home-card__title">
+                    <span class="label">{{ s.brand }}</span>
+                    <h3 class="h3">{{ s.name }}</h3>
+                </div>
+                <p class="home-card__text">{{ s.text }}</p>
+                <a class="inline-link home-card__link" href="{{ info.link|page }}">{{ s.link_label }} {% partial 'ui/arrow' %}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="home-systems__foot">
+            <p class="home-note home-note--rule"><span class="home-note__line" aria-hidden="true"></span>{{ page.systems_note_left }}</p>
+            <p class="home-note">{{ page.systems_note_right }}</p>
+        </div>
+    </div>
+</section>
+
+<section id="tehnologie" class="section--dark home-tech" aria-labelledby="tech-title">
+    <div class="wrap home-tech__inner">
+        <div class="home-tech__top">
+            <div class="home-tech__text">
+                <p class="eyebrow">{{ page.tech_eyebrow }}</p>
+                <h2 id="tech-title" class="home-tech__title">{{ page.tech_title }}</h2>
+                <p class="home-tech__lead">{{ page.tech_text }}</p>
+                <a class="btn btn--light home-tech__btn" href="{{ 'tehnologie-moralt'|page }}">{{ page.tech_cta }} {% partial 'ui/arrow' %}</a>
+            </div>
+            <div class="home-tech__benefits">
+                <ul class="plain home-benefits" aria-label="{{ 'Avantaje Moralt'|_ }}">
+                    {% for b in page.tech_benefits %}
+                    <li>
+                        <span class="home-benefits__icon" aria-hidden="true">{% partial 'home/icon' name=b.icon size=28 sw=1.3 %}</span>
+                        <span class="home-benefits__text">{{ b.text }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <p class="home-tech__footnote">{{ page.tech_footnote }}</p>
+            </div>
+        </div>
+
+        <figure class="home-section-fig">
+            <div class="home-section-fig__head">
+                <figcaption class="home-section-fig__caption">{{ page.tech_caption }}</figcaption>
+                <img class="home-section-fig__logo" src="{{ 'assets/images/moralt-logo.png'|theme }}" alt="{{ 'Moralt — the core of the door'|_ }}" width="180" height="50" loading="lazy">
+            </div>
+            <img class="home-section-fig__img" src="{{ 'assets/images/ferro-klassikplus-sectiune-lata.webp'|theme }}" alt="{{ 'Secțiune transversală printr-o ușă Moralt FERRO KlassikPlus de 68 mm, cu straturile de lemn, oțel și izolație vizibile'|_ }}" width="1840" height="599" loading="lazy">
+            <ol class="plain home-layers" aria-label="{{ 'Straturile ușii'|_ }}">
+                {% for layer in page.tech_layers %}
+                <li>
+                    <span class="home-layers__num">{{ '%02d'|format(loop.index) }}</span>
+                    <span class="home-layers__title">{{ layer.title }}{% if layer.detail %}<span class="home-layers__detail">{{ layer.detail }}</span>{% endif %}</span>
+                </li>
+                {% endfor %}
+            </ol>
+        </figure>
+    </div>
+</section>
+
+<section id="cum-alegi" class="home-cfg" aria-labelledby="cfg-title">
+    <div class="wrap home-cfg__inner">
+        <figure class="home-cfg__fig">
+            <img src="{{ page.cfg_image|media }}" alt="{{ 'Intrare modernă la apus: ușă din lemn cu panou lateral din sticlă, sub o copertină iluminată'|_ }}" width="1280" height="1360" loading="lazy">
+        </figure>
+
+        <div class="home-cfg__body">
+            <p class="eyebrow">{{ page.cfg_eyebrow }}</p>
+            <h2 id="cfg-title" class="home-h2 home-h2--cfg">{{ page.cfg_title }}</h2>
+            <p class="home-cfg__text">{{ page.cfg_text }}</p>
+
+            <ol class="plain home-steps" aria-label="{{ 'Pașii configuratorului'|_ }}">
+                {% for step in page.cfg_steps %}
+                <li><span class="home-steps__num">{{ loop.index }}</span><span class="home-steps__label">{{ step.label }}</span></li>
+                {% endfor %}
+            </ol>
+
+            <div class="home-cfg__cta">
+                <a class="btn btn--dark btn--lg" href="{{ 'configurator'|page }}">{{ page.cfg_cta }} {% partial 'ui/arrow' %}</a>
+            </div>
+
+            <ul class="plain home-cfg__benefits">
+                {% for b in page.cfg_benefits %}
+                <li><span class="home-cfg__benefit-icon">{% partial 'home/icon' name=b.icon size=20 sw=1.5 %}</span>{{ b.text }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section--alt home-process" aria-labelledby="proc-title">
+    <div class="wrap home-process__inner">
+        <div class="home-process__head">
+            <p class="home-label-lg">{{ page.process_eyebrow }}</p>
+            <h2 id="proc-title" class="home-h2 home-h2--proc">{{ page.process_title }}</h2>
+        </div>
+        <ol class="plain home-process__list">
+            {% for step in page.process_steps %}
+            <li{% if loop.last %} class="is-last"{% endif %}>
+                <div class="home-process__rule" aria-hidden="true"><span class="home-process__tick"></span><span class="home-process__line"></span></div>
+                <div class="home-process__body">
+                    <span class="home-process__num">{{ '%02d'|format(loop.index) }}</span>
+                    <span class="home-process__title">{{ step.title }}</span>
+                    <span class="home-process__text">{{ step.text }}</span>
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+</section>
+
+<section id="contact" class="home-final" aria-labelledby="cta-title">
+    <img class="home-final__img" src="{{ page.cta_image|media }}" alt="" aria-hidden="true" width="1916" height="821" loading="lazy">
+    <div class="wrap home-final__inner">
+        <div class="home-final__box">
+            <h2 id="cta-title" class="home-final__title">{{ page.cta_title }}</h2>
+            <p class="home-final__text">{{ page.cta_text }}</p>
+            <div class="btn-row home-final__actions">
+                <a class="btn btn--dark home-btn home-btn--lg" href="{{ 'configurator'|page }}">{{ page.cta_primary }} {% partial 'ui/arrow' %}</a>
+                <a class="btn btn--ghost-dark home-btn home-btn--lg" href="{{ 'contact'|page }}">{{ page.cta_secondary }} {% partial 'ui/arrow' %}</a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,346 @@
+uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e21
+handle: Content\Product
+type: entry
+name: Produs
+drafts: false
+
+navigation:
+    label: Produse (uși)
+    icon: ph ph-door
+    order: 700
+
+fields:
+    eyebrow:
+        label: Etichetă deasupra titlului
+        type: text
+        tab: Început de pagină
+    tagline:
+        label: Slogan
+        type: text
+        tab: Început de pagină
+    hero_text:
+        label: Text de prezentare
+        type: textarea
+        size: small
+        tab: Început de pagină
+    hero_stats:
+        label: Performanțe cheie
+        type: repeater
+        titleFrom: value
+        tab: Început de pagină
+        form:
+            fields:
+                icon:
+                    label: Pictogramă
+                    type: dropdown
+                    options:
+                        thermo-scale: Termometru
+                        passivhaus: Marca Passive House
+                        shield-check: Scut (securitate)
+                        thickness: Grosime
+                        sound: Izolare fonică
+                        area: Suprafață
+                        flame: Foc
+                value:
+                    label: Valoare
+                    type: text
+                unit:
+                    label: Unitate
+                    type: text
+                label:
+                    label: Descriere
+                    comment: Un rând nou în text creează o trecere pe rând nou.
+                    type: textarea
+                    size: small
+    hero_image:
+        label: Fotografie de prezentare
+        type: mediafinder
+        mode: image
+        tab: Imagini început
+    hero_image_alt:
+        label: Text alternativ fotografie
+        type: text
+        tab: Imagini început
+    hero_layout:
+        label: Aranjarea imaginii
+        comment: Variantă A sau B, după cum se potrivește fotografia.
+        type: dropdown
+        options:
+            a: Varianta A
+            b: Varianta B
+        tab: Imagini început
+    hero_caption:
+        label: Legendă sub imagine
+        type: text
+        tab: Imagini început
+    section_name:
+        label: Denumire pe cardul de secțiune
+        comment: Gol = se folosește titlul paginii.
+        type: text
+        tab: Imagini început
+    section_badge:
+        label: Insignă pe cardul de secțiune
+        comment: De exemplu grosimea foii.
+        type: text
+        tab: Imagini început
+    section_images:
+        label: Imagini de secțiune
+        type: repeater
+        titleFrom: alt
+        tab: Imagini început
+        form:
+            fields:
+                image:
+                    label: Imagine
+                    type: mediafinder
+                    mode: image
+                alt:
+                    label: Text alternativ
+                    type: text
+                caption:
+                    label: Legendă (opțional)
+                    type: text
+    intro:
+        label: Text introductiv
+        comment: Cuvintele îngroșate apar cu accent în pagină.
+        type: richeditor
+        size: large
+        tab: Prezentare
+    spec_eyebrow:
+        label: Etichetă
+        type: text
+        tab: Date tehnice
+    spec_title:
+        label: Titlu
+        type: text
+        tab: Date tehnice
+    spec_text:
+        label: Text (opțional)
+        type: textarea
+        size: small
+        tab: Date tehnice
+    spec_caption:
+        label: Descrierea tabelului (pentru cititoare de ecran)
+        type: text
+        tab: Date tehnice
+    spec_corner:
+        label: Titlul primei coloane
+        comment: De exemplu „Variantă” sau „Grosime foaie (mm)”.
+        type: text
+        tab: Date tehnice
+    spec_columns:
+        label: Coloane
+        type: repeater
+        titleFrom: label
+        tab: Date tehnice
+        form:
+            fields:
+                label:
+                    label: Titlu coloană
+                    type: text
+    spec_rows:
+        label: Rânduri
+        comment: Un rând cu o singură valoare se întinde pe toate coloanele. Pentru indice scrieți R_{wp}.
+        type: repeater
+        titleFrom: label
+        tab: Date tehnice
+        form:
+            fields:
+                label:
+                    label: Denumire
+                    type: text
+                icon:
+                    label: Pictogramă
+                    type: dropdown
+                    options:
+                        core: Miez
+                        thermo: Termometru
+                        sound: Izolare fonică
+                        thickness-simple: Grosime
+                        shield: Scut (securitate)
+                        height: Înălțime
+                        width: Lățime
+                        area: Suprafață
+                        weight: Greutate
+                        medal: Certificare
+                        flame: Foc
+                is_text:
+                    label: Valori text descriptiv
+                    comment: Bifați pentru valori scrise (corp de literă mai mic), nu pentru cifre.
+                    type: checkbox
+                values:
+                    label: Valori
+                    comment: O valoare pentru fiecare coloană, în ordine; o singură valoare se întinde pe toate coloanele.
+                    type: repeater
+                    titleFrom: text
+                    form:
+                        fields:
+                            text:
+                                label: Valoare
+                                type: text
+                            strong:
+                                label: Evidențiată
+                                type: checkbox
+                note:
+                    label: Notă după valoare
+                    comment: Doar pentru rândurile cu o singură valoare.
+                    type: text
+    spec_footnote:
+        label: Notă sub tabel
+        type: textarea
+        size: small
+        tab: Date tehnice
+    datasheet:
+        label: Fișă tehnică (PDF)
+        comment: Gol = butonul „Solicită fișa tehnică” trimite la Contact.
+        type: mediafinder
+        mode: file
+        tab: Date tehnice
+    benefits:
+        label: Beneficii
+        type: repeater
+        titleFrom: title
+        tab: Beneficii
+        form:
+            fields:
+                icon:
+                    label: Pictogramă
+                    type: dropdown
+                    options:
+                        leaf: Frunză
+                        house-heat: Casă
+                        bridge: Fără punți termice
+                        sound: Izolare fonică
+                        shield-check: Scut (securitate)
+                        thermo-scale: Termometru
+                        diamond: Diamant (durabilitate)
+                        flame: Foc
+                title:
+                    label: Titlu
+                    type: text
+                text:
+                    label: Text
+                    type: textarea
+                    size: small
+    constr_eyebrow:
+        label: Etichetă
+        type: text
+        tab: Construcție
+    constr_title:
+        label: Titlu
+        comment: Gol = secțiunea nu se afișează.
+        type: text
+        tab: Construcție
+    constr_text:
+        label: Text
+        type: textarea
+        size: small
+        tab: Construcție
+    constr_link_label:
+        label: Text link
+        type: text
+        tab: Construcție
+    constr_image:
+        label: Imagine
+        type: mediafinder
+        mode: image
+        tab: Construcție
+    constr_image_alt:
+        label: Text alternativ imagine
+        type: text
+        tab: Construcție
+    constr_caption:
+        label: Legendă imagine
+        type: text
+        tab: Construcție
+    pers_eyebrow:
+        label: Etichetă
+        type: text
+        tab: Personalizare
+    pers_title:
+        label: Titlu
+        comment: Gol = secțiunea nu se afișează.
+        type: text
+        tab: Personalizare
+    pers_text:
+        label: Text
+        type: textarea
+        size: small
+        tab: Personalizare
+    pers_link_label:
+        label: Text link
+        type: text
+        tab: Personalizare
+    pers_image:
+        label: Imagine
+        type: mediafinder
+        mode: image
+        tab: Personalizare
+    pers_image_alt:
+        label: Text alternativ imagine
+        type: text
+        tab: Personalizare
+    pers_swatches:
+        label: Legendă sub imagine
+        type: repeater
+        titleFrom: label
+        tab: Personalizare
+        form:
+            fields:
+                label:
+                    label: Text
+                    type: text
+    rc_eyebrow:
+        label: Etichetă
+        type: text
+        tab: Rezistență RC
+    rc_title:
+        label: Titlu
+        type: text
+        tab: Rezistență RC
+    rc_text:
+        label: Text
+        type: textarea
+        size: small
+        tab: Rezistență RC
+    rc_note:
+        label: Notă
+        type: textarea
+        size: small
+        tab: Rezistență RC
+    rc_classes:
+        label: Clase de rezistență
+        comment: Fără nicio clasă, secțiunea nu se afișează.
+        type: repeater
+        titleFrom: class_name
+        tab: Rezistență RC
+        form:
+            fields:
+                class_name:
+                    label: Clasa
+                    type: text
+                time:
+                    label: Durată rezistență
+                    type: text
+                description:
+                    label: Descriere
+                    type: text
+                tools:
+                    label: Unelte testate
+                    type: repeater
+                    titleFrom: name
+                    form:
+                        fields:
+                            icon:
+                                label: Pictogramă
+                                type: dropdown
+                                options:
+                                    screwdriver: Șurubelniță
+                                    pliers: Clește
+                                    crowbar-small: Rangă mică
+                                    crowbar-large: Rangă mare
+                                    hammer: Ciocan
+                                    drill: Mașină de găurit
+                            name:
+                                label: Denumire
+                                type: text

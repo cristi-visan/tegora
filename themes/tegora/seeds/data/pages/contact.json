@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "title": "Contact",
+        "slug": "contact",
+        "is_enabled": 1,
+        "hero_eyebrow": "CONTACT",
+        "hero_title": "Hai să vorbim despre proiectul tău.",
+        "hero_text": "Scrie-ne, sună-ne sau vino în showroom. Un consultant Tegora te ajută să alegi sistemul Moralt potrivit și pregătește o ofertă pentru proiectul tău.",
+        "phone_note": "",
+        "email_note": "Pentru oferte, fișe tehnice și întrebări generale.",
+        "showroom_note": "vizite pe bază de programare",
+        "form_eyebrow": "SCRIE-NE",
+        "form_title": "Trimite-ne un mesaj",
+        "form_text": "Spune-ne câteva detalii despre proiect și te contactăm noi.",
+        "steps": [
+            { "title": "Analizăm cererea", "text": "Verificăm cerințele și dimensiunile proiectului.", "sort_order": 1 },
+            { "title": "Te contactăm", "text": "Un consultant discută cu tine opțiunile potrivite.", "sort_order": 2 },
+            { "title": "Primești oferta", "text": "Personalizată pentru sistemul și configurația alese.", "sort_order": 3 }
+        ],
+        "success_title": "Mulțumim! Am primit mesajul tău.",
+        "success_text": "Un consultant Tegora te va contacta în curând."
+    }
+]

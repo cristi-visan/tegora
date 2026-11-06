@@ -1,0 +1,628 @@
+<?php
+
+use Cms\Classes\Page;
+use Cms\Classes\Theme;
+use Cms\Classes\PageCode;
+use Cms\Classes\Controller;
+use Tailor\Models\EntryRecord;
+use Tailor\Models\SubmissionRecord;
+use Tailor\Components\SubmissionComponent;
+use Backend\Models\UserGroup;
+use Illuminate\Support\Facades\Facade;
+use Illuminate\Http\Request as HttpRequest;
+use Illuminate\Http\UploadedFile;
+
+class SubmissionDecoderTest extends PluginTestCase
+{
+    /**
+     * @var bool autoMigrateTailor migrates the tailor blueprints once for the reused database
+     */
+    protected $autoMigrateTailor = true;
+
+    /**
+     * @var bool useTransactions isolates each test with a database transaction
+     */
+    protected $useTransactions = true;
+
+    /**
+     * testRepeaterScalarInputRejected covers the reparenting primitive, a scalar ID must never
+     * reach HasMany::setSimpleValue
+     */
+    public function testRepeaterScalarInputRejected()
+    {
+        $victim = $this->createSubmission(['answers' => [['answer' => 'Victim Answer']]]);
+        $victimRow = $victim->answers()->first();
+
+        $component = $this->makeComponent();
+        $this->setPostData([
+            'name' => 'Attacker',
+            'answers' => $victimRow->id,
+        ]);
+
+        $this->expectException(ValidationException::class);
+
+        try {
+            $component->onFormSubmit();
+        }
+        finally {
+            $this->assertEquals($victim->id, $victim->answers()->first()->host_id);
+        }
+    }
+
+    /**
+     * testRepeaterScalarArrayInputRejected
+     */
+    public function testRepeaterScalarArrayInputRejected()
+    {
+        $component = $this->makeComponent();
+        $this->setPostData([
+            'name' => 'Attacker',
+            'answers' => ['1', '2'],
+        ]);
+
+        $this->expectException(ValidationException::class);
+
+        $component->onFormSubmit();
+    }
+
+    /**
+     * testNestedFormScalarInputRejected covers the HasOne::setSimpleValue variant
+     */
+    public function testNestedFormScalarInputRejected()
+    {
+        $component = $this->makeComponent();
+        $this->setPostData([
+            'name' => 'Attacker',
+            'profile' => '1',
+        ]);
+
+        $this->expectException(ValidationException::class);
+
+        $component->onFormSubmit();
+    }
+
+    /**
+     * testRepeaterNestedCreate
+     */
+    public function testRepeaterNestedCreate()
+    {
+        $record = $this->createSubmission([
+            'answers' => [
+                ['answer' => 'First'],
+                ['answer' => 'Second'],
+            ],
+        ]);
+
+        $rows = $record->answers()->get();
+        $this->assertCount(2, $rows);
+        $this->assertEquals('First', $rows[0]->answer);
+        $this->assertEquals('Second', $rows[1]->answer);
+    }
+
+    /**
+     * testNestedFormCreate
+     */
+    public function testNestedFormCreate()
+    {
+        $record = $this->createSubmission([
+            'profile' => ['bio' => 'A short story'],
+        ]);
+
+        $this->assertEquals('A short story', $record->profile()->first()->bio);
+    }
+
+    /**
+     * testNestedIdKeyStripped ensures nested data cannot target existing child records
+     */
+    public function testNestedIdKeyStripped()
+    {
+        $victim = $this->createSubmission(['answers' => [['answer' => 'Victim Answer']]]);
+        $victimRow = $victim->answers()->first();
+
+        $record = $this->createSubmission([
+            'answers' => [
+                ['answer' => 'Fresh', 'id' => $victimRow->id, 'host_id' => 999],
+            ],
+        ]);
+
+        $newRow = $record->answers()->first();
+        $this->assertNotEquals($victimRow->id, $newRow->id);
+        $this->assertEquals($record->id, $newRow->host_id);
+
+        $victimRow->reload();
+        $this->assertEquals($victim->id, $victimRow->host_id);
+        $this->assertEquals('Victim Answer', $victimRow->answer);
+    }
+
+    /**
+     * testUnknownRowFieldDropped
+     */
+    public function testUnknownRowFieldDropped()
+    {
+        $record = $this->createSubmission([
+            'answers' => [
+                ['answer' => 'Real', 'hacker_field' => 'junk'],
+            ],
+        ]);
+
+        $row = $record->answers()->first();
+        $this->assertEquals('Real', $row->answer);
+        $this->assertNull($row->hacker_field);
+    }
+
+    /**
+     * testNestedRepeaterRecursion
+     */
+    public function testNestedRepeaterRecursion()
+    {
+        $record = $this->createSubmission([
+            'answers' => [
+                [
+                    'answer' => 'Parent',
+                    'followups' => [
+                        ['note' => 'Nested One'],
+                        ['note' => 'Nested Two'],
+                    ],
+                ],
+            ],
+        ]);
+
+        $row = $record->answers()->first();
+        $followups = $row->followups()->get();
+        $this->assertCount(2, $followups);
+        $this->assertEquals('Nested One', $followups[0]->note);
+    }
+
+    /**
+     * testFileUploadInsideRepeater
+     */
+    public function testFileUploadInsideRepeater()
+    {
+        $component = $this->makeComponent();
+        $this->setPostData([
+            'name' => 'Uploader',
+            'answers' => [['answer' => 'With Photo']],
+        ], [
+            'answers' => [['photo' => $this->makeUploadedFile('photo.jpg')]],
+        ]);
+
+        $component->onFormSubmit();
+
+        $row = $this->findLastSubmission()->answers()->first();
+        $this->assertEquals('With Photo', $row->answer);
+        $this->assertNotNull($row->photo);
+        $this->assertEquals('photo.jpg', $row->photo->file_name);
+    }
+
+    /**
+     * testFilePostbackValueIgnoredInsideRepeater
+     */
+    public function testFilePostbackValueIgnoredInsideRepeater()
+    {
+        $record = $this->createSubmission([
+            'answers' => [['answer' => 'No Photo', 'photo' => '1']],
+        ]);
+
+        $row = $record->answers()->first();
+        $this->assertEquals('No Photo', $row->answer);
+        $this->assertNull($row->photo);
+    }
+
+    /**
+     * testEntriesPublishedAssociation
+     */
+    public function testEntriesPublishedAssociation()
+    {
+        $post = $this->createPost('Published Post', true);
+
+        $record = $this->createSubmission(['post' => $post->id]);
+
+        $this->assertEquals($post->id, $record->post_id);
+    }
+
+    /**
+     * testEntriesUnpublishedRejected
+     */
+    public function testEntriesUnpublishedRejected()
+    {
+        $post = $this->createPost('Hidden Post', false);
+
+        $component = $this->makeComponent();
+        $this->setPostData([
+            'name' => 'Visitor',
+            'post' => $post->id,
+        ]);
+
+        $this->expectException(ValidationException::class);
+
+        $component->onFormSubmit();
+    }
+
+    /**
+     * testEntriesMissingRejected
+     */
+    public function testEntriesMissingRejected()
+    {
+        $component = $this->makeComponent();
+        $this->setPostData([
+            'name' => 'Visitor',
+            'post' => 999999,
+        ]);
+
+        $this->expectException(ValidationException::class);
+
+        $component->onFormSubmit();
+    }
+
+    /**
+     * testEntriesNestedArrayRejected
+     */
+    public function testEntriesNestedArrayRejected()
+    {
+        $post = $this->createPost('Published Post', true);
+
+        $component = $this->makeComponent();
+        $this->setPostData([
+            'name' => 'Visitor',
+            'post' => ['id' => $post->id, 'title' => 'Overwrite'],
+        ]);
+
+        $this->expectException(ValidationException::class);
+
+        $component->onFormSubmit();
+    }
+
+    /**
+     * testGroupedRepeaterValidGroup
+     */
+    public function testGroupedRepeaterValidGroup()
+    {
+        $record = $this->createSubmission([
+            'blocks' => [
+                ['content_group' => 'quote', 'text' => 'To be'],
+                ['content_group' => 'code', 'snippet' => 'echo 1;'],
+            ],
+        ]);
+
+        $blocks = $record->blocks()->get();
+        $this->assertCount(2, $blocks);
+        $this->assertEquals('quote', $blocks[0]->content_group);
+        $this->assertEquals('To be', $blocks[0]->text);
+        $this->assertEquals('code', $blocks[1]->content_group);
+        $this->assertEquals('echo 1;', $blocks[1]->snippet);
+    }
+
+    /**
+     * testGroupedRepeaterInvalidGroupRejected
+     */
+    public function testGroupedRepeaterInvalidGroupRejected()
+    {
+        $component = $this->makeComponent();
+        $this->setPostData([
+            'name' => 'Visitor',
+            'blocks' => [['content_group' => 'bogus', 'text' => 'x']],
+        ]);
+
+        $this->expectException(ValidationException::class);
+
+        $component->onFormSubmit();
+    }
+
+    /**
+     * testTopLevelRichEditorSanitized ensures scalar richeditor values outside the decoder lose script vectors
+     */
+    public function testTopLevelRichEditorSanitized()
+    {
+        $record = $this->createSubmission([
+            'summary' => '<p onclick="alert(1)">Hello</p><img src="x" onerror="alert(2)">',
+        ]);
+
+        $this->assertStringContainsString('Hello', $record->summary);
+        $this->assertStringNotContainsString('onclick', $record->summary);
+        $this->assertStringNotContainsString('onerror', $record->summary);
+    }
+
+    /**
+     * testWizardRichEditorSanitized ensures the wizard step and final submit paths sanitize richeditor values
+     */
+    public function testWizardRichEditorSanitized()
+    {
+        $component = $this->makeComponent(wizard: true);
+        $this->setPostData([
+            '_form_step' => 'step1',
+            'name' => 'Stepper',
+            'summary' => '<p onmouseover="alert(1)">Step</p>',
+        ]);
+
+        $component->onFormStep();
+
+        $record = $this->findLastSubmission();
+        $this->assertStringContainsString('Step', $record->summary);
+        $this->assertStringNotContainsString('onmouseover', $record->summary);
+
+        $this->setPostData([
+            'name' => 'Stepper',
+            'summary' => '<p onfocus="alert(1)">Final</p>',
+        ]);
+
+        $component->onFormSubmit();
+
+        $record = $this->findLastSubmission();
+        $this->assertStringContainsString('Final', $record->summary);
+        $this->assertStringNotContainsString('onfocus', $record->summary);
+    }
+
+    /**
+     * testNestedRichEditorSanitized ensures richeditor values inside repeater rows lose script vectors
+     */
+    public function testNestedRichEditorSanitized()
+    {
+        $record = $this->createSubmission([
+            'answers' => [['answer' => 'Row', 'detail' => '<p onclick="alert(1)">Nested</p>']],
+        ]);
+
+        $row = $record->answers()->first();
+        $this->assertStringContainsString('Nested', $row->detail);
+        $this->assertStringNotContainsString('onclick', $row->detail);
+    }
+
+    /**
+     * testMediaFinderValuesRejected ensures media finder values are dropped at the top level and inside repeater items
+     */
+    public function testMediaFinderValuesRejected()
+    {
+        $record = $this->createSubmission([
+            'banner' => 'https://example.com/banner.png',
+            'answers' => [['answer' => 'Row', 'image' => 'https://example.com/image.png']],
+        ]);
+
+        $row = $record->answers()->first();
+        $this->assertNull($record->banner);
+        $this->assertEquals('Row', $row->answer);
+        $this->assertNull($row->image);
+    }
+
+    /**
+     * testMarkdownAndCodeValuesKeptVerbatim ensures non-HTML text fields are not entity encoded by the sanitizer
+     */
+    public function testMarkdownAndCodeValuesKeptVerbatim()
+    {
+        $value = 'a = b + c @x `y`';
+
+        $record = $this->createSubmission([
+            'notes' => $value,
+            'script' => $value,
+            'answers' => [['answer' => 'Row', 'detail_notes' => $value, 'detail_script' => $value]],
+        ]);
+
+        $this->assertEquals($value, $record->notes);
+        $this->assertEquals($value, $record->script);
+
+        $row = $record->answers()->first();
+        $this->assertEquals($value, $row->detail_notes);
+        $this->assertEquals($value, $row->detail_script);
+    }
+
+    /**
+     * testColorPickerInvalidValueDropped ensures arbitrary CSS strings never reach a colorpicker column
+     */
+    public function testColorPickerInvalidValueDropped()
+    {
+        $record = $this->createSubmission([
+            'accent' => 'red;background:url(javascript:alert(1))',
+            'answers' => [['answer' => 'Row', 'tint' => '#fff" onmouseover="alert(1)']],
+        ]);
+
+        $this->assertNull($record->accent);
+        $this->assertNull($record->answers()->first()->tint);
+    }
+
+    /**
+     * testColorPickerHexValueKept
+     */
+    public function testColorPickerHexValueKept()
+    {
+        $record = $this->createSubmission([
+            'accent' => '#FF00aa',
+            'answers' => [['answer' => 'Row', 'tint' => '#abc']],
+        ]);
+
+        $this->assertEquals('#FF00aa', $record->accent);
+        $this->assertEquals('#abc', $record->answers()->first()->tint);
+    }
+
+    /**
+     * testNestedItemsScalarInputRejected ensures an existing nested item ID cannot be reassigned to a new submission
+     */
+    public function testNestedItemsScalarInputRejected()
+    {
+        $victim = $this->createSubmission([]);
+        $victimRow = $victim->makeRelation('faqs');
+        $victimRow->question = 'Victim Question';
+        $victim->faqs()->add($victimRow);
+
+        $component = $this->makeComponent();
+        $this->setPostData([
+            'name' => 'Attacker',
+            'faqs' => [$victimRow->id],
+        ]);
+
+        $this->expectException(ValidationException::class);
+
+        try {
+            $component->onFormSubmit();
+        }
+        finally {
+            $victimRow->reload();
+            $this->assertEquals($victim->id, $victimRow->host_id);
+            $this->assertEquals('Victim Question', $victimRow->question);
+        }
+    }
+
+    /**
+     * testNestedItemsNestedCreate
+     */
+    public function testNestedItemsNestedCreate()
+    {
+        $record = $this->createSubmission([
+            'faqs' => [['question' => 'First Question']],
+        ]);
+
+        $this->assertEquals('First Question', $record->faqs()->first()->question);
+    }
+
+    /**
+     * testRecordFinderMissingRecordRejected ensures recordfinder values must resolve to an existing record
+     */
+    public function testRecordFinderMissingRecordRejected()
+    {
+        $component = $this->makeComponent();
+        $this->setPostData([
+            'name' => 'Visitor',
+            'user_group' => 999999,
+        ]);
+
+        $this->expectException(ValidationException::class);
+
+        $component->onFormSubmit();
+    }
+
+    /**
+     * testRecordFinderExistingRecordAssociated
+     */
+    public function testRecordFinderExistingRecordAssociated()
+    {
+        $group = UserGroup::create(['name' => 'Reviewers', 'code' => 'reviewers']);
+
+        $record = $this->createSubmission(['user_group' => $group->id]);
+
+        $this->assertEquals($group->id, $record->user_group_id);
+    }
+
+    /**
+     * testGuardedRelationFieldDropped ensures guarded relation fields ignore visitor input
+     */
+    public function testGuardedRelationFieldDropped()
+    {
+        $post = $this->createPost('Published Post', true);
+
+        $record = $this->createSubmission(['featured_post' => $post->id]);
+
+        $this->assertNull($record->featured_post_id);
+    }
+
+    /**
+     * testFieldModifiersNotAccepted ensures blueprint fields modifying core attributes are not visitor input
+     */
+    public function testFieldModifiersNotAccepted()
+    {
+        $component = $this->makeComponent();
+
+        $this->assertNotContains('is_enabled', $component->formGetFieldNames());
+        $this->assertNotContains('is_enabled', array_column($component->formGetFields(), 'name'));
+    }
+
+    /**
+     * testWizardStepCannotEnableSubmission ensures updating a partial submission cannot approve it
+     */
+    public function testWizardStepCannotEnableSubmission()
+    {
+        $component = $this->makeComponent(wizard: true);
+
+        $this->setPostData([
+            '_form_step' => 'step1',
+            'name' => 'Jeff',
+            'is_enabled' => 1,
+        ]);
+
+        $component->onFormStep();
+
+        $this->setPostData([
+            '_form_step' => 'step1',
+            'name' => 'Jeff Again',
+            'is_enabled' => 1,
+        ]);
+
+        $component->onFormStep();
+
+        $record = $this->findLastSubmission();
+        $this->assertEquals('Jeff Again', $record->name);
+        $this->assertFalse((bool) $record->is_enabled);
+    }
+
+    /**
+     * createSubmission runs a full form submission and returns the stored record
+     */
+    protected function createSubmission(array $data): SubmissionRecord
+    {
+        $component = $this->makeComponent();
+
+        $this->setPostData(array_merge(['name' => 'Tester'], $data));
+
+        $component->onFormSubmit();
+
+        return $this->findLastSubmission();
+    }
+
+    /**
+     * createPost stores an entry in the UnitTest\Post section
+     */
+    protected function createPost(string $title, bool $isEnabled): EntryRecord
+    {
+        $post = EntryRecord::inSection('UnitTest\Post');
+        $post->title = $title;
+        $post->content_group = 'regular_post';
+        $post->is_enabled = $isEnabled;
+        $post->save();
+
+        return $post;
+    }
+
+    /**
+     * makeComponent builds a submission component wired to a CMS controller
+     */
+    protected function makeComponent(bool $wizard = false): SubmissionComponent
+    {
+        $theme = Theme::load('test');
+        $controller = new Controller($theme);
+        $page = Page::load($theme, 'ajax-test.htm');
+        $pageCode = new PageCode($page, null, $controller);
+
+        $component = new SubmissionComponent($pageCode, [
+            'handle' => 'UnitTest\Survey',
+            'wizard' => $wizard,
+        ]);
+
+        $component->init();
+
+        return $component;
+    }
+
+    /**
+     * setPostData swaps the request for a POST containing the given data and files
+     */
+    protected function setPostData(array $data, array $files = []): void
+    {
+        $this->app->instance('request', HttpRequest::create('/', 'POST', $data, [], $files));
+        Facade::clearResolvedInstance('request');
+    }
+
+    /**
+     * makeUploadedFile builds a test upload from a generated temp file
+     */
+    protected function makeUploadedFile(string $fileName): UploadedFile
+    {
+        $path = temp_path($fileName);
+        file_put_contents($path, 'Sample upload content');
+
+        return new UploadedFile($path, $fileName, 'image/jpeg', null, true);
+    }
+
+    /**
+     * findLastSubmission returns the most recently created survey submission
+     */
+    protected function findLastSubmission(): ?SubmissionRecord
+    {
+        return SubmissionRecord::inSection('UnitTest\Survey')->newQuery()->orderBy('id', 'desc')->first();
+    }
+}

@@ -1,0 +1,125 @@
+{# Construction explorer: four tabs, a highlighted cross-section, an accordion of layers and a detail panel per tab. Behaviour in assets/js/tehnologie.js. Without JavaScript every panel is shown. #}
+<div id="modul" class="tech-module" data-tech-explorer>
+    <div class="tech-tabs" role="tablist" aria-label="{{ 'Explorează construcția'|_ }}">
+        <button class="tech-tab" type="button" role="tab" id="tab-structure" aria-selected="true" aria-controls="panel-structure" tabindex="0" data-mode="structure" data-name="{{ 'Structură'|_ }}" data-highlight="{{ 'Evidențiat: cadrul perimetral și stabilizatorul din oțel'|_ }}">
+            <span class="tech-tab__num">01</span>
+            <span class="tech-tab__text"><span class="tech-tab__name">{{ 'Structură'|_ }}</span><span class="tech-tab__sub">{{ 'Cadru și stabilizator'|_ }}</span></span>
+        </button>
+        <button class="tech-tab" type="button" role="tab" id="tab-stability" aria-selected="false" aria-controls="panel-stability" tabindex="-1" data-mode="stability" data-name="{{ 'Stabilitate'|_ }}" data-highlight="{{ 'Evidențiat: plăcile Laminated Core de sub facing'|_ }}">
+            <span class="tech-tab__num">02</span>
+            <span class="tech-tab__text"><span class="tech-tab__name">{{ 'Stabilitate'|_ }}</span><span class="tech-tab__sub">{{ 'Placa Laminated Core'|_ }}</span></span>
+        </button>
+        <button class="tech-tab" type="button" role="tab" id="tab-performance" aria-selected="false" aria-controls="panel-performance" tabindex="-1" data-mode="performance" data-name="{{ 'Performanță'|_ }}" data-highlight="{{ 'Evidențiat: miezul funcțional al Sandwich System'|_ }}">
+            <span class="tech-tab__num">03</span>
+            <span class="tech-tab__text"><span class="tech-tab__name">{{ 'Performanță'|_ }}</span><span class="tech-tab__sub">{{ 'Termic și acustic'|_ }}</span></span>
+        </button>
+        <button class="tech-tab" type="button" role="tab" id="tab-surface" aria-selected="false" aria-controls="panel-surface" tabindex="-1" data-mode="surface" data-name="{{ 'Suprafață'|_ }}" data-highlight="{{ 'Evidențiat: facing-ul, pe ambele fețe ale foii'|_ }}">
+            <span class="tech-tab__num">04</span>
+            <span class="tech-tab__text"><span class="tech-tab__name">{{ 'Suprafață'|_ }}</span><span class="tech-tab__sub">{{ 'Finisaje'|_ }}</span></span>
+        </button>
+    </div>
+
+    <div class="tech-stage">
+        <div class="tech-stage__view">
+            <div class="tech-overview">
+                <p class="tech-overview__tag">{{ 'ZONA'|_ }} <br>{{ 'BROAȘTEI'|_ }}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></p>
+                <div class="tech-overview__main">
+                    <p class="tech-cap">{{ 'VEDERE COMPLETĂ A FOII DE UȘĂ'|_ }}</p>
+                    <div class="tech-overview__img">
+                        <img src="{{ 'assets/images/ferro-sectiune-completa.webp'|theme }}" alt="{{ 'Secțiune completă prin foaia de ușă FERRO'|_ }}" width="1175" height="170">
+                        <span class="tech-overview__box" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-diagram">
+                <img src="{{ 'assets/images/ferro-sectiune-broasca.webp'|theme }}" alt="{{ 'Secțiune transversală mărită FERRO pe partea broaștei: 1 cadru structural, 2 Sandwich System, 3 stabilizator din oțel, 4 facing'|_ }}" width="1400" height="582">
+                <div class="tech-zones" aria-hidden="true">
+                    <span class="tech-zone is-on" data-mode="structure" data-part="1"></span>
+                    <span class="tech-zone" data-mode="performance" data-part="2"></span>
+                    <span class="tech-zone" data-mode="performance" data-part="2"></span>
+                    <span class="tech-zone is-on" data-mode="structure" data-part="3"></span>
+                    <span class="tech-zone is-on" data-mode="structure" data-part="3"></span>
+                    <span class="tech-zone is-on" data-mode="structure" data-part="3"></span>
+                    <span class="tech-zone" data-mode="stability" data-part="2"></span>
+                    <span class="tech-zone" data-mode="stability" data-part="2"></span>
+                    <span class="tech-zone" data-mode="stability" data-part="2"></span>
+                    <span class="tech-zone" data-mode="stability" data-part="2"></span>
+                    <span class="tech-zone" data-mode="surface" data-part="4"></span>
+                    <span class="tech-zone" data-mode="surface" data-part="4"></span>
+                </div>
+            </div>
+
+            <div class="tech-stage__foot">
+                <p class="tech-legend" aria-live="polite"><span class="tech-legend__swatch" aria-hidden="true"></span><span data-legend>{{ 'Evidențiat: cadrul perimetral și stabilizatorul din oțel'|_ }}</span></p>
+                <button class="tech-pager tech-pager--detail" type="button" data-to-detail><span>{{ 'Detalii:'|_ }} <span data-detail-name>{{ 'structură'|_ }}</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></button>
+            </div>
+        </div>
+
+        <div class="tech-parts">
+            <p class="tech-cap tech-cap--wide">{{ 'ELEMENTELE CONSTRUCȚIEI'|_ }}</p>
+            <h3 class="tech-parts__title">{{ 'Fiecare strat are un rol.'|_ }}</h3>
+            <ul class="plain tech-parts__list">
+                <li>
+                    <button class="tech-part" type="button" aria-expanded="false" aria-controls="part-1" data-part="1">
+                        <span class="tech-part__num">1</span>
+                        <span class="tech-part__name">{{ 'Cadru structural'|_ }}</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                    </button>
+                    <p class="tech-part__desc" id="part-1" data-hl="{{ 'Evidențiat: cadru structural'|_ }}" hidden>{{ 'Lemn laminat și îmbinat finger-jointed.'|_ }}</p>
+                </li>
+                <li>
+                    <button class="tech-part" type="button" aria-expanded="false" aria-controls="part-2" data-part="2">
+                        <span class="tech-part__num">2</span>
+                        <span class="tech-part__name">{{ 'Sandwich System'|_ }}</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                    </button>
+                    <p class="tech-part__desc" id="part-2" data-hl="{{ 'Evidențiat: sandwich system'|_ }}" hidden>{{ 'Laminated Core + miez funcțional adaptat performanței.'|_ }}</p>
+                </li>
+                <li>
+                    <button class="tech-part" type="button" aria-expanded="false" aria-controls="part-3" data-part="3">
+                        <span class="tech-part__num">3</span>
+                        <span class="tech-part__name">{{ 'Stabilizator din oțel'|_ }}</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                    </button>
+                    <p class="tech-part__desc" id="part-3" data-hl="{{ 'Evidențiat: stabilizator din oțel'|_ }}" hidden>{{ 'Armare structurală integrată în zona broaștei.'|_ }}</p>
+                </li>
+                <li>
+                    <button class="tech-part" type="button" aria-expanded="false" aria-controls="part-4" data-part="4">
+                        <span class="tech-part__num">4</span>
+                        <span class="tech-part__name">{{ 'Facing'|_ }}</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                    </button>
+                    <p class="tech-part__desc" id="part-4" data-hl="{{ 'Evidențiat: facing'|_ }}" hidden>{{ 'Placa de față care închide construcția.'|_ }}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="detaliu" class="tech-detail" aria-live="polite">
+        <div id="panel-structure" class="tech-panel" role="tabpanel" aria-labelledby="tab-structure" tabindex="0">
+            {% partial 'tehnologie/panel-structure' %}
+        </div>
+        <div id="panel-stability" class="tech-panel" role="tabpanel" aria-labelledby="tab-stability" tabindex="0" hidden>
+            {% partial 'tehnologie/panel-stability' %}
+        </div>
+        <div id="panel-performance" class="tech-panel" role="tabpanel" aria-labelledby="tab-performance" tabindex="0" hidden>
+            {% partial 'tehnologie/panel-performance' %}
+        </div>
+        <div id="panel-surface" class="tech-panel" role="tabpanel" aria-labelledby="tab-surface" tabindex="0" hidden>
+            {% partial 'tehnologie/panel-surface' %}
+        </div>
+
+        <div class="tech-detail__pager">
+            <button class="tech-pager tech-pager--prev" type="button" data-prev hidden>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg><span data-prev-name></span>
+            </button>
+            <span class="tech-detail__pager-gap"></span>
+            <button class="tech-pager tech-pager--next" type="button" data-next data-label="{{ 'Continuă:'|_ }}">
+                <span>{{ 'Continuă:'|_ }} <span data-next-name>{{ 'Stabilitate'|_ }}</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<noscript><style>.tech-panel[hidden]{display:flex!important}.tech-part__desc[hidden]{display:block!important}.tech-tabs,.tech-pager{display:none}</style></noscript>

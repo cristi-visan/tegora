@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Tehnologie Moralt",
+        "slug": "tehnologie-moralt",
+        "is_enabled": 1,
+        "hero_eyebrow": "01 · CONSTRUCȚIE & STABILITATE",
+        "hero_title": "Lemnul este viu.",
+        "hero_title_accent": "Tehnologia îl face performant.",
+        "hero_text": "<p>Lemnul oferă naturalețe, căldură, textură și caracter, dar reacționează permanent la mediul în care se află. FERRO îl transformă într-un sistem tehnic pentru <strong>stabilitate, izolare și durabilitate</strong>.</p>",
+        "hero_image": "/site/usa-pivotanta-nuc.jpg",
+        "hero_image_alt": "Ușă pivotantă cu furnir de nuc și panou lateral din sticlă, într-o fațadă din piatră deschisă",
+        "hero_stat_label": "DIN",
+        "hero_stat_value": "1900",
+        "hero_stat_text": "<p>În spatele construcției FERRO stă experiența Moralt în prelucrarea lemnului — <strong>peste 125 de ani</strong> de evoluție de la material natural la produs tehnic.</p>",
+        "exp_eyebrow": "CONSTRUCȚIA FERRO",
+        "exp_title": "O ușă performantă din lemn nu înseamnă mai mult lemn.",
+        "exp_title_accent": "Înseamnă ingineria lemnului.",
+        "exp_intro": "Alege un aspect al construcției: secțiunea evidențiază straturile implicate, iar detaliile apar imediat dedesubt.",
+        "cta_title": "Construcția potrivită pentru proiectul tău.",
+        "cta_text": "Configurează ușa sau discută cu un consultant Tegora despre sistemul FERRO potrivit casei tale."
+    }
+]

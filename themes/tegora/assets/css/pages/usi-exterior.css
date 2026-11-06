@@ -1,0 +1,111 @@
+/* Exterior doors page. Classes are prefixed .doors- */
+
+.doors-label{font-size:11px;font-weight:500;letter-spacing:.28em;color:var(--c-ink-3)}
+.doors-h2{font-family:var(--f-serif);font-weight:400;font-size:clamp(30px,3vw,42px);line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
+.doors-h2--lg{font-size:clamp(34px,3.6vw,54px);line-height:1.06;letter-spacing:-.015em}
+.doors-btn{min-height:48px;padding:0 22px}
+.doors-btn--sm{min-height:44px;padding:0 20px;font-size:13px}
+.doors-btn--soft{background-color:var(--c-bg-soft);border:1px solid var(--c-line-3)}
+.doors-btn--outline{background-color:var(--c-bg-soft);border:1px solid var(--c-ink)}
+
+/* Image badges */
+.doors-badge{position:absolute;top:clamp(24px,6%,56px);max-width:220px;padding:18px 22px;border-left:2px solid var(--c-brown);background:rgba(247,243,238,.94);font-size:12px;font-weight:500;letter-spacing:.22em;line-height:1.9;color:var(--c-ink)}
+.doors-badge--left{left:clamp(20px,4vw,56px)}
+.doors-badge--right{right:clamp(20px,4vw,56px);max-width:200px}
+
+/* Hero */
+.doors-hero{display:flex;flex-wrap:wrap;align-items:stretch}
+.doors-hero__text{flex:42 1 400px;display:flex;flex-direction:column;gap:22px;padding:40px clamp(24px,4vw,64px) 56px 0;min-height:460px}
+.doors-hero__sub{font-family:var(--f-serif);font-size:clamp(20px,1.8vw,26px);line-height:1.3;color:var(--c-ink)}
+.doors-hero__lead{font-size:16px;line-height:1.55;color:var(--c-ink-2);max-width:42ch}
+.doors-hero__actions{margin-top:auto;padding-top:32px}
+.doors-hero__fig{flex:58 1 480px;position:relative;min-height:420px;margin:0;background:#E6DFD3;overflow:hidden}
+.doors-hero__fig>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:56% 50%}
+
+/* Four solutions */
+.doors-solutions{background:var(--c-bg)}
+.doors-solutions__inner{padding-top:72px;padding-bottom:80px;display:flex;flex-direction:column;gap:36px}
+.doors-solutions__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:24px}
+.doors-card{gap:16px;padding:18px 18px 24px}
+.doors-card__media{margin:6px -18px 0;aspect-ratio:1/.92;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.doors-card__media img{width:100%;height:100%;object-fit:cover;object-position:0% 100%;display:block}
+.doors-card__title{display:flex;flex-direction:column;gap:4px}
+ul.doors-card__features{padding:14px 0 0;border-top:1px solid var(--c-line-2);display:flex;flex-direction:column;gap:12px;font-size:14px;color:var(--c-ink)}
+.doors-card__features li{display:flex;align-items:center;gap:12px}
+.doors-card__icon{width:26px;height:26px;flex:none;display:flex;align-items:center;justify-content:center;color:var(--c-ink)}
+.doors-card__link{margin-top:auto;font-size:13px}
+
+/* Quick compare */
+.doors-compare{border-top:1px solid var(--c-line)}
+.doors-compare__inner{padding-top:80px;padding-bottom:80px;display:flex;flex-wrap:wrap;gap:40px 64px;align-items:flex-start}
+.doors-compare__head{flex:1 1 280px;max-width:360px;display:flex;flex-direction:column;gap:14px}
+.doors-compare__text{font-size:15px;line-height:1.55;color:var(--c-ink-2)}
+.doors-compare__table{flex:2 1 560px;min-width:0;background:var(--c-white);border:1px solid var(--c-line)}
+.doors-table{width:100%;min-width:640px;border-collapse:collapse;font-size:13px}
+.doors-table th,.doors-table td{padding:16px 14px;text-align:center}
+.doors-table thead th{border-top:0;font-weight:600}
+.doors-table th.doors-table__corner{text-align:left;padding:16px 20px;font-weight:500;color:var(--c-ink-3);font-size:12px;letter-spacing:.04em}
+.doors-table th.doors-table__row{text-align:left;padding:16px 20px;font-weight:400;color:var(--c-ink-2)}
+.doors-table__no{color:var(--c-ink-4)}
+.doors-table__val{font-weight:600}
+.doors-dots{display:inline-flex;gap:5px;vertical-align:middle}
+.doors-dot{width:8px;height:8px;border-radius:50%;background:var(--c-ink)}
+.doors-dot--off{background:transparent;border:1px solid var(--c-line-3)}
+
+/* Design freedom */
+.doors-design__inner{display:flex;flex-wrap:wrap;align-items:stretch}
+.doors-design__text{flex:46 1 400px;display:flex;flex-direction:column;gap:22px;padding:64px clamp(24px,4vw,64px) 56px 0;min-height:460px}
+.doors-design__lead{font-size:16px;line-height:1.55;color:var(--c-ink-2);max-width:50ch}
+.doors-design__btn{align-self:flex-start;margin-top:6px}
+.doors-design__fig{flex:54 1 480px;position:relative;min-height:420px;margin:0;background:#E6DFD3;overflow:hidden}
+.doors-design__fig>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:48% 50%}
+
+/* Customisation options */
+.doors-custom{padding-top:48px;padding-bottom:80px}
+.doors-custom__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:32px 28px}
+.doors-opt{display:flex;flex-direction:column;gap:12px;padding-top:18px;border-top:1px solid var(--c-line-3)}
+.doors-opt__head{display:flex;gap:14px;align-items:baseline}
+.doors-opt__num{font-size:12px;font-weight:500;letter-spacing:.1em;color:var(--c-brown-2)}
+.doors-opt__title{font-size:16px;font-weight:600}
+.doors-opt__text{font-size:14px;line-height:1.5;color:var(--c-ink-2);min-height:63px}
+.doors-opt img{width:100%;height:auto;aspect-ratio:1/.92;object-fit:cover;object-position:50% 50%;display:block;background:#E6DFD3}
+.doors-opt:nth-child(3) img{object-position:55% 50%}
+
+/* Dimensions bar */
+.doors-dims__inner{padding-top:40px;padding-bottom:40px;display:flex;flex-wrap:wrap;align-items:center;gap:28px 48px}
+.doors-dims__list{flex:3 1 560px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(170px,100%),1fr));gap:20px 28px}
+.doors-dims__list li{display:flex;align-items:center;gap:14px}
+.doors-dims__icon{display:flex;color:var(--c-ink)}
+.doors-dims__text{display:flex;flex-direction:column;gap:3px}
+.doors-dims__text strong{font-size:14px;font-weight:600}
+.doors-dims__text span{font-size:12px;color:var(--c-ink-3)}
+.doors-dims__special{flex:1 1 280px;display:flex;flex-direction:column;gap:12px;padding-left:32px;border-left:1px solid var(--c-line-3)}
+.doors-dims__special-title{font-size:15px;font-weight:600}
+.doors-dims__special-text{font-size:13px;line-height:1.5;color:var(--c-ink-2)}
+.doors-dims__special .btn{align-self:flex-start}
+
+/* Tablet and mobile */
+@media (max-width:900px){
+  .doors-hero__text{padding-right:0;padding-bottom:40px;min-height:0}
+  .doors-design__text{padding:48px 0 40px;min-height:0}
+  .doors-solutions__inner{padding-top:56px;padding-bottom:56px}
+  .doors-compare__inner{padding-top:56px;padding-bottom:56px}
+  .doors-dims__special{padding-left:0;border-left:0;padding-top:24px;border-top:1px solid var(--c-line-3)}
+}
+@media (max-width:640px){
+  .doors-hero__text{padding-top:32px;padding-bottom:32px;gap:18px}
+  .doors-hero__actions{padding-top:12px}
+  .doors-hero__fig,.doors-design__fig{min-height:340px}
+  .doors-badge{padding:12px 16px;font-size:11px}
+  .doors-solutions__inner{padding-top:44px;padding-bottom:48px;gap:28px}
+  .doors-compare__inner{padding-top:44px;padding-bottom:48px;gap:28px}
+  .doors-compare__head{max-width:none}
+  .doors-design__text{padding:40px 0 32px;gap:18px}
+  .doors-custom{padding-top:36px;padding-bottom:48px}
+  .doors-opt__text{min-height:0}
+  .doors-dims__inner{padding-top:32px;padding-bottom:32px}
+}
+@media (max-width:480px){
+  .doors-btn{white-space:normal}
+  .doors-hero__actions .btn{width:100%;justify-content:space-between}
+}

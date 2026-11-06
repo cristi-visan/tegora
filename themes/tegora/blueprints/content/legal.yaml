@@ -1,0 +1,16 @@
+uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e23
+handle: Content\Legal
+type: entry
+name: Pagini legale
+drafts: false
+
+navigation:
+    label: Pagini legale
+    icon: ph ph-scales
+    order: 800
+
+fields:
+    content:
+        label: Conținut
+        type: richeditor
+        size: huge

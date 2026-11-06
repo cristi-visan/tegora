@@ -1,0 +1,32 @@
+{# Chapter navigation shared by the Tehnologie pages. Pass: chapter (1 = Construcție, 2 = Securitate). Chapter 3 (Design) is not published yet. #}
+<nav class="tech-chapters" aria-label="{{ 'Alte capitole'|_ }}">
+    <div class="wrap tech-chapters__inner">
+        {% if chapter == 1 %}
+        <span class="tech-chapters__spacer"></span>
+        <a class="tech-chap" href="{{ 'tehnologie-securitate'|page }}">
+            <span class="tech-chap__text">
+                <span class="tech-kicker">{{ 'CAPITOLUL URMĂTOR'|_ }}</span>
+                <span class="tech-chap__name">{{ '02 · Securitate'|_ }}</span>
+                <span class="tech-chap__sub">{{ 'Cum te protejează'|_ }}</span>
+            </span>
+            <span class="tech-chap__arrow" aria-hidden="true">{% partial 'ui/arrow' %}</span>
+        </a>
+        {% else %}
+        <a class="tech-chap tech-chap--prev" href="{{ 'tehnologie-moralt'|page }}">
+            <span class="tech-chap__arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></span>
+            <span class="tech-chap__text">
+                <span class="tech-kicker">{{ 'CAPITOLUL ANTERIOR'|_ }}</span>
+                <span class="tech-chap__name">{{ '01 · Construcție & stabilitate'|_ }}</span>
+                <span class="tech-chap__sub">{{ 'Cum este proiectată'|_ }}</span>
+            </span>
+        </a>
+        <div class="tech-chap tech-chap--soon">
+            <span class="tech-chap__text">
+                <span class="tech-kicker">{{ 'CAPITOLUL URMĂTOR'|_ }}</span>
+                <span class="tech-chap__name">{{ '03 · Design'|_ }}</span>
+                <span class="tech-chap__sub">{{ 'Cum o integrezi în proiect — în curând'|_ }}</span>
+            </span>
+        </div>
+        {% endif %}
+    </div>
+</nav>

@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "Securitate",
+        "slug": "tehnologie-securitate",
+        "is_enabled": 1,
+        "hero_eyebrow": "02 · SECURITATE",
+        "hero_title": "Securitatea",
+        "hero_title_accent": "este un sistem.",
+        "hero_text": "Rezistența nu depinde de o singură piesă, ci de felul în care construcția foii, zona broaștei, feroneria și punctele de închidere lucrează împreună.",
+        "hero_image": "/site/usa-antracit-nisa-lemn.jpg",
+        "hero_image_alt": "Ușă antracit într-o nișă placată cu lemn, între fațade din piatră neagră",
+        "risk_eyebrow": "RISCURI ȘI PUNCTE VULNERABILE",
+        "risk_title": "O ușă poate fi forțată în mai multe puncte.",
+        "risk_text_1": "În cazul unei încercări de pătrundere prin forță, nu doar broasca poate fi vizată. Cilindrul, punctele de închidere, balamalele, tocul și chiar structura foii pot fi supuse unor solicitări mecanice.",
+        "risk_text_2": "De aceea, protecția reală nu depinde de o singură componentă, ci de capacitatea întregului ansamblu de a rezista acestor solicitări.",
+        "sol_eyebrow": "SOLUȚII FERRO",
+        "sol_title": "Securitate avansată certificată.",
+        "sol_text": "Placa structurală, elementele de oțel și componentele de fixare sunt ancorate în toc, formând un ansamblu unitar, fără puncte slabe. Această construcție distribuie solicitările mecanice pe întreaga suprafață a ușii și crește semnificativ rezistența la tentativele de pătrundere.",
+        "comp_eyebrow": "COMPONENTELE ANSAMBLULUI",
+        "comp_title": "Fiecare punct vulnerabil are un răspuns.",
+        "rc_eyebrow": "REZISTENȚĂ CERTIFICATĂ",
+        "rc_title": "RC2 / RC3",
+        "rc_text": "Rezistența la efracție se verifică prin teste conform EN 1627, pentru configurația completă a ușii.",
+        "rc_question": "Ce înseamnă în practică?",
+        "rc_note": "* Clasele RC2 / RC3 se aplică numai configurațiilor FERRO documentate prin rapoarte de testare sau certificate valabile. Modificările de feronerie și acces trebuie verificate pentru păstrarea clasei de rezistență.",
+        "cta_title": "Siguranța potrivită pentru proiectul tău.",
+        "cta_text": "Spune-ne ce nivel de protecție îți dorești, iar un consultant Tegora îți recomandă configurația FERRO potrivită."
+    }
+]

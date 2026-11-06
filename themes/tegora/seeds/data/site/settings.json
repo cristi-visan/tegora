@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "phone": "+40 722 335 525",
+        "email": "contact@tegora.ro",
+        "leads_email": "contact@tegora.ro",
+        "showroom_city": "București",
+        "showroom_address": "[ADRESĂ SHOWROOM]",
+        "opening_hours": "[Program: luni – vineri, 00:00 – 00:00]",
+        "company_name": "[DENUMIRE FIRMĂ] S.R.L.",
+        "company_cui": "[RO00000000]",
+        "company_reg": "[J40/0000/2026]",
+        "footer_about": "Uși de exterior Moralt, importate și distribuite în România de Tegora."
+    }
+]

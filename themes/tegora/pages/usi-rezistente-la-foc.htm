@@ -1,0 +1,15 @@
+##
+title = "Uși rezistente la foc"
+url = "/usi-rezistente-la-foc"
+layout = "default"
+page_css = "product"
+nav_section = "usi"
+meta_description = "FERRO FireSafe: ușă exterioară din lemn cu rezistență la foc EI30, în funcție de certificarea națională, și securitate RC2 / RC3 în configurații testate."
+
+[section product]
+handle = "Content\Product"
+identifier = "slug"
+value = "usi-rezistente-la-foc"
+==
+{% if product is empty %}{% do abort(404) %}{% endif %}
+{% partial 'product/page' entry=product %}

@@ -1,0 +1,36 @@
+.contact-title{max-width:16ch}
+.contact-intro{max-width:56ch}
+
+.contact-channels{padding-bottom:72px}
+.contact-channels__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:16px}
+.channel{display:flex;flex-direction:column;gap:12px;padding:28px;background:var(--c-white);border:1px solid var(--c-line)}
+.channel__label{margin-top:6px}
+.channel__value{font-family:var(--f-serif);font-size:24px;font-weight:400;overflow-wrap:anywhere}
+a.channel__value{font-size:24px}
+
+.contact-form-section{padding-top:80px;padding-bottom:88px;display:flex;flex-wrap:wrap;gap:48px 64px;align-items:flex-start}
+.contact-aside{flex:1 1 300px;max-width:400px;display:flex;flex-direction:column;gap:20px}
+.contact-steps{margin-top:12px;display:flex;flex-direction:column}
+.contact-steps li{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--c-line-3)}
+.contact-steps li:last-child{border-bottom:1px solid var(--c-line-3)}
+.contact-steps__num{font-family:var(--f-serif);font-size:20px;line-height:1;color:var(--c-brown);min-width:22px}
+.contact-steps__text{font-size:14px;line-height:1.5}
+.contact-steps__text strong{font-weight:600}
+.contact-steps__text span{color:var(--c-ink-3)}
+.contact-config{font-size:14px;line-height:1.5;color:var(--c-ink-2)}
+.contact-config .inline-link{gap:8px}
+
+.contact-form-box{flex:2 1 560px;min-width:0;background:var(--c-white);border:1px solid var(--c-line);padding:clamp(24px,3.4vw,48px)}
+.contact-door{margin:0;padding:20px 20px 22px;border:1px solid var(--c-line-2);background:var(--c-bg);display:flex;flex-direction:column;gap:16px;min-width:0}
+.contact-door legend{float:left;width:100%;padding:0;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px}
+.contact-door__title{font-size:11px;font-weight:600;letter-spacing:.24em;color:var(--c-brown)}
+.contact-door__note{font-size:12px;color:var(--c-ink-3)}
+
+.contact-company{padding-top:48px;padding-bottom:56px;display:flex;flex-wrap:wrap;gap:16px 48px;align-items:baseline;font-size:13px;color:var(--c-ink-2)}
+
+@media (max-width:640px){
+  .contact-channels{padding-bottom:48px}
+  .contact-form-section{padding-top:56px;padding-bottom:64px}
+  .contact-aside{max-width:none}
+  .contact-form-box{flex-basis:100%}
+}

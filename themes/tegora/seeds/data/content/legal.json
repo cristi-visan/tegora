@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Termeni și condiții",
+        "slug": "termeni-si-conditii",
+        "is_enabled": 1,
+        "content": "<p>[Textul termenilor și condițiilor urmează să fie furnizat.]</p>"
+    },
+    {
+        "id": 2,
+        "title": "Politica de confidențialitate",
+        "slug": "politica-de-confidentialitate",
+        "is_enabled": 1,
+        "content": "<p>[Textul politicii de confidențialitate urmează să fie furnizat.]</p>"
+    },
+    {
+        "id": 3,
+        "title": "Politica cookies",
+        "slug": "politica-cookies",
+        "is_enabled": 1,
+        "content": "<p>[Textul politicii cookies urmează să fie furnizat.]</p>"
+    }
+]

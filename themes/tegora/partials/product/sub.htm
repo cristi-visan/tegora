@@ -1,0 +1,4 @@
+{# Plain text with subscripts: write R_{wp} to get R<sub>wp</sub>. Pass: text. #}
+{%- set parts = (text ?? '')|split('_{') -%}
+{{- parts[0] -}}
+{%- for part in parts|slice(1) -%}{%- set q = part|split('}', 2) -%}<sub>{{ q[0] }}</sub>{{ q[1] ?? '' }}{%- endfor -%}

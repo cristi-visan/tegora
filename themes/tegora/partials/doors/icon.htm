@@ -1,0 +1,15 @@
+{# Line icons for the exterior doors page. Pass: name, size (default 24), sw (stroke width, default 1.35). #}
+<svg width="{{ size|default(24) }}" height="{{ size|default(24) }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{{ sw|default(1.35) }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+{% if name == 'thermal' %}<path d="M8.5 14.3V5a2.25 2.25 0 0 1 4.5 0v9.3a4 4 0 1 1-4.5 0z"></path><path d="M10.75 9.5v8"></path><circle cx="10.75" cy="17.6" r="1.3" fill="currentColor" stroke="none"></circle><path d="M15.5 4.5h2.5M15.5 7h1.6M15.5 9.5h2.5M15.5 12h1.6"></path>
+{% elseif name == 'acoustic' %}<path d="M3 10.5v3"></path><path d="M6 8.5a5 5 0 0 1 0 7"></path><path d="M9 6.5a8.5 8.5 0 0 1 0 11"></path><path d="M12.5 4.5a11.5 11.5 0 0 1 0 15"></path><path d="M17.5 2.5c-1.6 2.4 1.6 4.4 0 6.8s1.6 4.4 0 6.8 1.6 4.4 0 5.4"></path><path d="M20.5 2.5v19"></path>
+{% elseif name == 'fire' %}<path d="M12 2.5c.4 3.1 3 4.9 4.8 7.3 1.1 1.5 1.7 3.2 1.7 4.9a6.5 6.5 0 0 1-13 0c0-2.3 1.1-4.2 2.5-5.6.2 1.5.9 2.6 2 3.2-.3-3.5.6-6.9 2-9.8z"></path><path d="M12 21.2c-1.9 0-3.2-1.3-3.2-3.1 0-1.8 1.3-2.9 2.3-4.4.5 1.3 1.3 1.9 2.1 2.5.9.7 1.9 1.4 1.9 2.4 0 1.5-1.3 2.6-3.1 2.6z"></path>
+{% elseif name == 'shield' %}<path d="M12 2.8l7.6 2.9v5.9c0 4.7-3.2 8.4-7.6 9.7-4.4-1.3-7.6-5-7.6-9.7V5.7L12 2.8z"></path><path d="M8.6 12.1l2.4 2.4 4.4-4.6"></path>
+{% elseif name == 'gem' %}<path d="M6.5 4h11l4 5.5L12 21 2.5 9.5 6.5 4z"></path><path d="M2.5 9.5h19"></path><path d="M9.2 4L7.8 9.5 12 21l4.2-11.5L14.8 4"></path>
+{% elseif name == 'leaf' %}<path d="M20 4C10 4 4.5 9 4.5 15.5c0 2.6 1.8 4.5 4.3 4.5C15.6 20 20 13.4 20 4z"></path><path d="M4 21c3-5.8 7.2-9.8 12-12.4"></path>
+{% elseif name == 'house' %}<path d="M3 11.2L12 4l9 7.2"></path><path d="M5.5 9.4V20h13V9.4"></path><path d="M12 18c-1.5 0-2.5-1-2.5-2.3 0-1.5 1.2-2.4 1.9-3.7.4 1 1.1 1.5 1.7 2 .8.6 1.4 1.1 1.4 2 0 1.1-1 2-2.5 2z"></path>
+{% elseif name == 'height' %}<path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"></path>
+{% elseif name == 'width' %}<path d="M3 12h18M7 8l-4 4 4 4M17 8l4 4-4 4"></path>
+{% elseif name == 'area' %}<rect x="4" y="4" width="16" height="16"></rect><path d="M4 9h5V4"></path>
+{% elseif name == 'bespoke' %}<circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"></path>
+{% endif %}
+</svg>

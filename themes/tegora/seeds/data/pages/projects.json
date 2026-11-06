@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "title": "Proiecte",
+        "slug": "proiecte",
+        "is_enabled": 1,
+        "hero_eyebrow": "PROIECTE",
+        "hero_title": "Uși Moralt în proiecte reale.",
+        "hero_text": "Locuințe, ansambluri rezidențiale și spații comerciale în care ușile Moralt fac legătura dintre arhitectură, confort și siguranță.",
+        "featured_badge": "PROIECT REPREZENTATIV",
+        "grid_eyebrow": "PORTOFOLIU",
+        "grid_title": "Toate proiectele",
+        "empty_text": "Momentan nu avem proiecte publicate în această categorie.",
+        "arch_eyebrow": "PENTRU ARHITECȚI ȘI DEZVOLTATORI",
+        "arch_title": "Lucrezi la un proiect nou?",
+        "arch_text": "Îți punem la dispoziție fișele tehnice Moralt și te ajutăm să alegi sistemul potrivit pentru cerințele proiectului — de la izolare și securitate la dimensiuni speciale.",
+        "arch_link_label": "Solicită consultanță tehnică",
+        "cta_title": "Proiectul tău poate fi următorul.",
+        "cta_text": "Configurează ușa sau discută cu un consultant Tegora despre cerințele proiectului."
+    }
+]

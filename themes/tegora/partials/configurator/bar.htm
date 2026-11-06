@@ -1,0 +1,41 @@
+{% set rows = [
+    {key: 'perf', label: 'Performanțe', href: '#step-1'},
+    {key: 'dims', label: 'Dimensiuni', href: '#step-2'},
+    {key: 'thickness', label: 'Grosime', href: '#step-3'},
+    {key: 'frame', label: 'Cadru', href: '#step-4'},
+    {key: 'config', label: 'Configurație', href: '#step-5'},
+    {key: 'finext', label: 'Finisaj exterior', href: '#step-6'},
+    {key: 'finint', label: 'Finisaj interior', href: '#step-6'}
+] %}
+<div class="cfg-bar" role="region" aria-label="{{ 'Configurația ta'|_ }}" data-cfg-bar hidden>
+    <div class="cfg-bar__progress" aria-hidden="true"><div data-cfg-progress></div></div>
+    <div id="cfg-details" class="cfg-details" data-cfg-details-panel hidden>
+        <div class="cfg-details__head">
+            <p class="cfg-details__title">{{ 'O soluție construită pentru proiectul tău.'|_ }}</p>
+            <p class="cfg-details__note">{{ 'Configurația va fi analizată de un consultant Tegora.'|_ }}</p>
+        </div>
+        <dl class="cfg-details__list">
+            {% for r in rows %}
+            <div class="cfg-row" data-cfg-row="{{ r.key }}">
+                <span class="cfg-row__dot" aria-hidden="true"></span>
+                <dt>{{ r.label|_ }}</dt>
+                <dd data-v>{{ 'Neselectat'|_ }}</dd>
+                <a class="foot-link" href="{{ r.href }}" data-cfg-close data-a>{{ 'Alege'|_ }}</a>
+            </div>
+            {% endfor %}
+        </dl>
+    </div>
+    <div class="cfg-bar__inner">
+        <div class="cfg-bar__count">
+            <span class="cfg-bar__label">CONFIGURAȚIA TA</span>
+            <span class="cfg-bar__steps" aria-live="polite" data-cfg-steps>0 din 6 {{ 'pași'|_ }}</span>
+        </div>
+        <p class="cfg-bar__recap" data-cfg-bar-recap></p>
+        <div class="cfg-bar__actions">
+            <button type="button" class="cfg-bar__toggle" aria-expanded="false" aria-controls="cfg-details" data-cfg-toggle>{{ 'Detalii'|_ }}
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"></path></svg>
+            </button>
+            <a class="btn btn--light btn--sm cfg-bar__cta" href="#cfg-contact" data-cfg-close>{{ 'Continuă spre ofertă'|_ }} {% partial 'ui/arrow' %}</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+name: Deploy to staging
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# A second push waits for the running upload rather than interleaving with it
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: false
+
+env:
+  SITE_URL: https://tegora-staging.codefor.ge
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: codefor.ge ENV
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: pdo_mysql, curl, openssl, mbstring, zip, gd, simplexml
+          tools: composer:v2
+          coverage: none
+
+      - name: Install PHP dependencies
+        run: composer install --no-dev --prefer-dist --no-progress --optimize-autoloader --no-scripts
+
+      - name: Check PHP syntax of our own code
+        run: find plugins/tegora -name '*.php' -print0 | xargs -0 -n1 php -l
+
+      # Only files this action uploaded are ever updated or deleted, so .env,
+      # uploads, logs and anything else the server created stay untouched.
+      - name: Upload over FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_DIR }}
+          protocol: ftps
+          security: loose
+          timeout: 120000
+          exclude: |
+            .git/**
+            .github/**
+            .claude/**
+            .devcontainer/**
+            tests/**
+            .env
+            .env.*
+            README.md
+            CHANGELOG.md
+            CONTRIBUTING.md
+
+      # Runs database migrations, loads first-time content and clears caches
+      - name: Run post-deploy tasks
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          if [ -z "$DEPLOY_TOKEN" ]; then
+            echo "::error::DEPLOY_TOKEN secret is not set, so migrations did not run."
+            exit 1
+          fi
+          curl --fail --silent --show-error --max-time 600 -X POST \
+            -H "X-Deploy-Token: $DEPLOY_TOKEN" \
+            "$SITE_URL/_tegora/post-deploy"

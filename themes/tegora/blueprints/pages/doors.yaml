@@ -1,0 +1,253 @@
+uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e12
+handle: Page\Doors
+type: single
+name: Uși exterior
+
+navigation:
+    parent: Page\Home
+    icon: ph ph-door
+    order: 200
+
+fields:
+    hero_title:
+        label: Titlu
+        type: text
+        tab: Început de pagină
+    hero_subtitle:
+        label: Subtitlu
+        type: text
+        tab: Început de pagină
+    hero_text:
+        label: Text
+        type: textarea
+        size: small
+        tab: Început de pagină
+    hero_cta_primary:
+        label: Buton principal
+        type: text
+        tab: Început de pagină
+    hero_cta_secondary:
+        label: Buton secundar
+        type: text
+        tab: Început de pagină
+    hero_image:
+        label: Imagine
+        type: mediafinder
+        mode: image
+        maxItems: 1
+        tab: Început de pagină
+    hero_image_alt:
+        label: Descrierea imaginii
+        type: text
+        tab: Început de pagină
+    hero_badge:
+        label: Slogan peste imagine
+        comment: Fiecare rând nou apare pe o linie separată.
+        type: textarea
+        size: small
+        tab: Început de pagină
+
+    solutions_title:
+        label: Titlu
+        type: text
+        tab: Soluții
+    solutions:
+        label: Soluții
+        type: repeater
+        titleFrom: title
+        tab: Soluții
+        form:
+            fields:
+                system:
+                    label: Sistem
+                    comment: Stabilește imaginea și pagina către care duce cardul.
+                    type: dropdown
+                    options:
+                        performante: Uși performante
+                        pasive: Uși pentru case pasive
+                        acustice: Uși acustice
+                        firesafe: Uși rezistente la foc
+                title:
+                    label: Titlu
+                    type: text
+                subtitle:
+                    label: Subtitlu
+                    type: text
+                features:
+                    label: Caracteristici
+                    type: repeater
+                    titleFrom: text
+                    form:
+                        fields:
+                            icon:
+                                label: Pictogramă
+                                type: dropdown
+                                options:
+                                    thermal: Izolație termică
+                                    acoustic: Izolație fonică
+                                    fire: Foc
+                                    shield: Securitate
+                                    gem: Stabilitate
+                                    leaf: Eficiență
+                                    house: Casă
+                            text:
+                                label: Text
+                                type: text
+                link_label:
+                    label: Text link
+                    type: text
+
+    compare_eyebrow:
+        label: Etichetă
+        type: text
+        tab: Comparație
+    compare_title:
+        label: Titlu
+        type: text
+        tab: Comparație
+    compare_text:
+        label: Text
+        type: textarea
+        size: small
+        tab: Comparație
+    compare_caption:
+        label: Descriere tabel (cititoare de ecran)
+        type: text
+        tab: Comparație
+    compare_head_label:
+        label: Capul primei coloane
+        type: text
+        tab: Comparație
+    compare_columns:
+        label: Coloane (soluții)
+        type: repeater
+        titleFrom: label
+        tab: Comparație
+        form:
+            fields:
+                label:
+                    label: Nume
+                    type: text
+    compare_rows:
+        label: Rânduri
+        comment: "În celule: 1-4 = nivel afișat prin puncte, da = bifă, nu = liniuță, orice alt text se afișează ca atare."
+        type: repeater
+        titleFrom: label
+        tab: Comparație
+        form:
+            fields:
+                label:
+                    label: Caracteristică
+                    type: text
+                cell_1:
+                    label: Prima coloană
+                    type: text
+                cell_2:
+                    label: A doua coloană
+                    type: text
+                cell_3:
+                    label: A treia coloană
+                    type: text
+                cell_4:
+                    label: A patra coloană
+                    type: text
+
+    design_eyebrow:
+        label: Etichetă
+        type: text
+        tab: Libertate de design
+    design_title:
+        label: Titlu
+        type: text
+        tab: Libertate de design
+    design_text:
+        label: Text
+        type: textarea
+        size: small
+        tab: Libertate de design
+    design_cta:
+        label: Text buton
+        type: text
+        tab: Libertate de design
+    design_image:
+        label: Imagine
+        type: mediafinder
+        mode: image
+        maxItems: 1
+        tab: Libertate de design
+    design_image_alt:
+        label: Descrierea imaginii
+        type: text
+        tab: Libertate de design
+    design_badge:
+        label: Slogan peste imagine
+        comment: Fiecare rând nou apare pe o linie separată.
+        type: textarea
+        size: small
+        tab: Libertate de design
+
+    custom_label:
+        label: Titlu secțiune (cititoare de ecran)
+        type: text
+        tab: Personalizare
+    custom_options:
+        label: Opțiuni de personalizare
+        type: repeater
+        titleFrom: title
+        tab: Personalizare
+        form:
+            fields:
+                title:
+                    label: Titlu
+                    type: text
+                text:
+                    label: Text
+                    type: textarea
+                    size: small
+                image:
+                    label: Imagine
+                    type: mediafinder
+                    mode: image
+                    maxItems: 1
+                image_alt:
+                    label: Descrierea imaginii
+                    type: text
+
+    dimensions_label:
+        label: Titlu secțiune (cititoare de ecran)
+        type: text
+        tab: Dimensiuni
+    dimensions:
+        label: Dimensiuni maxime
+        type: repeater
+        titleFrom: value
+        tab: Dimensiuni
+        form:
+            fields:
+                icon:
+                    label: Pictogramă
+                    type: dropdown
+                    options:
+                        height: Înălțime
+                        width: Lățime
+                        area: Suprafață
+                        bespoke: Producție la comandă
+                value:
+                    label: Valoare
+                    type: text
+                label:
+                    label: Descriere
+                    type: text
+    special_title:
+        label: Titlu proiect special
+        type: text
+        tab: Dimensiuni
+    special_text:
+        label: Text proiect special
+        type: textarea
+        size: small
+        tab: Dimensiuni
+    special_cta:
+        label: Text buton
+        type: text
+        tab: Dimensiuni

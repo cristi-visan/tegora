@@ -1,0 +1,15 @@
+##
+title = "Pagina nu a fost găsită"
+url = "/404"
+layout = "default"
+==
+<section class="section">
+    <div class="wrap page-hero">
+        <p class="eyebrow">404</p>
+        <h1 class="h1">{{ 'Pagina nu a fost găsită.'|_ }}</h1>
+        <p class="lead">{{ 'Adresa poate fi greșită sau pagina a fost mutată.'|_ }}</p>
+        <div class="btn-row">
+            <a class="btn btn--dark" href="{{ 'index'|page }}">{{ 'Înapoi la pagina principală'|_ }} {% partial 'ui/arrow' %}</a>
+        </div>
+    </div>
+</section>

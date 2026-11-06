@@ -1,0 +1,11 @@
+[
+    { "id": 1, "title": "Lemn natural la apus", "slug": "lemn-natural-la-apus", "is_enabled": 1, "image": "/site/intrare-lemn-natural-apus.jpg", "description": "Ușă din lemn cu fibră pronunțată, toc negru.", "style": "natural", "is_tall": 1, "display_order": 1 },
+    { "id": 2, "title": "Nuc și piatră deschisă", "slug": "nuc-si-piatra-deschisa", "is_enabled": 1, "image": "/site/intrare-galerie-04.jpg", "description": "Furnir de nuc, mâner vertical negru.", "style": "minimalist", "is_tall": 0, "display_order": 2 },
+    { "id": 3, "title": "Antracit pe fundal de lemn", "slug": "antracit-pe-fundal-de-lemn", "is_enabled": 1, "image": "/site/usa-antracit-nisa-lemn.jpg", "description": "Foaie antracit, placare din lemn vertical.", "style": "contrast", "is_tall": 0, "display_order": 3 },
+    { "id": 4, "title": "Lumină caldă, linii drepte", "slug": "lumina-calda-linii-drepte", "is_enabled": 1, "image": "/site/intrare-moderna-apus.jpg", "description": "Lemn închis, panou lateral, copertină iluminată.", "style": "modern", "is_tall": 1, "display_order": 4 },
+    { "id": 5, "title": "Toc negru, piatră gri", "slug": "toc-negru-piatra-gri", "is_enabled": 1, "image": "/site/usa-pivotanta-toc-negru.jpg", "description": "Ușă pivotantă din lemn cu vitraje laterale.", "style": "contrast", "is_tall": 0, "display_order": 5 },
+    { "id": 6, "title": "Stejar și tencuială caldă", "slug": "stejar-si-tencuiala-calda", "is_enabled": 1, "image": "/site/intrare-galerie-01.jpg", "description": "Ușă din stejar cu panouri laterale din sticlă.", "style": "modern", "is_tall": 0, "display_order": 6 },
+    { "id": 7, "title": "Pivot deschis spre interior", "slug": "pivot-deschis-spre-interior", "is_enabled": 1, "image": "/site/intrare-galerie-03.jpg", "description": "Stejar natur, panouri laterale mate.", "style": "minimalist", "is_tall": 1, "display_order": 7 },
+    { "id": 8, "title": "Fațadă placată cu lemn", "slug": "fatada-placata-cu-lemn", "is_enabled": 1, "image": "/site/casa-placata-lemn.jpg", "description": "Lemn natural cu panouri laterale mate.", "style": "natural", "is_tall": 0, "display_order": 8 },
+    { "id": 9, "title": "Culori de toamnă", "slug": "culori-de-toamna", "is_enabled": 1, "image": "/site/intrare-galerie-02.jpg", "description": "Lemn deschis, mâner vertical integrat.", "style": "natural", "is_tall": 0, "display_order": 9 }
+]

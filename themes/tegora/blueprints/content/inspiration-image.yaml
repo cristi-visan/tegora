@@ -1,0 +1,39 @@
+uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e20
+handle: Content\InspirationImage
+type: entry
+name: Imagine inspirație
+
+navigation:
+    label: Galerie inspirație
+    icon: ph ph-images
+    order: 810
+
+fields:
+    image:
+        label: Imagine
+        type: mediafinder
+        mode: image
+        tab: Imagine
+    description:
+        label: Descriere
+        type: text
+        tab: Imagine
+    style:
+        label: Stil (pentru filtru)
+        type: dropdown
+        options:
+            modern: Modern
+            minimalist: Minimalist
+            natural: Natural
+            contrast: Contrast
+        tab: Imagine
+    is_tall:
+        label: Placă înaltă
+        comment: Ocupă două rânduri în galerie când sunt afișate toate imaginile.
+        type: checkbox
+        tab: Imagine
+    display_order:
+        label: Ordine în galerie
+        comment: Numărul mai mic apare primul.
+        type: number
+        tab: Imagine

@@ -1,0 +1,72 @@
+uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e10
+handle: Page\Contact
+type: single
+name: Contact
+
+navigation:
+    parent: Page\Home
+    icon: ph ph-phone
+    order: 900
+
+fields:
+    hero_eyebrow:
+        label: Etichetă
+        type: text
+        tab: Început de pagină
+    hero_title:
+        label: Titlu
+        type: text
+        tab: Început de pagină
+    hero_text:
+        label: Text
+        type: textarea
+        size: small
+        tab: Început de pagină
+    phone_note:
+        label: Notă la telefon
+        comment: Goală = se afișează programul din Date firmă.
+        type: text
+        tab: Canale
+    email_note:
+        label: Notă la email
+        type: text
+        tab: Canale
+    showroom_note:
+        label: Notă la showroom
+        comment: Apare după adresa din Date firmă.
+        type: text
+        tab: Canale
+    form_eyebrow:
+        label: Etichetă
+        type: text
+        tab: Formular
+    form_title:
+        label: Titlu
+        type: text
+        tab: Formular
+    form_text:
+        label: Text
+        type: textarea
+        size: small
+        tab: Formular
+    steps:
+        label: Ce urmează
+        type: repeater
+        titleFrom: title
+        tab: Formular
+        form:
+            fields:
+                title:
+                    label: Titlu
+                    type: text
+                text:
+                    label: Text
+                    type: text
+    success_title:
+        label: Titlu după trimitere
+        type: text
+        tab: Formular
+    success_text:
+        label: Text după trimitere
+        type: text
+        tab: Formular

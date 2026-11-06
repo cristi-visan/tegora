@@ -1,0 +1,91 @@
+[
+    {
+        "id": 1,
+        "title": "Tegora",
+        "slug": "home",
+        "is_enabled": 1,
+        "hero_eyebrow": "UȘI TEGORA",
+        "hero_title_1": "Prima impresie",
+        "hero_title_2": "începe cu ușa.",
+        "hero_text": "Moralt – lemn natural care atrage privirea. Inginerie performantă care protejează casa. Stabilitate și etanșeitate în timp.",
+        "hero_motto": "TEHNOLOGIE MORALT\nPERFECȚIONATĂ ÎN PESTE 100 DE ANI.",
+        "hero_cta_primary": "Descoperă ușile Tegora",
+        "hero_cta_secondary": "Configurează ușa",
+        "hero_tagline": "NATURAL LA EXTERIOR.\nINGINERIE ÎN INTERIOR.",
+        "hero_image": "/site/intrare-lemn-natural-apus.jpg",
+        "stats": [
+            { "icon": "thermal", "value": "0,65 W/m²K", "label": "Izolație termică excelentă", "sort_order": 1 },
+            { "icon": "acoustic", "value": "38 dB", "label": "Izolație fonică performantă", "sort_order": 2 },
+            { "icon": "security", "value": "RC2 · RC3 · RC4", "label": "Securitate avansată", "sort_order": 3 },
+            { "icon": "fire", "value": "EI30 / EI60", "label": "Protecție la foc certificată", "sort_order": 4 },
+            { "icon": "passive", "value": "Passive House", "label": "Certificare pentru case pasive", "sort_order": 5 },
+            { "icon": "germany", "value": "MADE IN GERMANY", "label": "Tehnologie Moralt", "sort_order": 6 }
+        ],
+        "systems_eyebrow": "SISTEMELE DE UȘI TEGORA (MORALT)",
+        "systems_title": "Cum alegi ușa potrivită casei tale?",
+        "systems_text": "Moralt oferă multiple soluții pentru cerințe diferite, cu caracteristici tehnice și certificări de top. Descoperă diferențele și alege sistemul potrivit nevoilor tale.",
+        "systems_cta": "Vezi toate sistemele",
+        "systems": [
+            { "system": "klassikplus", "brand": "FERRO", "name": "KlassikPlus", "text": "Siguranță și confort în fiecare detaliu.", "link_label": "Descoperă", "sort_order": 1 },
+            { "system": "klima", "brand": "FERRO", "name": "Klima", "text": "Stabilitate în condiții climatice extreme.", "link_label": "Descoperă", "sort_order": 2 },
+            { "system": "akustik", "brand": "FERRO", "name": "Akustik", "text": "Izolare fonică superioară pentru mai multă liniște.", "link_label": "Descoperă", "sort_order": 3 },
+            { "system": "passiv", "brand": "FERRO", "name": "Passiv", "text": "Performanțe pentru case eficiente energetic.", "link_label": "Descoperă", "sort_order": 4 },
+            { "system": "firesafe", "brand": "FERRO", "name": "FireSafe", "text": "Protecție la foc pentru proiecte speciale.", "link_label": "Descoperă", "sort_order": 5 }
+        ],
+        "systems_note_left": "CALITATE. SIGURANȚĂ. CONFORT. PENTRU FIECARE CASĂ.",
+        "systems_note_right": "MORALT × TEGORA",
+        "tech_eyebrow": "TEHNOLOGIE MORALT",
+        "tech_title": "Performanța pe care nu o vezi.",
+        "tech_text": "O construcție inteligentă, cu materiale premium, care asigură stabilitate, izolare și durabilitate în timp.",
+        "tech_cta": "Descoperă tehnologia",
+        "tech_benefits": [
+            { "icon": "stability", "text": "Stabilitate dimensională", "sort_order": 1 },
+            { "icon": "time", "text": "Rezistență în timp", "sort_order": 2 },
+            { "icon": "certificate", "text": "Certificări europene", "sort_order": 3 },
+            { "icon": "factory", "text": "Producție în Germania", "sort_order": 4 },
+            { "icon": "security", "text": "Garanție 10 ani împotriva deformării*", "sort_order": 5 }
+        ],
+        "tech_footnote": "*Conform condițiilor de garanție Moralt.",
+        "tech_caption": "SECȚIUNE FERRO KLASSIKPLUS · 68 MM",
+        "tech_layers": [
+            { "title": "Finisaj premium", "detail": "furnir / vopsea / MDF", "sort_order": 1 },
+            { "title": "Strat exterior multistrat", "detail": "", "sort_order": 2 },
+            { "title": "Miez stabilizator din oțel", "detail": "", "sort_order": 3 },
+            { "title": "Structură din lemn lamelat", "detail": "", "sort_order": 4 },
+            { "title": "Izolație rigidă PU", "detail": "", "sort_order": 5 },
+            { "title": "Sistem de etanșare", "detail": "", "sort_order": 6 }
+        ],
+        "cfg_eyebrow": "GĂSEȘTE UȘA POTRIVITĂ",
+        "cfg_title": "Spune-ne ce este important pentru proiectul tău.",
+        "cfg_text": "Configuratorul Tegora te ghidează în șase pași, de la performanța dorită până la finisaj. Îți recomandăm soluțiile Moralt potrivite și te contactăm cu o ofertă personalizată.",
+        "cfg_image": "/site/intrare-moderna-apus.jpg",
+        "cfg_steps": [
+            { "label": "Performanță", "sort_order": 1 },
+            { "label": "Dimensiuni", "sort_order": 2 },
+            { "label": "Grosime", "sort_order": 3 },
+            { "label": "Material cadru", "sort_order": 4 },
+            { "label": "Configurație", "sort_order": 5 },
+            { "label": "Finisaj", "sort_order": 6 }
+        ],
+        "cfg_cta": "Începe configurarea",
+        "cfg_benefits": [
+            { "icon": "diamond", "text": "Soluții adaptate proiectului tău", "sort_order": 1 },
+            { "icon": "person", "text": "Consultanță gratuită", "sort_order": 2 },
+            { "icon": "pin", "text": "Modele reale în showroom", "sort_order": 3 }
+        ],
+        "process_eyebrow": "CUM LUCRĂM",
+        "process_title": "De la idee la ușa instalată.",
+        "process_steps": [
+            { "title": "Descoperă", "text": "Inspirație și soluții", "sort_order": 1 },
+            { "title": "Configurează", "text": "Alegerea opțiunilor", "sort_order": 2 },
+            { "title": "Consultanță", "text": "Validare tehnică", "sort_order": 3 },
+            { "title": "Producție", "text": "Made in Germany", "sort_order": 4 },
+            { "title": "Livrare & montaj", "text": "Prin parteneri specializați", "sort_order": 5 }
+        ],
+        "cta_title": "Ușa potrivită începe cu proiectul tău.",
+        "cta_text": "De la design și dimensiuni până la performanță și montaj, construim împreună soluția potrivită spațiului tău.",
+        "cta_primary": "Configurează ușa",
+        "cta_secondary": "Discută cu un consultant",
+        "cta_image": "/site/intrare-galerie-01.jpg"
+    }
+]

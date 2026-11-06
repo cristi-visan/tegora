@@ -1,0 +1,9 @@
+{# Shared body of the legal pages. Pass: entry. #}
+<section class="section">
+    <div class="wrap page-hero">
+        <h1 class="h1">{{ entry.title }}</h1>
+    </div>
+    <div class="wrap legal-body">
+        <div class="prose">{{ entry.content|raw }}</div>
+    </div>
+</section>

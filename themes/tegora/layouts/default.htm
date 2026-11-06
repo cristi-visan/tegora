@@ -1,0 +1,40 @@
+##
+description = "Layout principal Tegora"
+
+[global site]
+handle = "Site\Settings"
+==
+{# Read optional page settings from the array: the Safe Mode sandbox rejects undefined attributes on the page object. #}
+{% set opts = this.page.settings %}
+<!doctype html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ placeholder('pageTitle') ?: this.page.title }}{% if this.page.id != 'index' %} | Tegora{% endif %}</title>
+    {% if opts.meta_description %}<meta name="description" content="{{ opts.meta_description }}">{% endif %}
+    {% if tegoraNoIndex() %}<meta name="robots" content="noindex, nofollow">{% endif %}
+    <link rel="canonical" href="{{ this.page.fileName|page }}">
+    <meta property="og:title" content="{{ this.page.title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ro_RO">
+    <link rel="preload" href="{{ 'assets/fonts/dm-sans-latin.woff2'|theme }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ 'assets/fonts/newsreader-latin.woff2'|theme }}" as="font" type="font/woff2" crossorigin>
+    {% set css = ['assets/css/base.css'] %}
+    {% if opts.page_css %}{% set css = css|merge(['assets/css/pages/' ~ opts.page_css ~ '.css']) %}{% endif %}
+    <link rel="stylesheet" href="{{ css|theme }}">
+    {% styles %}
+</head>
+<body{% if opts.page_css %} class="p-{{ opts.page_css }}"{% endif %}>
+<div id="top" class="page">
+    {% partial 'site/header' %}
+    <main>
+        {% page %}
+    </main>
+    {% partial 'site/footer' %}
+</div>
+<script src="{{ 'assets/js/site.js'|theme }}" defer></script>
+{% if opts.page_js %}<script src="{{ ('assets/js/' ~ opts.page_js ~ '.js')|theme }}" defer></script>{% endif %}
+{% scripts %}
+</body>
+</html>
