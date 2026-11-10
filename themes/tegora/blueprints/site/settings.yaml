@@ -3,6 +3,12 @@ handle: Site\Settings
 type: global
 name: Date firmă și contact
 
+# Main back-office menu; `navigation` alone only lists a global under Settings
+primaryNavigation:
+    label: Date firmă
+    icon: ph ph-buildings
+    order: 900
+
 navigation:
     label: Date firmă
     icon: ph ph-buildings
