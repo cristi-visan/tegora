@@ -5,11 +5,11 @@ layout = "default"
 page_css = "product"
 nav_section = "usi"
 meta_description = "FERRO Akustik: ușă exterioară din lemn cu izolare termică și fonică avansată, securitate RC2 / RC3 în configurații testate."
-
-[section product]
-handle = "Content\Product"
-identifier = "slug"
-value = "usi-acustice"
 ==
-{% if product is empty %}{% do abort(404) %}{% endif %}
-{% partial 'product/page' entry=product %}
+{% partial 'usi-acustice/hero' %}
+{% partial 'usi-acustice/intro' %}
+{% partial 'usi-acustice/specs' %}
+{% partial 'usi-acustice/benefits' %}
+{% partial 'usi-acustice/construction' %}
+{% partial 'usi-acustice/design' %}
+{% partial 'usi-acustice/security' %}

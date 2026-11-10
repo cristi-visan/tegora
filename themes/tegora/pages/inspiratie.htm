@@ -6,111 +6,11 @@ page_js = "gallery-filter"
 nav_section = "inspiratie"
 meta_description = "Idei pentru intrarea casei tale: esențe de lemn, finisaje și configurații Moralt care pornesc de la arhitectura casei."
 
-[section page]
-handle = "Page\Inspiration"
-
 [collection images]
 handle = "Content\InspirationImage"
 ==
-{% set gallery = images.orderBy('display_order').orderBy('id').get() %}
-{# Filter chips: the key is the Stil value of an image. #}
-{% set styles = {
-    'modern': 'Modern'|_,
-    'minimalist': 'Minimalist'|_,
-    'natural': 'Natural'|_,
-    'contrast': 'Contrast'|_
-} %}
-{# Finishes: swatches shipped with the theme. #}
-{% set finishes = [
-    {'name': 'Stejar', 'file': 'finisaj-stejar.webp'},
-    {'name': 'Stejar rustic', 'file': 'finisaj-stejar-rustic.webp'},
-    {'name': 'Meranti', 'file': 'finisaj-meranti.webp'},
-    {'name': 'Larice', 'file': 'finisaj-larice.webp'},
-    {'name': 'Rășinoase', 'file': 'finisaj-rasinoase.webp'},
-    {'name': 'Pentru vopsire', 'file': 'finisaj-vopsire.webp'}
-] %}
-
-<section class="section" aria-labelledby="page-title">
-    <div class="wrap page-hero page-hero--split">
-        <div class="page-hero__main">
-            <p class="eyebrow">{{ page.hero_eyebrow }}</p>
-            <h1 id="page-title" class="h1">{{ page.hero_title }}</h1>
-        </div>
-        <p class="lead page-hero__side">{{ page.hero_text }}</p>
-    </div>
-</section>
-
-<section class="section" aria-label="{{ 'Galerie'|_ }}" data-gallery-filter>
-    <div class="wrap insp-gallery">
-        <div class="insp-toolbar">
-            <div class="insp-chips" role="group" aria-label="{{ 'Filtrează după stil'|_ }}" data-filter-chips hidden>
-                <button class="chip" type="button" aria-pressed="true" data-filter="toate">{{ 'Toate'|_ }}</button>
-                {% for key, name in styles %}
-                <button class="chip" type="button" aria-pressed="false" data-filter="{{ key }}">{{ name }}</button>
-                {% endfor %}
-            </div>
-            <p class="insp-count" data-filter-count data-one="{{ 'idee'|_ }}" data-many="{{ 'idei'|_ }}">{{ gallery|length }} {{ gallery|length == 1 ? 'idee'|_ : 'idei'|_ }}</p>
-        </div>
-        <ul class="plain insp-grid">
-            {% for g in gallery %}
-            <li class="tile insp-tile{{ g.is_tall ? ' insp-tile--tall' : '' }}" data-category="{{ g.style }}">
-                {% if g.image %}
-                <img class="insp-tile__img" src="{{ g.image|media }}" alt="{{ g.title }}" width="600" height="{{ g.is_tall ? 496 : 240 }}" loading="lazy">
-                {% endif %}
-                <div class="insp-tile__caption">
-                    <span class="insp-tile__style">{{ (styles[g.style] ?? g.style)|upper }}</span>
-                    <span class="insp-tile__title">{{ g.title }}</span>
-                    <span class="insp-tile__desc">{{ g.description }}</span>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-        <p class="body" data-filter-empty hidden>{{ 'Momentan nu avem imagini în acest stil.'|_ }}</p>
-    </div>
-</section>
-
-<section class="section section--alt" aria-labelledby="fin-title">
-    <div class="wrap insp-finishes">
-        <div class="insp-finishes__text">
-            <p class="eyebrow">{{ page.finishes_eyebrow }}</p>
-            <h2 id="fin-title" class="h2">{{ page.finishes_title }}</h2>
-            <p class="body">{{ page.finishes_text }}</p>
-            <a class="inline-link" href="{{ 'configurator'|page }}">{{ page.finishes_link_label }} {% partial 'ui/arrow' %}</a>
-        </div>
-        <ul class="plain insp-finishes__grid">
-            {% for f in finishes %}
-            <li class="insp-finish">
-                <img src="{{ ('assets/images/' ~ f.file)|theme }}" alt="{{ 'Finisaj'|_ }} {{ f.name }}" width="300" height="200" loading="lazy">
-                <span class="insp-finish__name">{{ f.name }}</span>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-</section>
-
-<section class="section" aria-labelledby="det-title">
-    <div class="wrap insp-details">
-        <div class="insp-details__head">
-            <div class="insp-details__text">
-                <p class="eyebrow">{{ page.details_eyebrow }}</p>
-                <h2 id="det-title" class="h2">{{ page.details_title }}</h2>
-            </div>
-            <a class="inline-link" href="{{ 'usi-exterior'|page }}">{{ page.details_link_label }} {% partial 'ui/arrow' %}</a>
-        </div>
-        <ul class="plain insp-details__grid">
-            {% for d in page.details %}
-            <li class="tile insp-detail">
-                <div class="insp-detail__media">
-                    {% if d.image %}<img src="{{ d.image|media }}" alt="{{ d.title }}" width="560" height="504" loading="lazy">{% endif %}
-                </div>
-                <div class="insp-detail__body">
-                    <h3 class="insp-detail__title">{{ d.title }}</h3>
-                    <p class="insp-detail__text">{{ d.text }}</p>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-</section>
-
-{% partial 'site/cta-band' title=page.cta_title text=page.cta_text %}
+{% partial 'inspiratie/hero' %}
+{% partial 'inspiratie/gallery' %}
+{% partial 'inspiratie/finishes' %}
+{% partial 'inspiratie/details' %}
+{% partial 'inspiratie/cta' %}

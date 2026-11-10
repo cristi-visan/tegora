@@ -2,13 +2,14 @@
 [submission configuratorForm]
 handle = "Leads\Request"
 ==
+{# Pagina Configurator: formularul de la final (titlul, câmpurile și mesajul afișat după trimitere) #}
 <div class="cfg-formbox" data-cfg-formbox>
     {% if formSubmitted %}
     <div class="form-sent cfg-sent" role="status" data-cfg-sent>
         <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#684D38" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.3l2.7 2.7L16.5 9"></path></svg>
-        <h3>{{ success_title }}</h3>
-        <p class="body">{{ success_text }}</p>
-        <button class="inline-link cfg-sent__reset" type="button" data-cfg-reset>{{ 'Modifică datele'|_ }}</button>
+        <h3>Mulțumim! Am primit configurația.</h3>
+        <p class="body">Un consultant Tegora o analizează și te contactează pentru detalii și ofertă.</p>
+        <button class="inline-link cfg-sent__reset" type="button" data-cfg-reset>Modifică datele</button>
     </div>
     {% endif %}
     <form class="cfg-form" data-request="configuratorForm::onFormSubmit" data-request-update="{ _self: true }" data-request-flash data-cfg-form{% if formSubmitted %} hidden{% endif %}>
@@ -18,29 +19,29 @@ handle = "Leads\Request"
         <textarea name="detalii_configurator" hidden data-cfg-f-details></textarea>
         <div class="hp-field" aria-hidden="true"><input type="text" name="_oc_hp" value="" autocomplete="off" tabindex="-1"></div>
         <div class="cfg-form__head">
-            <p class="eyebrow">{{ eyebrow }}</p>
-            <h2 id="s7" class="cfg-form__title">{{ title }}</h2>
-            <p class="cfg-form__text">{{ text }}</p>
+            <p class="eyebrow">ULTIMUL PAS</p>
+            <h2 id="s7" class="cfg-form__title">Date de contact și proiect</h2>
+            <p class="cfg-form__text">Completează datele și primești o ofertă pentru configurația selectată.</p>
         </div>
-        <p class="cfg-form__recap" data-cfg-form-recap hidden><strong>{{ 'Configurația ta:'|_ }}</strong> <span data-cfg-form-recap-text></span></p>
+        <p class="cfg-form__recap" data-cfg-form-recap hidden><strong>Configurația ta:</strong> <span data-cfg-form-recap-text></span></p>
         <div class="cfg-form__grid">
-            <label class="cfg-label">{{ 'Nume'|_ }} *<input class="field" type="text" name="nume" required autocomplete="name"></label>
-            <label class="cfg-label">{{ 'Telefon'|_ }} *<input class="field" type="tel" name="telefon" required autocomplete="tel"></label>
+            <label class="cfg-label">Nume *<input class="field" type="text" name="nume" required autocomplete="name"></label>
+            <label class="cfg-label">Telefon *<input class="field" type="tel" name="telefon" required autocomplete="tel"></label>
             <label class="cfg-label">Email<input class="field" type="email" name="email" autocomplete="email"></label>
-            <label class="cfg-label">{{ 'Localitate / Adresă proiect'|_ }}<input class="field" type="text" name="localitate" autocomplete="address-level2"></label>
-            <label class="cfg-label">{{ 'Tip proiect'|_ }}
+            <label class="cfg-label">Localitate / Adresă proiect<input class="field" type="text" name="localitate" autocomplete="address-level2"></label>
+            <label class="cfg-label">Tip proiect
                 <select class="field" name="tip">
-                    <option value="">{{ 'Alege…'|_ }}</option>
-                    <option value="casa">{{ 'Casă individuală'|_ }}</option>
-                    <option value="ansamblu">{{ 'Ansamblu rezidențial'|_ }}</option>
-                    <option value="comercial">{{ 'Comercial'|_ }}</option>
+                    <option value="">Alege…</option>
+                    <option value="casa">Casă individuală</option>
+                    <option value="ansamblu">Ansamblu rezidențial</option>
+                    <option value="comercial">Comercial</option>
                 </select>
             </label>
         </div>
-        <label class="form-consent"><input type="checkbox" name="gdpr" value="1" required><span>{{ 'Sunt de acord cu prelucrarea datelor personale conform'|_ }} <a href="{{ 'politica-de-confidentialitate'|page }}">{{ 'Politicii de confidențialitate'|_ }}</a>. *</span></label>
+        <label class="form-consent"><input type="checkbox" name="gdpr" value="1" required><span>Sunt de acord cu prelucrarea datelor personale conform <a href="{{ 'politica-de-confidentialitate'|page }}">Politicii de confidențialitate</a>. *</span></label>
         <div class="form-foot">
-            <p class="cfg-form__safe"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>{{ 'Datele tale sunt în siguranță. Le folosim doar pentru a te contacta în legătură cu proiectul tău.'|_ }}</p>
-            <button class="btn btn--dark btn--lg" type="submit" data-attach-loading>{{ 'Trimite configurația'|_ }} {% partial 'ui/arrow' %}</button>
+            <p class="cfg-form__safe"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Datele tale sunt în siguranță. Le folosim doar pentru a te contacta în legătură cu proiectul tău.</p>
+            <button class="btn btn--dark btn--lg" type="submit" data-attach-loading>Trimite configurația {% partial 'ui/arrow' %}</button>
         </div>
     </form>
 </div>

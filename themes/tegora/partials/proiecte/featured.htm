@@ -1,0 +1,23 @@
+{# Pagina Proiecte: secțiunea „Proiect reprezentativ”. Proiectul afișat este cel bifat „reprezentativ” în lista de proiecte din back office. #}
+{% set featured = projects.orderBy('display_order').orderBy('id').get()|filter(p => p.is_featured)|first %}
+{% if featured %}
+<section class="section" aria-labelledby="feat-title">
+    <div class="wrap proj-featured">
+        <figure class="proj-featured__media">
+            {% if featured.image %}
+            <img class="proj-featured__img" src="{{ featured.image|media }}" alt="{{ featured.image_alt ?: featured.title }}" width="1200" height="800">
+            {% endif %}
+            <span class="proj-featured__badge">PROIECT REPREZENTATIV</span>
+        </figure>
+        <div class="proj-featured__body">
+            <p class="proj-featured__meta">{{ [featured.location, featured.year, featured.system]|filter(v => v)|join(' · ') }}</p>
+            <h2 id="feat-title" class="h2">{{ featured.title }}</h2>
+            <dl class="proj-featured__facts">
+                <div class="proj-fact"><dt class="proj-fact__label">PROVOCARE</dt><dd class="proj-fact__text">{{ featured.challenge }}</dd></div>
+                <div class="proj-fact"><dt class="proj-fact__label">SOLUȚIE</dt><dd class="proj-fact__text">{{ featured.solution }}</dd></div>
+                <div class="proj-fact"><dt class="proj-fact__label">REZULTAT</dt><dd class="proj-fact__text">{{ featured.result }}</dd></div>
+            </dl>
+        </div>
+    </div>
+</section>
+{% endif %}

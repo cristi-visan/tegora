@@ -1,0 +1,31 @@
+{# Pagina principală: secțiunea „Performanțe cheie” #}
+<section class="home-stats" aria-label="Performanțe cheie">
+    <div class="wrap home-stats__wrap">
+        <ul class="plain home-stats__list">
+            <li class="home-stat">
+                <span class="home-stat__icon" aria-hidden="true">{% partial 'home/icon' name='thermal' size=36 %}</span>
+                <span class="home-stat__text"><strong class="home-stat__value">0,65 W/m²K</strong><span class="home-stat__label">Izolație termică excelentă</span></span>
+            </li>
+            <li class="home-stat">
+                <span class="home-stat__icon" aria-hidden="true">{% partial 'home/icon' name='acoustic' size=36 %}</span>
+                <span class="home-stat__text"><strong class="home-stat__value">38 dB</strong><span class="home-stat__label">Izolație fonică performantă</span></span>
+            </li>
+            <li class="home-stat">
+                <span class="home-stat__icon" aria-hidden="true">{% partial 'home/icon' name='security' size=36 %}</span>
+                <span class="home-stat__text"><strong class="home-stat__value">RC2 · RC3 · RC4</strong><span class="home-stat__label">Securitate avansată</span></span>
+            </li>
+            <li class="home-stat">
+                <span class="home-stat__icon" aria-hidden="true">{% partial 'home/icon' name='fire' size=36 %}</span>
+                <span class="home-stat__text"><strong class="home-stat__value">EI30 / EI60</strong><span class="home-stat__label">Protecție la foc certificată</span></span>
+            </li>
+            <li class="home-stat">
+                <span class="home-stat__icon"><img src="{{ 'assets/images/passive-house.png'|theme }}" alt="Marca Passive House" width="32" height="38" class="home-stat__logo"></span>
+                <span class="home-stat__text"><strong class="home-stat__value">Passive House</strong><span class="home-stat__label">Certificare pentru case pasive</span></span>
+            </li>
+            <li class="home-stat">
+                <span class="home-stat__icon"><svg width="32" height="21" viewBox="0 0 28 19" role="img" aria-label="Steagul Germaniei"><rect width="28" height="6.4" fill="#1B1A17"></rect><rect y="6.3" width="28" height="6.4" fill="#C8102E"></rect><rect y="12.6" width="28" height="6.4" fill="#E3B23C"></rect></svg></span>
+                <span class="home-stat__text"><strong class="home-stat__value home-stat__value--caps">MADE IN GERMANY</strong><span class="home-stat__label">Tehnologie Moralt</span></span>
+            </li>
+        </ul>
+    </div>
+</section>

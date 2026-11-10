@@ -5,11 +5,11 @@ layout = "default"
 page_css = "product"
 nav_section = "usi"
 meta_description = "FERRO KlassikPlus și Klima: uși exterioare din lemn cu izolare termică bună, securitate RC2 / RC3 în configurații testate și stabilitate dimensională."
-
-[section product]
-handle = "Content\Product"
-identifier = "slug"
-value = "usi-performante"
 ==
-{% if product is empty %}{% do abort(404) %}{% endif %}
-{% partial 'product/page' entry=product %}
+{% partial 'usi-performante/hero' %}
+{% partial 'usi-performante/intro' %}
+{% partial 'usi-performante/specs' %}
+{% partial 'usi-performante/benefits' %}
+{% partial 'usi-performante/construction' %}
+{% partial 'usi-performante/design' %}
+{% partial 'usi-performante/security' %}

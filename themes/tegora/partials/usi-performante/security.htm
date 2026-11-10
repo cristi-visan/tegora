@@ -1,0 +1,56 @@
+{# Pagina „Uși performante”: secțiunea „Clase de securitate” #}
+<section class="section section--alt" aria-labelledby="rc-title">
+    <div class="wrap prod-rc">
+        <div class="prod-rc__intro">
+            <span class="prod-rc__lock" aria-hidden="true">{% partial 'product/icon' name='lock' size=40 sw=1.2 %}</span>
+            <p class="eyebrow">STANDARDE DE REZISTENȚĂ</p>
+            <h2 id="rc-title" class="prod-rc__title">RC2 / RC3</h2>
+            <p class="prod-body prod-rc__text">Clase de rezistență la efracție conform EN 1627, valabile pentru ansambluri și configurații testate.</p>
+            <p class="prod-rc__note">* Valorile și clasele RC sunt valabile numai pentru variantele și condițiile specificate în documentația tehnică și rapoartele de încercare aferente.</p>
+        </div>
+
+        <article class="card prod-rc-card">
+            <div class="prod-rc-card__head">
+                <div class="prod-rc-card__class">
+                    <p class="prod-label">CLASA</p>
+                    <h3 class="prod-rc-card__name">RC2</h3>
+                </div>
+                <div class="prod-rc-card__time">
+                    <span class="prod-rc-card__time-main">{% partial 'product/icon' name='timer' size=20 sw=1.5 %}<strong>3 min</strong></span>
+                    <span class="prod-rc-card__time-label">rezistență la<br>atac manual</span>
+                </div>
+            </div>
+            <p class="prod-rc-card__desc">Rezistență la atac cu unelte simple.</p>
+            <div class="prod-rc-card__tools">
+                <p class="prod-label">UNELTE TESTATE</p>
+                <ul class="plain prod-tools">
+                    <li>{% partial 'product/icon' name='screwdriver' size=30 sw=1.3 %}Șurubelniță</li>
+                    <li>{% partial 'product/icon' name='pliers' size=30 sw=1.3 %}Clește</li>
+                    <li>{% partial 'product/icon' name='crowbar-small' size=30 sw=1.3 %}Rangă mică</li>
+                </ul>
+            </div>
+        </article>
+
+        <article class="card prod-rc-card">
+            <div class="prod-rc-card__head">
+                <div class="prod-rc-card__class">
+                    <p class="prod-label">CLASA</p>
+                    <h3 class="prod-rc-card__name">RC3</h3>
+                </div>
+                <div class="prod-rc-card__time">
+                    <span class="prod-rc-card__time-main">{% partial 'product/icon' name='timer' size=20 sw=1.5 %}<strong>5 min</strong></span>
+                    <span class="prod-rc-card__time-label">rezistență la<br>atac manual</span>
+                </div>
+            </div>
+            <p class="prod-rc-card__desc">Rezistență la unelte mai avansate.</p>
+            <div class="prod-rc-card__tools">
+                <p class="prod-label">UNELTE TESTATE</p>
+                <ul class="plain prod-tools">
+                    <li>{% partial 'product/icon' name='crowbar-large' size=30 sw=1.3 %}Rangă mare</li>
+                    <li>{% partial 'product/icon' name='hammer' size=30 sw=1.3 %}Ciocan</li>
+                    <li>{% partial 'product/icon' name='drill' size=30 sw=1.3 %}Mașină de găurit</li>
+                </ul>
+            </div>
+        </article>
+    </div>
+</section>

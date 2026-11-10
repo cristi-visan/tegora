@@ -1,0 +1,51 @@
+{# Pagina „Uși acustice”: secțiunea „Prezentare produs” #}
+<section class="prod-hero" aria-labelledby="prod-title">
+    <div class="prod-hero__main">
+        <p class="eyebrow">UȘI DE EXTERIOR DIN LEMN</p>
+        <h1 id="prod-title" class="prod-title">FERRO Akustik</h1>
+        <p class="prod-tagline">Liniște desăvârșită. Confort fără compromisuri.</p>
+        <p class="prod-lead">Ușă exterioară din lemn, cu izolare termică și fonică avansată, securitate în configurații certificate și stabilitate structurală.</p>
+
+        <ul class="prod-stats" aria-label="Performanțe cheie">
+            <li class="prod-stat">
+                <span class="prod-stat__icon" aria-hidden="true">{% partial 'product/icon' name='thermo-scale' size=36 sw=1.3 %}</span>
+                <strong class="prod-stat__value">0,78<span class="prod-stat__unit">W/m²K</span></strong>
+                <span class="prod-stat__label">izolare termică<br>(până la)</span>
+            </li>
+            <li class="prod-stat">
+                <span class="prod-stat__icon" aria-hidden="true">{% partial 'product/icon' name='sound' size=36 sw=1.3 %}</span>
+                <strong class="prod-stat__value">47<span class="prod-stat__unit">dB</span></strong>
+                <span class="prod-stat__label">izolare fonică<br>(până la)</span>
+            </li>
+            <li class="prod-stat">
+                <span class="prod-stat__icon" aria-hidden="true">{% partial 'product/icon' name='shield-check' size=36 sw=1.3 %}</span>
+                <strong class="prod-stat__value">RC2 / RC3</strong>
+                <span class="prod-stat__label">securitate<br>în configurații testate</span>
+            </li>
+            <li class="prod-stat">
+                <span class="prod-stat__icon" aria-hidden="true">{% partial 'product/icon' name='area' size=36 sw=1.3 %}</span>
+                <strong class="prod-stat__value">3,2<span class="prod-stat__unit">m²</span></strong>
+                <span class="prod-stat__label">suprafață maximă<br>declarată</span>
+            </li>
+        </ul>
+
+        <div class="prod-actions">
+            <a class="btn btn--dark prod-btn" href="{{ 'contact'|page }}">Solicită ofertă {% partial 'ui/arrow' %}</a>
+            <a class="btn btn--light prod-btn prod-btn--light" href="{{ '/site/documente/FERRO-Akustik-fisa-tehnica.pdf'|media }}" target="_blank" rel="noopener">Descarcă fișa tehnică
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"></path></svg>
+            </a>
+        </div>
+    </div>
+
+    <figure class="prod-fig prod-fig--b">
+        <img class="prod-fig__photo" src="{{ '/site/usa-pivotanta-lemn-panouri-sticla.jpg'|media }}" alt="Ușă pivotantă din lemn cu panouri laterale din sticlă — imagine de prezentare; fețele ușii se personalizează" width="1200" height="800">
+        <div class="prod-fig__card">
+            <div class="prod-fig__card-head">
+                <p class="prod-fig__card-label">SECȚIUNE REALĂ<span>FERRO Akustik</span></p>
+                <span class="prod-fig__badge">68–98 mm</span>
+            </div>
+            <img class="prod-fig__section" src="{{ '/site/ferro-akustik-sectiune-reala.webp'|media }}" alt="Secțiune reală FERRO Akustik: fața din furnir și structura interioară multistrat" width="900" height="785">
+        </div>
+        <figcaption class="prod-fig__caption">Imagine de prezentare — fețele ușii se personalizează după proiect.</figcaption>
+    </figure>
+</section>

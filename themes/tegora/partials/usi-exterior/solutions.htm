@@ -1,0 +1,61 @@
+{# Pagina Uși exterior: secțiunea „Descoperă cele patru soluții” #}
+<section id="solutii" class="section section--rule doors-solutions" aria-labelledby="sol-title">
+    <div class="wrap doors-solutions__inner">
+        <h2 id="sol-title" class="doors-h2">Descoperă cele patru soluții</h2>
+
+        <ul class="plain doors-solutions__grid">
+            <li class="card doors-card">
+                <div class="doors-card__media"><img src="{{ 'assets/images/ferro-klassikplus.webp'|theme }}" alt="Secțiune prin ușa Moralt FERRO KlassikPlus" width="600" height="413" loading="lazy"></div>
+                <div class="doors-card__title">
+                    <h3 class="h3">Uși performante</h3>
+                    <p class="small">Moralt FERRO KlassikPlus / Klima</p>
+                </div>
+                <ul class="plain doors-card__features">
+                    <li><span class="doors-card__icon">{% partial 'doors/icon' name='thermal' size=26 %}</span>Izolare termică excelentă</li>
+                    <li><span class="doors-card__icon">{% partial 'doors/icon' name='shield' size=26 %}</span>Securitate RC2 / RC3</li>
+                    <li><span class="doors-card__icon">{% partial 'doors/icon' name='gem' size=26 %}</span>Stabilitate și durabilitate</li>
+                </ul>
+                <a class="inline-link doors-card__link" href="{{ 'usi-performante'|page }}">Află mai multe {% partial 'ui/arrow' %}</a>
+            </li>
+            <li class="card doors-card">
+                <div class="doors-card__media"><img src="{{ 'assets/images/ferro-passiv.webp'|theme }}" alt="Secțiune prin ușa Moralt FERRO Passiv" width="600" height="413" loading="lazy"></div>
+                <div class="doors-card__title">
+                    <h3 class="h3">Uși pentru case pasive</h3>
+                    <p class="small">Moralt FERRO Passiv</p>
+                </div>
+                <ul class="plain doors-card__features">
+                    <li><span class="doors-card__icon">{% partial 'doors/icon' name='leaf' size=26 %}</span>Eficiență energetică maximă</li>
+                    <li><span class="doors-card__icon">{% partial 'doors/icon' name='house' size=26 %}</span>Certificare Passive House</li>
+                    <li><span class="doors-card__icon">{% partial 'doors/icon' name='gem' size=26 %}</span>Stabilitate în timp</li>
+                </ul>
+                <a class="inline-link doors-card__link" href="{{ 'usi-case-pasiv'|page }}">Află mai multe {% partial 'ui/arrow' %}</a>
+            </li>
+            <li class="card doors-card">
+                <div class="doors-card__media"><img src="{{ 'assets/images/ferro-akustik.webp'|theme }}" alt="Secțiune prin ușa Moralt FERRO Akustik" width="600" height="413" loading="lazy"></div>
+                <div class="doors-card__title">
+                    <h3 class="h3">Uși acustice</h3>
+                    <p class="small">Moralt FERRO Akustik</p>
+                </div>
+                <ul class="plain doors-card__features">
+                    <li><span class="doors-card__icon">{% partial 'doors/icon' name='acoustic' size=26 %}</span>Izolare fonică până la 47 dB</li>
+                    <li><span class="doors-card__icon">{% partial 'doors/icon' name='shield' size=26 %}</span>Confort și intimitate</li>
+                    <li><span class="doors-card__icon">{% partial 'doors/icon' name='gem' size=26 %}</span>Design personalizat</li>
+                </ul>
+                <a class="inline-link doors-card__link" href="{{ 'usi-acustice'|page }}">Află mai multe {% partial 'ui/arrow' %}</a>
+            </li>
+            <li class="card doors-card">
+                <div class="doors-card__media"><img src="{{ 'assets/images/ferro-firesafe.webp'|theme }}" alt="Secțiune prin ușa Moralt FERRO FireSafe" width="600" height="413" loading="lazy"></div>
+                <div class="doors-card__title">
+                    <h3 class="h3">Uși rezistente la foc</h3>
+                    <p class="small">Moralt FERRO FireSafe</p>
+                </div>
+                <ul class="plain doors-card__features">
+                    <li><span class="doors-card__icon">{% partial 'doors/icon' name='fire' size=26 %}</span>Rezistență la foc EI30</li>
+                    <li><span class="doors-card__icon">{% partial 'doors/icon' name='shield' size=26 %}</span>Securitate și protecție</li>
+                    <li><span class="doors-card__icon">{% partial 'doors/icon' name='gem' size=26 %}</span>Integrare arhitecturală</li>
+                </ul>
+                <a class="inline-link doors-card__link" href="{{ 'usi-rezistente-la-foc'|page }}">Află mai multe {% partial 'ui/arrow' %}</a>
+            </li>
+        </ul>
+    </div>
+</section>

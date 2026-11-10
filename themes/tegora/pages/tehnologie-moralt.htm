@@ -6,40 +6,9 @@ page_css = "tehnologie"
 page_js = "tehnologie"
 nav_section = "tehnologie"
 meta_description = "Cum este construită ușa FERRO: cadru laminat, stabilizator din oțel, placă Laminated Core și Sandwich System pentru stabilitate, izolare și durabilitate."
-
-[section page]
-handle = "Page\TechConstruction"
 ==
 {% partial 'tehnologie/chapter-bar' chapter=1 %}
-
-<section class="tech-hero" aria-labelledby="page-title">
-    <div class="tech-hero__main">
-        <p class="eyebrow">{{ page.hero_eyebrow }}</p>
-        <h1 id="page-title" class="h1">{{ page.hero_title }}<br><span class="tech-accent">{{ page.hero_title_accent }}</span></h1>
-        <div class="tech-hero__lead">{{ page.hero_text|raw }}</div>
-        <div class="tech-hero__stat">
-            <p class="tech-hero__stat-fig"><span class="tech-kicker">{{ page.hero_stat_label }}</span><span class="tech-hero__stat-num">{{ page.hero_stat_value }}</span></p>
-            <div class="tech-hero__stat-text">{{ page.hero_stat_text|raw }}</div>
-        </div>
-    </div>
-    <figure class="tech-hero__fig">
-        <img src="{{ page.hero_image|media }}" alt="{{ page.hero_image_alt }}" width="2000" height="1116" fetchpriority="high">
-    </figure>
-</section>
-
-<section id="explorare" class="section section--alt" aria-labelledby="exp-title">
-    <div class="wrap tech-exp">
-        <div class="tech-exp__head">
-            <div class="tech-exp__head-main">
-                <p class="eyebrow">{{ page.exp_eyebrow }}</p>
-                <h2 id="exp-title" class="h2">{{ page.exp_title }} <span class="tech-accent">{{ page.exp_title_accent }}</span></h2>
-            </div>
-            <p class="body tech-exp__intro">{{ page.exp_intro }}</p>
-        </div>
-        {% partial 'tehnologie/explorer' %}
-    </div>
-</section>
-
+{% partial 'tehnologie-moralt/hero' %}
+{% partial 'tehnologie-moralt/explorer' %}
 {% partial 'tehnologie/chapter-nav' chapter=1 %}
-
-{% partial 'site/cta-band' title=page.cta_title text=page.cta_text %}
+{% partial 'tehnologie-moralt/cta' %}

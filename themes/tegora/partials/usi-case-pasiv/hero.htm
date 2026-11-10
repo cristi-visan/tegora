@@ -1,0 +1,51 @@
+{# Pagina „Uși pentru case pasive”: secțiunea „Prezentare produs” #}
+<section class="prod-hero" aria-labelledby="prod-title">
+    <div class="prod-hero__main">
+        <p class="eyebrow">UȘI PENTRU CASE PASIVE</p>
+        <h1 id="prod-title" class="prod-title">FERRO Passiv</h1>
+        <p class="prod-tagline">Căldura rămâne înăuntru. Energia, la minimum.</p>
+        <p class="prod-lead">Ușă exterioară din lemn de 98 mm, certificată de Passivhaus Institut, cu izolare termică foarte bună, etanșeitate ridicată și stabilitate structurală.</p>
+
+        <ul class="prod-stats" aria-label="Performanțe cheie">
+            <li class="prod-stat">
+                <span class="prod-stat__icon" aria-hidden="true">{% partial 'product/icon' name='thermo-scale' size=36 sw=1.3 %}</span>
+                <strong class="prod-stat__value">0,54<span class="prod-stat__unit">W/m²K</span></strong>
+                <span class="prod-stat__label">coeficient U<br>al foii de ușă</span>
+            </li>
+            <li class="prod-stat">
+                <span class="prod-stat__icon" aria-hidden="true">{% partial 'product/icon' name='passivhaus' size=36 sw=1.3 %}</span>
+                <strong class="prod-stat__value">Passivhaus</strong>
+                <span class="prod-stat__label">componentă certificată<br>de Passivhaus Institut</span>
+            </li>
+            <li class="prod-stat">
+                <span class="prod-stat__icon" aria-hidden="true">{% partial 'product/icon' name='shield-check' size=36 sw=1.3 %}</span>
+                <strong class="prod-stat__value">RC2 / RC3</strong>
+                <span class="prod-stat__label">securitate<br>în configurații testate</span>
+            </li>
+            <li class="prod-stat">
+                <span class="prod-stat__icon" aria-hidden="true">{% partial 'product/icon' name='thickness' size=36 sw=1.3 %}</span>
+                <strong class="prod-stat__value">98<span class="prod-stat__unit">mm</span></strong>
+                <span class="prod-stat__label">grosimea<br>foii de ușă</span>
+            </li>
+        </ul>
+
+        <div class="prod-actions">
+            <a class="btn btn--dark prod-btn" href="{{ 'contact'|page }}">Solicită ofertă {% partial 'ui/arrow' %}</a>
+            <a class="btn btn--light prod-btn prod-btn--light" href="#specificatii">Vezi datele tehnice
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
+            </a>
+        </div>
+    </div>
+
+    <figure class="prod-fig">
+        <img class="prod-fig__photo" src="{{ '/site/casa-placata-lemn.jpg'|media }}" alt="Casă placată cu lemn, cu ușă din lemn natural și două panouri laterale — imagine de prezentare; fețele ușii se personalizează" width="1200" height="800">
+        <div class="prod-fig__card">
+            <div class="prod-fig__card-head">
+                <p class="prod-fig__card-label">SECȚIUNE REALĂ<span>FERRO Passiv</span></p>
+                <span class="prod-fig__badge">98 mm</span>
+            </div>
+            <img class="prod-fig__section" src="{{ '/site/ferro-passiv-sectiune-reala.webp'|media }}" alt="Secțiune reală FERRO Passiv: fața din furnir de nuc, cadrul din stejar, miezul laminat, spuma rigidă PU și stabilizatorul din oțel" width="900" height="785">
+        </div>
+        <figcaption class="prod-fig__caption">Imagine de prezentare — fețele ușii se personalizează după proiect.</figcaption>
+    </figure>
+</section>

@@ -5,46 +5,6 @@
     file: seeds/data/site/settings.json
     attributes: { file_format: json, blueprint_uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e01 }
 -
-    name: Pagina Contact
-    class: Tailor\Models\RecordImport
-    file: seeds/data/pages/contact.json
-    attributes: { file_format: json, blueprint_uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e10 }
--
-    name: Pagina principală
-    class: Tailor\Models\RecordImport
-    file: seeds/data/pages/home.json
-    attributes: { file_format: json, blueprint_uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e11 }
--
-    name: Pagina Uși exterior
-    class: Tailor\Models\RecordImport
-    file: seeds/data/pages/doors.json
-    attributes: { file_format: json, blueprint_uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e12 }
--
-    name: Pagina Inspirație
-    class: Tailor\Models\RecordImport
-    file: seeds/data/pages/inspiration.json
-    attributes: { file_format: json, blueprint_uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e13 }
--
-    name: Pagina Tehnologie, construcție
-    class: Tailor\Models\RecordImport
-    file: seeds/data/pages/tech-construction.json
-    attributes: { file_format: json, blueprint_uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e14 }
--
-    name: Pagina Tehnologie, securitate
-    class: Tailor\Models\RecordImport
-    file: seeds/data/pages/tech-security.json
-    attributes: { file_format: json, blueprint_uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e15 }
--
-    name: Pagina Configurator
-    class: Tailor\Models\RecordImport
-    file: seeds/data/pages/configurator.json
-    attributes: { file_format: json, blueprint_uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e16 }
--
-    name: Pagina Proiecte
-    class: Tailor\Models\RecordImport
-    file: seeds/data/pages/projects.json
-    attributes: { file_format: json, blueprint_uuid: 7d3f1c52-6a10-4f7e-9c11-0a1b2c3d4e17 }
--
     name: Galerie inspirație
     class: Tailor\Models\RecordImport
     file: seeds/data/content/inspiration-images.json

@@ -1,0 +1,136 @@
+{# Pagina Tehnologie Moralt: secțiunea „Construcția FERRO” (explorarea construcției) #}
+<section id="explorare" class="section section--alt" aria-labelledby="exp-title">
+    <div class="wrap tech-exp">
+        <div class="tech-exp__head">
+            <div class="tech-exp__head-main">
+                <p class="eyebrow">CONSTRUCȚIA FERRO</p>
+                <h2 id="exp-title" class="h2">O ușă performantă din lemn nu înseamnă mai mult lemn. <span class="tech-accent">Înseamnă ingineria lemnului.</span></h2>
+            </div>
+            <p class="body tech-exp__intro">Alege un aspect al construcției: secțiunea evidențiază straturile implicate, iar detaliile apar imediat dedesubt.</p>
+        </div>
+        <div id="modul" class="tech-module" data-tech-explorer>
+            <div class="tech-tabs" role="tablist" aria-label="Explorează construcția">
+                <button class="tech-tab" type="button" role="tab" id="tab-structure" aria-selected="true" aria-controls="panel-structure" tabindex="0" data-mode="structure" data-name="Structură" data-highlight="Evidențiat: cadrul perimetral și stabilizatorul din oțel">
+                    <span class="tech-tab__num">01</span>
+                    <span class="tech-tab__text"><span class="tech-tab__name">Structură</span><span class="tech-tab__sub">Cadru și stabilizator</span></span>
+                </button>
+                <button class="tech-tab" type="button" role="tab" id="tab-stability" aria-selected="false" aria-controls="panel-stability" tabindex="-1" data-mode="stability" data-name="Stabilitate" data-highlight="Evidențiat: plăcile Laminated Core de sub facing">
+                    <span class="tech-tab__num">02</span>
+                    <span class="tech-tab__text"><span class="tech-tab__name">Stabilitate</span><span class="tech-tab__sub">Placa Laminated Core</span></span>
+                </button>
+                <button class="tech-tab" type="button" role="tab" id="tab-performance" aria-selected="false" aria-controls="panel-performance" tabindex="-1" data-mode="performance" data-name="Performanță" data-highlight="Evidențiat: miezul funcțional al Sandwich System">
+                    <span class="tech-tab__num">03</span>
+                    <span class="tech-tab__text"><span class="tech-tab__name">Performanță</span><span class="tech-tab__sub">Termic și acustic</span></span>
+                </button>
+                <button class="tech-tab" type="button" role="tab" id="tab-surface" aria-selected="false" aria-controls="panel-surface" tabindex="-1" data-mode="surface" data-name="Suprafață" data-highlight="Evidențiat: facing-ul, pe ambele fețe ale foii">
+                    <span class="tech-tab__num">04</span>
+                    <span class="tech-tab__text"><span class="tech-tab__name">Suprafață</span><span class="tech-tab__sub">Finisaje</span></span>
+                </button>
+            </div>
+
+            <div class="tech-stage">
+                <div class="tech-stage__view">
+                    <div class="tech-overview">
+                        <p class="tech-overview__tag">ZONA <br>BROAȘTEI<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></p>
+                        <div class="tech-overview__main">
+                            <p class="tech-cap">VEDERE COMPLETĂ A FOII DE UȘĂ</p>
+                            <div class="tech-overview__img">
+                                <img src="{{ 'assets/images/ferro-sectiune-completa.webp'|theme }}" alt="Secțiune completă prin foaia de ușă FERRO" width="1175" height="170">
+                                <span class="tech-overview__box" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-diagram">
+                        <img src="{{ 'assets/images/ferro-sectiune-broasca.webp'|theme }}" alt="Secțiune transversală mărită FERRO pe partea broaștei: 1 cadru structural, 2 Sandwich System, 3 stabilizator din oțel, 4 facing" width="1400" height="582">
+                        <div class="tech-zones" aria-hidden="true">
+                            <span class="tech-zone is-on" data-mode="structure" data-part="1"></span>
+                            <span class="tech-zone" data-mode="performance" data-part="2"></span>
+                            <span class="tech-zone" data-mode="performance" data-part="2"></span>
+                            <span class="tech-zone is-on" data-mode="structure" data-part="3"></span>
+                            <span class="tech-zone is-on" data-mode="structure" data-part="3"></span>
+                            <span class="tech-zone is-on" data-mode="structure" data-part="3"></span>
+                            <span class="tech-zone" data-mode="stability" data-part="2"></span>
+                            <span class="tech-zone" data-mode="stability" data-part="2"></span>
+                            <span class="tech-zone" data-mode="stability" data-part="2"></span>
+                            <span class="tech-zone" data-mode="stability" data-part="2"></span>
+                            <span class="tech-zone" data-mode="surface" data-part="4"></span>
+                            <span class="tech-zone" data-mode="surface" data-part="4"></span>
+                        </div>
+                    </div>
+
+                    <div class="tech-stage__foot">
+                        <p class="tech-legend" aria-live="polite"><span class="tech-legend__swatch" aria-hidden="true"></span><span data-legend>Evidențiat: cadrul perimetral și stabilizatorul din oțel</span></p>
+                        <button class="tech-pager tech-pager--detail" type="button" data-to-detail><span>Detalii: <span data-detail-name>structură</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg></button>
+                    </div>
+                </div>
+
+                <div class="tech-parts">
+                    <p class="tech-cap tech-cap--wide">ELEMENTELE CONSTRUCȚIEI</p>
+                    <h3 class="tech-parts__title">Fiecare strat are un rol.</h3>
+                    <ul class="plain tech-parts__list">
+                        <li>
+                            <button class="tech-part" type="button" aria-expanded="false" aria-controls="part-1" data-part="1">
+                                <span class="tech-part__num">1</span>
+                                <span class="tech-part__name">Cadru structural</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                            </button>
+                            <p class="tech-part__desc" id="part-1" data-hl="Evidențiat: cadru structural" hidden>Lemn laminat și îmbinat finger-jointed.</p>
+                        </li>
+                        <li>
+                            <button class="tech-part" type="button" aria-expanded="false" aria-controls="part-2" data-part="2">
+                                <span class="tech-part__num">2</span>
+                                <span class="tech-part__name">Sandwich System</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                            </button>
+                            <p class="tech-part__desc" id="part-2" data-hl="Evidențiat: sandwich system" hidden>Laminated Core + miez funcțional adaptat performanței.</p>
+                        </li>
+                        <li>
+                            <button class="tech-part" type="button" aria-expanded="false" aria-controls="part-3" data-part="3">
+                                <span class="tech-part__num">3</span>
+                                <span class="tech-part__name">Stabilizator din oțel</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                            </button>
+                            <p class="tech-part__desc" id="part-3" data-hl="Evidențiat: stabilizator din oțel" hidden>Armare structurală integrată în zona broaștei.</p>
+                        </li>
+                        <li>
+                            <button class="tech-part" type="button" aria-expanded="false" aria-controls="part-4" data-part="4">
+                                <span class="tech-part__num">4</span>
+                                <span class="tech-part__name">Facing</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+                            </button>
+                            <p class="tech-part__desc" id="part-4" data-hl="Evidențiat: facing" hidden>Placa de față care închide construcția.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="detaliu" class="tech-detail" aria-live="polite">
+                <div id="panel-structure" class="tech-panel" role="tabpanel" aria-labelledby="tab-structure" tabindex="0">
+                    {% partial 'tehnologie-moralt/panel-structure' %}
+                </div>
+                <div id="panel-stability" class="tech-panel" role="tabpanel" aria-labelledby="tab-stability" tabindex="0" hidden>
+                    {% partial 'tehnologie-moralt/panel-stability' %}
+                </div>
+                <div id="panel-performance" class="tech-panel" role="tabpanel" aria-labelledby="tab-performance" tabindex="0" hidden>
+                    {% partial 'tehnologie-moralt/panel-performance' %}
+                </div>
+                <div id="panel-surface" class="tech-panel" role="tabpanel" aria-labelledby="tab-surface" tabindex="0" hidden>
+                    {% partial 'tehnologie-moralt/panel-surface' %}
+                </div>
+
+                <div class="tech-detail__pager">
+                    <button class="tech-pager tech-pager--prev" type="button" data-prev hidden>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg><span data-prev-name></span>
+                    </button>
+                    <span class="tech-detail__pager-gap"></span>
+                    <button class="tech-pager tech-pager--next" type="button" data-next data-label="Continuă:">
+                        <span>Continuă: <span data-next-name>Stabilitate</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <noscript><style>.tech-panel[hidden]{display:flex!important}.tech-part__desc[hidden]{display:block!important}.tech-tabs,.tech-pager{display:none}</style></noscript>
+    </div>
+</section>

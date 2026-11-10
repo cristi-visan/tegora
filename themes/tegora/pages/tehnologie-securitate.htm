@@ -5,95 +5,12 @@ layout = "default"
 page_css = "tehnologie"
 nav_section = "tehnologie"
 meta_description = "Securitatea ușilor FERRO ca sistem: foaie rigidă, închidere multipunct GU SECURY, balamale SIMONSWERK și clase de rezistență RC2 / RC3."
-
-[section page]
-handle = "Page\TechSecurity"
 ==
 {% partial 'tehnologie/chapter-bar' chapter=2 %}
-
-<section class="tech-hero" aria-labelledby="page-title">
-    <div class="tech-hero__main">
-        <p class="eyebrow">{{ page.hero_eyebrow }}</p>
-        <h1 id="page-title" class="h1">{{ page.hero_title }}<br><span class="tech-accent">{{ page.hero_title_accent }}</span></h1>
-        <p class="tech-hero__lead">{{ page.hero_text }}</p>
-        <ul class="tech-badges">
-            <li>
-                <svg width="32" height="32" viewBox="0 0 36 36" fill="none" stroke="#684D38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 3 31 8v10c0 8-6 12-13 15C11 30 5 26 5 18V8z"></path><path d="m12 18 4 4 8-9"></path></svg>
-                <span><strong>{{ 'Protecție'|_ }}</strong>RC2 / RC3*</span>
-            </li>
-            <li>
-                <svg width="32" height="32" viewBox="0 0 36 36" fill="none" stroke="#684D38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 23 9 27a6 6 0 0 1-8-8l8-8a6 6 0 0 1 8 0M23 13l4-4a6 6 0 0 1 8 8l-8 8a6 6 0 0 1-8 0M12 24l12-12"></path></svg>
-                <span><strong>{{ 'Componente premium'|_ }}</strong>GU, SIMONSWERK</span>
-            </li>
-            <li>
-                <svg width="32" height="32" viewBox="0 0 36 36" fill="none" stroke="#684D38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 3 16 8-16 8L2 11zM2 18l16 8 16-8M2 25l16 8 16-8"></path></svg>
-                <span><strong>{{ 'Construcție solidă'|_ }}</strong>{{ 'cu stabilizator de oțel'|_ }}</span>
-            </li>
-        </ul>
-    </div>
-    <figure class="tech-hero__fig tech-hero__fig--security">
-        <img src="{{ page.hero_image|media }}" alt="{{ page.hero_image_alt }}" width="2000" height="1000" fetchpriority="high">
-        <figcaption class="tech-hero__card">
-            <img src="{{ 'assets/images/broasca-gu.webp'|theme }}" alt="{{ 'Detaliu: broasca GU cu cilindru și mâner din inox, pe canatul unei uși din lemn'|_ }}" width="479" height="288">
-            <span class="tech-hero__card-label">{{ 'ÎNCHIDERE MULTIPUNCT'|_ }}<span>GU SECURY</span></span>
-        </figcaption>
-    </figure>
-</section>
-
-<section class="section section--rule tech-risks" aria-labelledby="risk-title">
-    <div class="wrap tech-risks__inner">
-        <div class="tech-risks__text">
-            <p class="eyebrow">{{ page.risk_eyebrow }}</p>
-            <h2 id="risk-title" class="h2">{{ page.risk_title }}</h2>
-            <p class="tech-p">{{ page.risk_text_1 }}</p>
-            <p class="tech-p">{{ page.risk_text_2 }}</p>
-        </div>
-        {% partial 'tehnologie/risk-zones' %}
-    </div>
-</section>
-
-<section class="section section--dark" aria-labelledby="sol-title">
-    <div class="wrap tech-sol">
-        <div class="tech-sol__text">
-            <p class="eyebrow">{{ page.sol_eyebrow }}</p>
-            <h2 id="sol-title" class="h2">{{ page.sol_title }}</h2>
-            <p class="tech-sol__lead">{{ page.sol_text }}</p>
-        </div>
-        <div class="tech-sol__badge">
-            {% partial 'tehnologie/shield' %}
-            <p class="tech-sol__class">RC2 / RC3<span>*</span></p>
-            <p class="tech-sol__note">{{ 'Clase de rezistență conform EN 1627, pentru configurațiile certificate.'|_ }}</p>
-        </div>
-    </div>
-</section>
-
-<section aria-labelledby="comp-title">
-    <div class="wrap tech-comp">
-        <div class="tech-comp__head">
-            <div class="tech-comp__head-main">
-                <p class="eyebrow">{{ page.comp_eyebrow }}</p>
-                <h2 id="comp-title" class="h2">{{ page.comp_title }}</h2>
-            </div>
-        </div>
-        {% partial 'tehnologie/components' %}
-    </div>
-</section>
-
-<section class="section section--alt" aria-labelledby="rc-title">
-    <div class="wrap tech-rc">
-        <div class="tech-rc__row">
-            <div class="tech-rc__intro">
-                {% partial 'tehnologie/shield' %}
-                <p class="eyebrow">{{ page.rc_eyebrow }}</p>
-                <h2 id="rc-title" class="tech-rc__title">{{ page.rc_title }}</h2>
-                <p class="tech-p">{{ page.rc_text }} <strong>{{ page.rc_question }}</strong></p>
-            </div>
-            {% partial 'tehnologie/rc-cards' %}
-        </div>
-        <p class="tech-fine tech-fine--wide">{{ page.rc_note }}</p>
-    </div>
-</section>
-
+{% partial 'tehnologie-securitate/hero' %}
+{% partial 'tehnologie-securitate/risks' %}
+{% partial 'tehnologie-securitate/solutions' %}
+{% partial 'tehnologie-securitate/components' %}
+{% partial 'tehnologie-securitate/rc' %}
 {% partial 'tehnologie/chapter-nav' chapter=2 %}
-
-{% partial 'site/cta-band' title=page.cta_title text=page.cta_text %}
+{% partial 'tehnologie-securitate/cta' %}

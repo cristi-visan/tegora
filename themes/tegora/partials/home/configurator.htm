@@ -1,0 +1,33 @@
+{# Pagina principală: secțiunea „Găsește ușa potrivită” (configurator) #}
+<section id="cum-alegi" class="home-cfg" aria-labelledby="cfg-title">
+    <div class="wrap home-cfg__inner">
+        <figure class="home-cfg__fig">
+            <img src="{{ 'site/intrare-moderna-apus.jpg'|media }}" alt="Intrare modernă la apus: ușă din lemn cu panou lateral din sticlă, sub o copertină iluminată" width="1280" height="1360" loading="lazy">
+        </figure>
+
+        <div class="home-cfg__body">
+            <p class="eyebrow">GĂSEȘTE UȘA POTRIVITĂ</p>
+            <h2 id="cfg-title" class="home-h2 home-h2--cfg">Spune-ne ce este important pentru proiectul tău.</h2>
+            <p class="home-cfg__text">Configuratorul Tegora te ghidează în șase pași, de la performanța dorită până la finisaj. Îți recomandăm soluțiile Moralt potrivite și te contactăm cu o ofertă personalizată.</p>
+
+            <ol class="plain home-steps" aria-label="Pașii configuratorului">
+                <li><span class="home-steps__num">1</span><span class="home-steps__label">Performanță</span></li>
+                <li><span class="home-steps__num">2</span><span class="home-steps__label">Dimensiuni</span></li>
+                <li><span class="home-steps__num">3</span><span class="home-steps__label">Grosime</span></li>
+                <li><span class="home-steps__num">4</span><span class="home-steps__label">Material cadru</span></li>
+                <li><span class="home-steps__num">5</span><span class="home-steps__label">Configurație</span></li>
+                <li><span class="home-steps__num">6</span><span class="home-steps__label">Finisaj</span></li>
+            </ol>
+
+            <div class="home-cfg__cta">
+                <a class="btn btn--dark btn--lg" href="{{ 'configurator'|page }}">Începe configurarea {% partial 'ui/arrow' %}</a>
+            </div>
+
+            <ul class="plain home-cfg__benefits">
+                <li><span class="home-cfg__benefit-icon">{% partial 'home/icon' name='diamond' size=20 sw=1.5 %}</span>Soluții adaptate proiectului tău</li>
+                <li><span class="home-cfg__benefit-icon">{% partial 'home/icon' name='person' size=20 sw=1.5 %}</span>Consultanță gratuită</li>
+                <li><span class="home-cfg__benefit-icon">{% partial 'home/icon' name='pin' size=20 sw=1.5 %}</span>Modele reale în showroom</li>
+            </ul>
+        </div>
+    </div>
+</section>

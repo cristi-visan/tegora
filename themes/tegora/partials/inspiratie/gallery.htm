@@ -1,0 +1,38 @@
+{# Pagina Inspirație: secțiunea „Galerie” (filtre și imaginile din back office) #}
+{% set gallery = images.orderBy('display_order').orderBy('id').get() %}
+{# Eticheta afișată pe imagine pentru fiecare valoare „Stil” a unei imagini. #}
+{% set style_labels = {
+    'modern': 'Modern',
+    'minimalist': 'Minimalist',
+    'natural': 'Natural',
+    'contrast': 'Contrast'
+} %}
+<section class="section" aria-label="Galerie" data-gallery-filter>
+    <div class="wrap insp-gallery">
+        <div class="insp-toolbar">
+            <div class="insp-chips" role="group" aria-label="Filtrează după stil" data-filter-chips hidden>
+                <button class="chip" type="button" aria-pressed="true" data-filter="toate">Toate</button>
+                <button class="chip" type="button" aria-pressed="false" data-filter="modern">Modern</button>
+                <button class="chip" type="button" aria-pressed="false" data-filter="minimalist">Minimalist</button>
+                <button class="chip" type="button" aria-pressed="false" data-filter="natural">Natural</button>
+                <button class="chip" type="button" aria-pressed="false" data-filter="contrast">Contrast</button>
+            </div>
+            <p class="insp-count" data-filter-count data-one="idee" data-many="idei">{{ gallery|length }} {{ gallery|length == 1 ? 'idee' : 'idei' }}</p>
+        </div>
+        <ul class="plain insp-grid">
+            {% for g in gallery %}
+            <li class="tile insp-tile{{ g.is_tall ? ' insp-tile--tall' : '' }}" data-category="{{ g.style }}">
+                {% if g.image %}
+                <img class="insp-tile__img" src="{{ g.image|media }}" alt="{{ g.title }}" width="600" height="{{ g.is_tall ? 496 : 240 }}" loading="lazy">
+                {% endif %}
+                <div class="insp-tile__caption">
+                    <span class="insp-tile__style">{{ (style_labels[g.style] ?? g.style)|upper }}</span>
+                    <span class="insp-tile__title">{{ g.title }}</span>
+                    <span class="insp-tile__desc">{{ g.description }}</span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <p class="body" data-filter-empty hidden>Momentan nu avem imagini în acest stil.</p>
+    </div>
+</section>

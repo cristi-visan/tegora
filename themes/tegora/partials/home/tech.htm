@@ -1,0 +1,72 @@
+{# Pagina principală: secțiunea „Tehnologie Moralt” #}
+<section id="tehnologie" class="section--dark home-tech" aria-labelledby="tech-title">
+    <div class="wrap home-tech__inner">
+        <div class="home-tech__top">
+            <div class="home-tech__text">
+                <p class="eyebrow">TEHNOLOGIE MORALT</p>
+                <h2 id="tech-title" class="home-tech__title">Performanța pe care nu o vezi.</h2>
+                <p class="home-tech__lead">O construcție inteligentă, cu materiale premium, care asigură stabilitate, izolare și durabilitate în timp.</p>
+                <a class="btn btn--light home-tech__btn" href="{{ 'tehnologie-moralt'|page }}">Descoperă tehnologia {% partial 'ui/arrow' %}</a>
+            </div>
+            <div class="home-tech__benefits">
+                <ul class="plain home-benefits" aria-label="Avantaje Moralt">
+                    <li>
+                        <span class="home-benefits__icon" aria-hidden="true">{% partial 'home/icon' name='stability' size=28 sw=1.3 %}</span>
+                        <span class="home-benefits__text">Stabilitate dimensională</span>
+                    </li>
+                    <li>
+                        <span class="home-benefits__icon" aria-hidden="true">{% partial 'home/icon' name='time' size=28 sw=1.3 %}</span>
+                        <span class="home-benefits__text">Rezistență în timp</span>
+                    </li>
+                    <li>
+                        <span class="home-benefits__icon" aria-hidden="true">{% partial 'home/icon' name='certificate' size=28 sw=1.3 %}</span>
+                        <span class="home-benefits__text">Certificări europene</span>
+                    </li>
+                    <li>
+                        <span class="home-benefits__icon" aria-hidden="true">{% partial 'home/icon' name='factory' size=28 sw=1.3 %}</span>
+                        <span class="home-benefits__text">Producție în Germania</span>
+                    </li>
+                    <li>
+                        <span class="home-benefits__icon" aria-hidden="true">{% partial 'home/icon' name='security' size=28 sw=1.3 %}</span>
+                        <span class="home-benefits__text">Garanție 10 ani împotriva deformării*</span>
+                    </li>
+                </ul>
+                <p class="home-tech__footnote">*Conform condițiilor de garanție Moralt.</p>
+            </div>
+        </div>
+
+        <figure class="home-section-fig">
+            <div class="home-section-fig__head">
+                <figcaption class="home-section-fig__caption">SECȚIUNE FERRO KLASSIKPLUS · 68 MM</figcaption>
+                <img class="home-section-fig__logo" src="{{ 'assets/images/moralt-logo.png'|theme }}" alt="Moralt — the core of the door" width="180" height="50" loading="lazy">
+            </div>
+            <img class="home-section-fig__img" src="{{ 'assets/images/ferro-klassikplus-sectiune-lata.webp'|theme }}" alt="Secțiune transversală printr-o ușă Moralt FERRO KlassikPlus de 68 mm, cu straturile de lemn, oțel și izolație vizibile" width="1840" height="599" loading="lazy">
+            <ol class="plain home-layers" aria-label="Straturile ușii">
+                <li>
+                    <span class="home-layers__num">01</span>
+                    <span class="home-layers__title">Finisaj premium<span class="home-layers__detail">furnir / vopsea / MDF</span></span>
+                </li>
+                <li>
+                    <span class="home-layers__num">02</span>
+                    <span class="home-layers__title">Strat exterior multistrat</span>
+                </li>
+                <li>
+                    <span class="home-layers__num">03</span>
+                    <span class="home-layers__title">Miez stabilizator din oțel</span>
+                </li>
+                <li>
+                    <span class="home-layers__num">04</span>
+                    <span class="home-layers__title">Structură din lemn lamelat</span>
+                </li>
+                <li>
+                    <span class="home-layers__num">05</span>
+                    <span class="home-layers__title">Izolație rigidă PU</span>
+                </li>
+                <li>
+                    <span class="home-layers__num">06</span>
+                    <span class="home-layers__title">Sistem de etanșare</span>
+                </li>
+            </ol>
+        </figure>
+    </div>
+</section>

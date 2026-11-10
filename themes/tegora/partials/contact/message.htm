@@ -1,0 +1,30 @@
+{# Pagina Contact: secțiunea „Trimite-ne un mesaj” (pașii și formularul) #}
+<section class="section section--alt" aria-labelledby="form-title">
+    <div class="wrap contact-form-section">
+        <div class="contact-aside">
+            <p class="eyebrow">SCRIE-NE</p>
+            <h2 id="form-title" class="h2">Trimite-ne un mesaj</h2>
+            <p class="body">Spune-ne câteva detalii despre proiect și te contactăm noi.</p>
+            <ol class="plain contact-steps" aria-label="Ce urmează">
+                <li>
+                    <span class="contact-steps__num">1</span>
+                    <span class="contact-steps__text"><strong>Analizăm cererea</strong><br><span>Verificăm cerințele și dimensiunile proiectului.</span></span>
+                </li>
+                <li>
+                    <span class="contact-steps__num">2</span>
+                    <span class="contact-steps__text"><strong>Te contactăm</strong><br><span>Un consultant discută cu tine opțiunile potrivite.</span></span>
+                </li>
+                <li>
+                    <span class="contact-steps__num">3</span>
+                    <span class="contact-steps__text"><strong>Primești oferta</strong><br><span>Personalizată pentru sistemul și configurația alese.</span></span>
+                </li>
+            </ol>
+            <p class="contact-config">Ai deja o idee clară? <a class="inline-link" href="{{ 'configurator'|page }}">Folosește configuratorul {% partial 'ui/arrow' %}</a></p>
+        </div>
+        <div class="contact-form-box">
+            {% ajaxPartial 'contact/form' %}
+        </div>
+    </div>
+</section>
+
+{% put scripts %}{% framework extras %}{% endput %}

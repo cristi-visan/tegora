@@ -6,97 +6,11 @@ page_js = "gallery-filter"
 nav_section = "proiecte"
 meta_description = "Uși Moralt în proiecte reale: locuințe, ansambluri rezidențiale și spații comerciale în care ușile fac legătura dintre arhitectură, confort și siguranță."
 
-[section page]
-handle = "Page\Projects"
-
 [collection projects]
 handle = "Content\Project"
 ==
-{% set all_projects = projects.orderBy('display_order').orderBy('id').get() %}
-{% set featured = all_projects|filter(p => p.is_featured)|first %}
-{# Filter chips: the key is the Categorie value of a project, the first text is the chip, the second is the label on the card. #}
-{% set categories = {
-    'casa': {'chip': 'Locuințe individuale'|_, 'label': 'Locuință individuală'|_},
-    'colectiv': {'chip': 'Rezidențial colectiv'|_, 'label': 'Rezidențial colectiv'|_},
-    'comercial': {'chip': 'Comercial'|_, 'label': 'Comercial'|_}
-} %}
-
-<section class="section" aria-labelledby="page-title">
-    <div class="wrap page-hero page-hero--split proj-hero">
-        <div class="page-hero__main">
-            <p class="eyebrow">{{ page.hero_eyebrow }}</p>
-            <h1 id="page-title" class="h1">{{ page.hero_title }}</h1>
-        </div>
-        <p class="lead page-hero__side">{{ page.hero_text }}</p>
-    </div>
-</section>
-
-{% if featured %}
-<section class="section" aria-labelledby="feat-title">
-    <div class="wrap proj-featured">
-        <figure class="proj-featured__media">
-            {% if featured.image %}
-            <img class="proj-featured__img" src="{{ featured.image|media }}" alt="{{ featured.image_alt ?: featured.title }}" width="1200" height="800">
-            {% endif %}
-            <span class="proj-featured__badge">{{ page.featured_badge }}</span>
-        </figure>
-        <div class="proj-featured__body">
-            <p class="proj-featured__meta">{{ [featured.location, featured.year, featured.system]|filter(v => v)|join(' · ') }}</p>
-            <h2 id="feat-title" class="h2">{{ featured.title }}</h2>
-            <dl class="proj-featured__facts">
-                <div class="proj-fact"><dt class="proj-fact__label">{{ 'PROVOCARE'|_ }}</dt><dd class="proj-fact__text">{{ featured.challenge }}</dd></div>
-                <div class="proj-fact"><dt class="proj-fact__label">{{ 'SOLUȚIE'|_ }}</dt><dd class="proj-fact__text">{{ featured.solution }}</dd></div>
-                <div class="proj-fact"><dt class="proj-fact__label">{{ 'REZULTAT'|_ }}</dt><dd class="proj-fact__text">{{ featured.result }}</dd></div>
-            </dl>
-        </div>
-    </div>
-</section>
-{% endif %}
-
-<section class="section section--alt" aria-labelledby="grid-title" data-gallery-filter>
-    <div class="wrap proj-grid-section">
-        <div class="proj-grid-head">
-            <div class="proj-grid-head__text">
-                <p class="eyebrow">{{ page.grid_eyebrow }}</p>
-                <h2 id="grid-title" class="h2">{{ page.grid_title }}</h2>
-            </div>
-            <div class="proj-chips" role="group" aria-label="{{ 'Filtrează după tipul proiectului'|_ }}" data-filter-chips hidden>
-                <button class="chip" type="button" aria-pressed="true" data-filter="toate">{{ 'Toate'|_ }}</button>
-                {% for key, cat in categories %}
-                <button class="chip" type="button" aria-pressed="false" data-filter="{{ key }}">{{ cat.chip }}</button>
-                {% endfor %}
-            </div>
-        </div>
-        <ul class="plain proj-grid">
-            {% for p in all_projects|filter(p => not p.is_featured) %}
-            <li class="tile proj-card" data-category="{{ p.category }}">
-                <div class="proj-card__media">
-                    {% if p.image %}
-                    <img src="{{ p.image|media }}" alt="{{ p.image_alt ?: p.title }}" width="720" height="540" loading="lazy">
-                    {% endif %}
-                </div>
-                <div class="proj-card__body">
-                    <p class="proj-card__cat">{{ (categories[p.category].label ?? p.category)|upper }}</p>
-                    <h3 class="proj-card__title">{{ p.title }}</h3>
-                    <p class="proj-card__desc">{{ p.description }}</p>
-                    <p class="proj-card__meta">{{ [p.location, p.system]|filter(v => v)|join(' · ') }}</p>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-        <p class="body" data-filter-empty hidden>{{ page.empty_text }}</p>
-    </div>
-</section>
-
-<section class="section" aria-labelledby="arch-title">
-    <div class="wrap proj-arch">
-        <div class="proj-arch__text">
-            <p class="eyebrow">{{ page.arch_eyebrow }}</p>
-            <h2 id="arch-title" class="h2">{{ page.arch_title }}</h2>
-            <p class="lead">{{ page.arch_text }}</p>
-        </div>
-        <a class="inline-link proj-arch__link" href="{{ 'contact'|page }}">{{ page.arch_link_label }} {% partial 'ui/arrow' %}</a>
-    </div>
-</section>
-
-{% partial 'site/cta-band' title=page.cta_title text=page.cta_text %}
+{% partial 'proiecte/hero' %}
+{% partial 'proiecte/featured' %}
+{% partial 'proiecte/grid' %}
+{% partial 'proiecte/architects' %}
+{% partial 'proiecte/cta' %}

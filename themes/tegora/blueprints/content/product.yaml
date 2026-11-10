@@ -4,8 +4,11 @@ type: entry
 name: Produs
 drafts: false
 
+# Demo only: the product pages currently use static partials
+# (partials/usi-*/), so editing these entries does not change the site.
+# partials/product/page.htm is the template that would render them.
 navigation:
-    label: Produse (uși)
+    label: Produse (demo)
     icon: ph ph-door
     order: 700
 

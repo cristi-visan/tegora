@@ -1,0 +1,20 @@
+{# Pagina principală: secțiunea „Prima impresie începe cu ușa” (hero) #}
+<section class="home-hero" aria-labelledby="hero-title">
+    <img class="home-hero__img" src="{{ 'site/intrare-lemn-natural-apus.jpg'|media }}" alt="" aria-hidden="true" width="1672" height="941">
+    <div class="home-hero__shade" aria-hidden="true"></div>
+    <div class="wrap home-hero__inner">
+        <div class="home-hero__text">
+            <p class="eyebrow">UȘI TEGORA</p>
+            <h1 id="hero-title" class="home-hero__title">Prima impresie<br><span class="home-hero__accent">începe cu ușa.</span></h1>
+            <p class="home-hero__lead">Moralt – lemn natural care atrage privirea. Inginerie performantă care protejează casa. Stabilitate și etanșeitate în timp.</p>
+            <p class="home-hero__motto">TEHNOLOGIE MORALT<br>
+PERFECȚIONATĂ ÎN PESTE 100 DE ANI.</p>
+            <div class="btn-row home-hero__actions">
+                <a class="btn btn--dark home-btn" href="{{ 'usi-exterior'|page }}">Descoperă ușile Tegora {% partial 'ui/arrow' %}</a>
+                <a class="btn btn--light home-btn home-btn--soft" href="{{ 'configurator'|page }}">Configurează ușa <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"></path><circle cx="15" cy="7" r="2"></circle><circle cx="9" cy="17" r="2"></circle></svg></a>
+            </div>
+            <p class="home-hero__tagline">NATURAL LA EXTERIOR.<br>
+INGINERIE ÎN INTERIOR.</p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,51 @@
+{# Pagina „Uși rezistente la foc”: secțiunea „Prezentare produs” #}
+<section class="prod-hero" aria-labelledby="prod-title">
+    <div class="prod-hero__main">
+        <p class="eyebrow">UȘI REZISTENTE LA FOC</p>
+        <h1 id="prod-title" class="prod-title">FERRO FireSafe</h1>
+        <p class="prod-tagline">Protecție la foc pentru proiecte speciale.</p>
+        <p class="prod-lead">Ușă exterioară din lemn cu rezistență la foc EI30, în funcție de certificarea națională, combinată cu stabilizator plat din oțel și construcție laminată.</p>
+
+        <ul class="prod-stats" aria-label="Performanțe cheie">
+            <li class="prod-stat">
+                <span class="prod-stat__icon" aria-hidden="true">{% partial 'product/icon' name='flame' size=36 sw=1.3 %}</span>
+                <strong class="prod-stat__value">EI30</strong>
+                <span class="prod-stat__label">rezistență la foc, în funcție<br>de certificarea națională</span>
+            </li>
+            <li class="prod-stat">
+                <span class="prod-stat__icon" aria-hidden="true">{% partial 'product/icon' name='shield-check' size=36 sw=1.3 %}</span>
+                <strong class="prod-stat__value">RC2 / RC3</strong>
+                <span class="prod-stat__label">securitate<br>în configurații testate</span>
+            </li>
+            <li class="prod-stat">
+                <span class="prod-stat__icon" aria-hidden="true">{% partial 'product/icon' name='thickness' size=36 sw=1.3 %}</span>
+                <strong class="prod-stat__value">68–98<span class="prod-stat__unit">mm</span></strong>
+                <span class="prod-stat__label">grosimi disponibile<br>ale foii de ușă</span>
+            </li>
+            <li class="prod-stat">
+                <span class="prod-stat__icon" aria-hidden="true">{% partial 'product/icon' name='thermo-scale' size=36 sw=1.3 %}</span>
+                <strong class="prod-stat__value">0,69<span class="prod-stat__unit">W/m²K</span></strong>
+                <span class="prod-stat__label">coeficient U<br>FireSafe Passiv, 98 mm</span>
+            </li>
+        </ul>
+
+        <div class="prod-actions">
+            <a class="btn btn--dark prod-btn" href="{{ 'contact'|page }}">Solicită ofertă {% partial 'ui/arrow' %}</a>
+            <a class="btn btn--light prod-btn prod-btn--light" href="#specificatii">Vezi datele tehnice
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
+            </a>
+        </div>
+    </div>
+
+    <figure class="prod-fig">
+        <img class="prod-fig__photo" src="{{ '/site/usa-antracit-panou-sticla.jpg'|media }}" alt="Intrare modernă: ușă antracit cu mâner vertical și panou lateral din sticlă, între tencuială gri și cărămidă" width="1200" height="800">
+        <div class="prod-fig__card">
+            <div class="prod-fig__card-head">
+                <p class="prod-fig__card-label">SECȚIUNE REALĂ<span>FERRO FireSafe</span></p>
+                <span class="prod-fig__badge">68–98 mm</span>
+            </div>
+            <img class="prod-fig__section" src="{{ '/site/ferro-firesafe.webp'|media }}" alt="Secțiune prin ușa Moralt FERRO FireSafe" width="900" height="785">
+        </div>
+        <figcaption class="prod-fig__caption">Imagine de prezentare — fețele ușii se personalizează după proiect.</figcaption>
+    </figure>
+</section>

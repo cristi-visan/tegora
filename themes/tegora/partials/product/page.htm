@@ -1,3 +1,4 @@
+{# Currently unused: the product pages render static partials (partials/usi-*/). To switch a product page back, restore its [section product] component and {% partial 'product/page' entry=product %}. #}
 {# Shared body of the door product pages. Pass: entry (Content\Product). Every section is skipped when its fields are empty. #}
 {% set datasheet = entry.datasheet ? (entry.datasheet|media) : '' %}
 {% set contact_url = 'contact'|page %}

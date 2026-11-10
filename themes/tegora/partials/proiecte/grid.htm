@@ -1,0 +1,41 @@
+{# Pagina Proiecte: secțiunea „Toate proiectele” (filtre și lista de proiecte din back office) #}
+{# Eticheta afișată pe card pentru fiecare valoare „Categorie” a unui proiect. #}
+{% set category_labels = {
+    'casa': 'Locuință individuală',
+    'colectiv': 'Rezidențial colectiv',
+    'comercial': 'Comercial'
+} %}
+<section class="section section--alt" aria-labelledby="grid-title" data-gallery-filter>
+    <div class="wrap proj-grid-section">
+        <div class="proj-grid-head">
+            <div class="proj-grid-head__text">
+                <p class="eyebrow">PORTOFOLIU</p>
+                <h2 id="grid-title" class="h2">Toate proiectele</h2>
+            </div>
+            <div class="proj-chips" role="group" aria-label="Filtrează după tipul proiectului" data-filter-chips hidden>
+                <button class="chip" type="button" aria-pressed="true" data-filter="toate">Toate</button>
+                <button class="chip" type="button" aria-pressed="false" data-filter="casa">Locuințe individuale</button>
+                <button class="chip" type="button" aria-pressed="false" data-filter="colectiv">Rezidențial colectiv</button>
+                <button class="chip" type="button" aria-pressed="false" data-filter="comercial">Comercial</button>
+            </div>
+        </div>
+        <ul class="plain proj-grid">
+            {% for p in projects.orderBy('display_order').orderBy('id').get()|filter(p => not p.is_featured) %}
+            <li class="tile proj-card" data-category="{{ p.category }}">
+                <div class="proj-card__media">
+                    {% if p.image %}
+                    <img src="{{ p.image|media }}" alt="{{ p.image_alt ?: p.title }}" width="720" height="540" loading="lazy">
+                    {% endif %}
+                </div>
+                <div class="proj-card__body">
+                    <p class="proj-card__cat">{{ (category_labels[p.category] ?? p.category)|upper }}</p>
+                    <h3 class="proj-card__title">{{ p.title }}</h3>
+                    <p class="proj-card__desc">{{ p.description }}</p>
+                    <p class="proj-card__meta">{{ [p.location, p.system]|filter(v => v)|join(' · ') }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <p class="body" data-filter-empty hidden>Momentan nu avem proiecte publicate în această categorie.</p>
+    </div>
+</section>

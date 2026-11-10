@@ -5,11 +5,11 @@ layout = "default"
 page_css = "product"
 nav_section = "usi"
 meta_description = "FERRO Passiv: ușă exterioară din lemn de 98 mm, certificată de Passivhaus Institut, cu izolare termică foarte bună și etanșeitate ridicată."
-
-[section product]
-handle = "Content\Product"
-identifier = "slug"
-value = "usi-case-pasiv"
 ==
-{% if product is empty %}{% do abort(404) %}{% endif %}
-{% partial 'product/page' entry=product %}
+{% partial 'usi-case-pasiv/hero' %}
+{% partial 'usi-case-pasiv/intro' %}
+{% partial 'usi-case-pasiv/specs' %}
+{% partial 'usi-case-pasiv/benefits' %}
+{% partial 'usi-case-pasiv/construction' %}
+{% partial 'usi-case-pasiv/design' %}
+{% partial 'usi-case-pasiv/security' %}
