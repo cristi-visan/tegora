@@ -65,21 +65,10 @@ class Plugin extends PluginBase
                 return;
             }
 
-            $lines = [];
-            foreach ($record->getContentFieldsetDefinition()->getAllFields() as $name => $field) {
-                $value = $record->getAttribute($name);
-                if (is_array($value)) {
-                    $value = implode(', ', array_filter($value, 'is_scalar'));
-                }
-                if (is_scalar($value) && $value !== '') {
-                    $lines[] = ($field->label ?? $name) . ': ' . $value;
-                }
-            }
-
             $replyTo = filter_var($record->email, FILTER_VALIDATE_EMAIL) ?: null;
 
-            Mail::raw(implode("\n", $lines), function ($message) use ($recipient, $record, $replyTo) {
-                $message->to($recipient)->subject('Cerere nouă de pe site: ' . $record->title);
+            Mail::send('tegora.site::mail.lead', $this->leadMailData($record, $blueprint, $replyTo), function ($message) use ($recipient, $replyTo) {
+                $message->to($recipient);
                 if ($replyTo) {
                     $message->replyTo($replyTo);
                 }
@@ -88,5 +77,65 @@ class Plugin extends PluginBase
         catch (\Throwable $ex) {
             Log::error($ex);
         }
+    }
+
+    /**
+     * Turns the saved request into rows for views/mail/lead.htm: option labels
+     * instead of stored keys, and the free-text fields kept for their own blocks.
+     */
+    protected function leadMailData($record, $blueprint, ?string $replyTo): array
+    {
+        $fields = $record->getContentFieldsetDefinition()->getAllFields();
+        $label = function ($name) use ($record, $fields) {
+            $value = $record->getAttribute($name);
+            $options = $fields[$name]->options ?? null;
+            if (is_array($options) && is_scalar($value) && isset($options[$value])) {
+                return $options[$value];
+            }
+            if (is_array($value)) {
+                $value = implode(', ', array_filter($value, 'is_scalar'));
+            }
+            return is_scalar($value) ? trim((string) $value) : '';
+        };
+
+        // Shown elsewhere in the email, or always set (consent is required)
+        $separate = ['sursa', 'mesaj', 'detalii_configurator', 'gdpr'];
+
+        $rows = [];
+        foreach ($fields as $name => $field) {
+            if (in_array($name, $separate) || ($value = $label($name)) === '') {
+                continue;
+            }
+            $href = null;
+            if ($name === 'telefon') {
+                $href = 'tel:' . preg_replace('/[^\d+]/', '', $value);
+            }
+            elseif ($name === 'email' && $replyTo) {
+                $href = 'mailto:' . $replyTo;
+            }
+            $rows[] = ['label' => $field->label ?? $name, 'value' => $value, 'href' => $href];
+        }
+
+        // The configurator sends one "Step: choice" line per step
+        $details = [];
+        foreach (preg_split('/\R/', $label('detalii_configurator')) as $line) {
+            if (($line = trim($line)) !== '') {
+                [$step, $choice] = array_pad(explode(': ', $line, 2), 2, '');
+                $details[] = ['label' => $step, 'value' => $choice];
+            }
+        }
+
+        return [
+            'title' => $record->title,
+            'source' => $label('sursa') ?: 'de pe site',
+            'received' => ($record->created_at ?: now())->copy()
+                ->setTimezone(config('cms.timezone', 'Europe/Bucharest'))
+                ->format('d.m.Y, H:i'),
+            'rows' => $rows,
+            'details' => $details,
+            'message' => $label('mesaj'),
+            'replyTo' => $replyTo,
+            'backendUrl' => \Backend::url('tailor/entries/' . $blueprint->handleSlug . '/' . $record->getKey()),
+        ];
     }
 }
